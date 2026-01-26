@@ -1,0 +1,668 @@
+
+<!doctype html>
+<html
+  lang="en"
+  data-content_root="../"
+  class="scroll-smooth [--header-height:calc(var(--spacing)*18)] [--header-padding:calc(var(--spacing)*12)]"
+  id="top"
+  
+>
+  <head>
+    <title>How-tos &mdash; Clarity Theme for Sphinx</title>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="generator"
+  content="Sphinx 8.2.3, Clarity Theme for Sphinx 0.1.0 (https://readcraft.io/sphinx-clarity-theme/)"
+/>
+  <link rel="canonical" href="https://documatt.com/sphinx-themes/clarity/howtos/" />
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<script src="../_static/scripts/dark-mode.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/output.css?v=830f864c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=a5519fdd" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+
+  <link rel="icon" href="../_static/favicon.svg" />
+
+    
+<!-- Google Tag Manager -->
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "GTM-WXSCL3ZR");
+</script>
+<!-- End Google Tag Manager -->
+
+  </head>
+
+  <body >
+    
+  <!-- ============================================================== -->
+  <!-- Primary drawer before markup -->
+  <!-- ============================================================== -->
+  <div class="drawer">
+    <input id="primary-drawer" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content">
+      <!-- ========================================================== -->
+      <!-- Secondary drawer before markup -->
+      <!-- ========================================================== -->
+      <div class="drawer drawer-end">
+        <input id="secondary-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content">
+          <!-- ====================================================== -->
+          <!-- Page content -->
+          <!-- ====================================================== -->
+          <div class="bg-base-100 divide-base-200 divide-y">
+            
+
+
+<!-- Header -->
+<header id="main-header" class="bg-base-100 sticky top-0 z-50">
+  <div
+    class="container mx-auto flex h-[var(--header-height)] items-center px-4 md:px-0"
+  >
+    <!-- Left side (logo) -->
+    <div class="flex-1">
+<a href="https://readcraft.io">
+  
+  
+    <img src="../_static/logo.svg" class="h-6 dark:hidden" alt="Logo of Clarity Theme for Sphinx" />
+    <img
+      src="../_static/logo-dark.svg"
+      class="hidden h-6 dark:block"
+      alt="Logo of Clarity Theme for Sphinx"
+    />
+  
+</a></div>
+
+    <!-- Right side -->
+    <div class="flex flex-1 items-center justify-end">
+      <!-- #Header menu (desktop) -->
+      <div class="hidden lg:block">
+        <!-- `[&_li]:self-center` - If a content of <li> is the button, the "self-center" required to properly vertically align it -->
+        <!-- `[&_li>a]:px-2 [&_li>a]:py-3` - Tweaks default menu ugly padding that doesn't match to buttons padding -->
+        <ul
+          class="menu menu-horizontal text-secondary-content gap-2 [&_li]:self-center [&_li>a]:px-2 [&_li>a]:py-3"
+        >
+          
+        </ul>
+      </div>
+      <!-- .#Header menu (desktop) -->
+
+      <!-- #Search button -->
+      <div class="tooltip tooltip-bottom" data-tip="Search">
+        <button
+          class="btn btn-ghost btn-secondary"
+          onclick="searchModal.showModal()"
+        >
+          <span class="icon-[prime--search] text-2xl"></span>
+        </button>
+      </div>
+      <!-- .#Search button -->
+
+      
+  
+  
+
+
+      
+  <!-- #Mode select -->
+  <div class="tooltip tooltip-bottom" data-tip="Light/dark mode">
+    <button class="btn btn-ghost btn-secondary">
+      <label class="swap swap-rotate">
+        <!-- this hidden checkbox controls the state -->
+        <input type="checkbox" onclick="toggleMode()" />
+        <!-- light mode icon -->
+        <span class="icon-[prime--sun] swap-on text-2xl"></span>
+        <!-- dark mode icon -->
+        <span class="icon-[prime--moon] swap-off text-2xl"></span>
+      </label>
+    </button>
+  </div>
+  <!-- .#Mode select -->
+
+
+      <!-- #Header menu (mobile) -->
+      <details class="dropdown dropdown-left lg:hidden">
+        <summary class="btn btn-secondary aspect-square" aria-label="Menu">
+          <span class="icon-[prime--bars]"></span>
+          <span class="sr-only">Menu</span>
+        </summary>
+        <!-- `[&_li>a.btn]:justify-start` - If a content of <li> is the button, it should be aligned to the start (left) -->
+        <ul
+          class="menu dropdown-content bg-base-100 rounded-box dark:border-base-200 z-1 w-52 p-2 shadow-sm dark:border [&_li>a.btn]:justify-start"
+        >
+          
+        </ul>
+      </details>
+      <!-- .#Header menu (mobile) -->
+    </div>
+  </div>
+</header>
+            
+<!-- #Sidebar toggles (mobile) -->
+<nav class="p-4 lg:hidden">
+  <div class="container mx-auto flex items-center justify-between text-sm">
+    <!-- Left side -->
+    <div>
+      
+        <button
+          class="btn btn-secondary btn-sm text-secondary-content/80 font-normal"
+        >
+          <label
+            for="primary-drawer"
+            class="flex cursor-pointer items-center gap-1"
+          >
+            <span class="icon-[prime--align-left] text-xl"></span>
+            Table of Contents
+          </label>
+        </button>
+      
+    </div>
+    <!-- .Left side -->
+    <!-- Right side -->
+    <div>
+      <button
+        class="btn btn-secondary btn-sm text-secondary-content/80 font-normal"
+      >
+        <label
+          for="secondary-drawer"
+          class="flex cursor-pointer items-center gap-1"
+        >
+          This page
+          <span class="icon-[prime--align-right] text-xl"></span>
+        </label>
+      </button>
+    </div>
+    <!-- .Right side -->
+  </div>
+</nav>
+<!-- .#Sidebar toggles (mobile) -->
+
+            <main class="p-4 lg:pt-[var(--header-padding)]">
+              <div class="container mx-auto lg:flex lg:items-start">
+                <article class="lg:order-2 lg:w-8/12 lg:flex-none lg:px-12">
+                  
+<!-- #Breadcrumb -->
+<nav class="flex flex-wrap items-center gap-1 text-sm">
+  
+  <a
+    href="../"
+    class="text-secondary-content/80 hover:text-accent-content hover:underline"
+  >
+    Clarity Theme for Sphinx
+  </a>
+
+  
+
+  
+  <span
+    class="icon-[prime--arrow-right] text-secondary-content/50"
+  ></span>
+  <span class="text-secondary-content/80">How-tos</span>
+</nav>
+<!-- .#Breadcrumb -->
+
+                  
+                  <main role="main">
+  <section id="how-tos">
+<h1>How-tos<a class="headerlink" href="#how-tos" title="Link to this heading">#</a></h1>
+<p>This section collects concise how‑to guides for common Sphinx theme tasks. Not every guide is specific to Clarity Theme for Sphinx, but each is compatible with it and useful when customizing your documentation.</p>
+<section id="howto-jinja-blocks">
+<h2>Overriding template blocks (e.g., adding tracking codes)<a class="headerlink" href="#howto-jinja-blocks" title="Link to this heading">#</a></h2>
+<p>With Clarity Theme for Sphinx you can easily integrate marketing and analytics tools (Google Analytics, Google Tag Manager, Hotjar, etc.). These tools typically require you to embed tracking code in the page <code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code>.</p>
+<p>Sphinx themes use the <a class="reference external" href="https://jinja.palletsprojects.com/">Jinja templating engine</a>. Jinja <em>blocks</em> let you override portions of a template by extending it from a directory listed in the <code class="docutils literal notranslate"><span class="pre">templates_path</span></code> setting. See <a class="reference external" href="https://www.sphinx-doc.org/en/master/development/theming.html#templating">Sphinx’s templating documentation</a> for details.</p>
+<p>Clarity Theme for Sphinx exposes blocks suitable for injecting tracking code:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">head_tag_end</span></code> (right before the closing <code class="docutils literal notranslate"><span class="pre">&lt;/head&gt;</span></code> tag)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">body_tag_end</span></code> (right before the closing <code class="docutils literal notranslate"><span class="pre">&lt;/body&gt;</span></code> tag)</p></li>
+</ul>
+<p>See the complete list at <a class="reference internal" href="../reference/#reference-templates-and-blocks"><span class="std std-ref">Jinja templates and blocks</span></a>.</p>
+<p class="rubric">Example: Insert tracking code via template blocks</p>
+<ol class="arabic">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, add <code class="docutils literal notranslate"><span class="pre">templates_path</span> <span class="pre">=</span> <span class="pre">[&quot;_templates&quot;]</span></code>.</p></li>
+<li><p>Create an <code class="docutils literal notranslate"><span class="pre">_templates/</span></code> folder next to <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.</p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">layout.html</span></code> file inside it. The initial <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">extends</span> <span class="pre">%}</span></code> line is mandatory. Then override the suitable block(s) with <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">block</span> <span class="pre">&lt;name&gt;</span> <span class="pre">%}</span></code>.</p>
+<p>For example, inserting GTM:</p>
+<div class="highlight-html+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;!layout.html&quot;</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">head_tag_end</span> <span class="cp">%}</span>
+    <span class="cm">&lt;!-- Google Tag Manager --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;(</span><span class="kd">function</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span><span class="nx">d</span><span class="p">,</span><span class="nx">s</span><span class="p">,</span><span class="nx">l</span><span class="p">,</span><span class="nx">i</span><span class="p">){...})(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s1">&#39;script&#39;</span><span class="p">,</span><span class="s1">&#39;dataLayer&#39;</span><span class="p">,</span><span class="s1">&#39;GTM-A6755KNG&#39;</span><span class="p">);&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- End Google Tag Manager --&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">body_tag_end</span> <span class="cp">%}</span>
+    <span class="cm">&lt;!-- Google Tag Manager (noscript) --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">noscript</span><span class="p">&gt;&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.googletagmanager.com/ns.html?id=GTM-A6755KNG&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display:none;visibility:hidden&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;&lt;/</span><span class="nt">noscript</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- End Google Tag Manager (noscript) --&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Alternative to adding custom JavaScript is described in <a class="reference internal" href="#howto-add-custom-css-js"><span class="std std-ref">Adding custom CSS or JS files</span></a>.</p>
+</div>
+</section>
+<section id="howto-add-custom-css-js">
+<h2>Adding custom CSS or JS files<a class="headerlink" href="#howto-add-custom-css-js" title="Link to this heading">#</a></h2>
+<p>Sphinx provides simple ways to include custom JavaScript, CSS, or HTML in your documentation website. Clarity Theme for Sphinx fully supports these mechanisms, allowing you to extend or style your site as needed—for example, adding a custom font or changing the background color with a small snippet of CSS.</p>
+<p class="rubric">How to add a custom CSS or JS file</p>
+<ol class="arabic">
+<li><p>Create a folder for extra files next to <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> (conventionally <code class="docutils literal notranslate"><span class="pre">_static/</span></code>).</p></li>
+<li><p>Add extra files like <code class="docutils literal notranslate"><span class="pre">styles/custom.css</span></code> or <code class="docutils literal notranslate"><span class="pre">scripts/custom.js</span></code> under <code class="docutils literal notranslate"><span class="pre">_static/</span></code>.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> use <code class="docutils literal notranslate"><span class="pre">html_css_files</span></code> or <code class="docutils literal notranslate"><span class="pre">html_js_files</span></code>. These lists of CSS/JS files are injected into every page. Paths can be relative to <code class="docutils literal notranslate"><span class="pre">_static/</span></code> or external (CDN) URLs. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>html_static_path = [&quot;_static&quot;]
+html_css_files = [&quot;styles/custom.css&quot;]
+html_js_files = [&quot;scripts/custom.js&quot;]
+</pre></div>
+</div>
+</li>
+<li><p>Clarity Theme for Sphinx injects:</p></li>
+</ol>
+<ul class="simple">
+<li><p>CSS files just before the closing <code class="docutils literal notranslate"><span class="pre">&lt;/head&gt;</span></code> tag</p></li>
+<li><p>JS files just before the closing <code class="docutils literal notranslate"><span class="pre">&lt;/body&gt;</span></code> tag.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>If you need a different injection location, override the respective template block (for example <code class="docutils literal notranslate"><span class="pre">body_tag_start</span></code>) as described in <a class="reference internal" href="#howto-jinja-blocks"><span class="std std-ref">Overriding template blocks (e.g., adding tracking codes)</span></a>.</p>
+</div>
+<p class="rubric">Example: Change headings with custom CSS</p>
+<ol class="arabic">
+<li><p>Continuing the above steps, in your <code class="docutils literal notranslate"><span class="pre">_static/styles/custom.css</span></code>, add some style rules. E.g.,</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">h2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">light-dark</span><span class="p">(</span><span class="mh">#a470d9</span><span class="p">,</span><span class="w"> </span><span class="mh">#edadb7</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For a description of the <code class="docutils literal notranslate"><span class="pre">light-dark()</span></code> function see <a class="reference internal" href="#howto-light-dark-fn"><span class="std std-ref">Handling light and dark mode variants in custom CSS</span></a>.</p>
+</div>
+<ol class="arabic">
+<li><p>Rebuild and test.</p>
+<div  class="sphinx-contrib-video-container align-left"><video controls="True" preload="auto"><source src="../_images/custom-css-example.mp4" type="video/mp4"></video></div></li>
+</ol>
+</section>
+<section id="howto-light-dark-fn">
+<h2>Handling light and dark mode variants in custom CSS<a class="headerlink" href="#howto-light-dark-fn" title="Link to this heading">#</a></h2>
+<p>When styling your Clarity Theme for Sphinx documentation with custom CSS, you may need to differentiate dark and light mode variants—especially when choosing colors.</p>
+<p>With the <code class="docutils literal notranslate"><span class="pre">light-dark()</span></code> CSS function you can specify different values for light and dark color schemes in a single declaration: <code class="docutils literal notranslate"><span class="pre">light-dark(lightValue,</span> <span class="pre">darkValue)</span></code>. The theme ensures these styles switch automatically based on the current mode.</p>
+<p>For example, this will apply <code class="docutils literal notranslate"><span class="pre">#a470d9</span></code> in light mode and <code class="docutils literal notranslate"><span class="pre">#edadb7</span></code> in dark mode.</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">h2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">light-dark</span><span class="p">(</span><span class="mh">#a470d9</span><span class="p">,</span><span class="w"> </span><span class="mh">#edadb7</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can also use it when overriding variables (see <a class="reference internal" href="#howto-css-variables"><span class="std std-ref">Overriding CSS variables</span></a>). For example:</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">--main-bg-color</span><span class="p">:</span><span class="w"> </span><span class="nf">light-dark</span><span class="p">(</span><span class="mh">#f5f5f5</span><span class="p">,</span><span class="w"> </span><span class="mh">#a470d9</span><span class="p">);</span>
+<span class="w">  </span><span class="nv">--main-text-color</span><span class="p">:</span><span class="w"> </span><span class="nf">light-dark</span><span class="p">(</span><span class="mh">#222</span><span class="p">,</span><span class="w"> </span><span class="mh">#edadb7</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="howto-css-variables">
+<h2>Overriding CSS variables<a class="headerlink" href="#howto-css-variables" title="Link to this heading">#</a></h2>
+<p>Many aspects of the Clarity Theme for Sphinx design are controlled by CSS variables. This makes it easy to update colors, fonts, spacing, or other design tokens in one place. You override them with standard CSS to adapt the branding of your documentation.</p>
+<p>A CSS variable (also called a custom property) lets you define reusable values in your stylesheets. CSS variables are defined using the <code class="docutils literal notranslate"><span class="pre">--variable-name</span></code> syntax and accessed with the <code class="docutils literal notranslate"><span class="pre">var()</span></code> function. For example:</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">--main-bg-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f5f5f5</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--main-text-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#222</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--main-bg-color</span><span class="p">);</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--main-text-color</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Complete list of <a class="reference internal" href="../reference/#reference-css-variables"><span class="std std-ref">CSS variables</span></a>.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Practical usage of CSS variable overrides for configuring <a class="reference internal" href="../customize/colors/#customization-colors"><span class="std std-ref">Colors</span></a> or <a class="reference internal" href="../customize/fonts/#customization-fonts"><span class="std std-ref">Fonts</span></a>.</p>
+</div>
+<section id="howto-css-variable-in-browser">
+<h3>How to find out variable name to override<a class="headerlink" href="#howto-css-variable-in-browser" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open your documentation website in a web browser.</p></li>
+<li><p>Right-click on the element you want to customize and select <span class="guilabel">Inspect</span> (or press <kbd class="kbd docutils literal notranslate">F12</kbd> to open Developer Tools).</p></li>
+<li><p>In the <span class="guilabel">Elements</span> or <span class="guilabel">Inspector</span> tab, select the HTML element whose style you want to change.</p></li>
+<li><p>In the <span class="guilabel">Styles</span> panel, look for CSS rules applied to that element. CSS variables are shown as <code class="docutils literal notranslate"><span class="pre">var(--variable-name)</span></code>.</p></li>
+</ol>
+<p>For example, the warning admonition uses <code class="docutils literal notranslate"><span class="pre">--color-warning</span></code> and <code class="docutils literal notranslate"><span class="pre">--color-warning-content</span></code> CSS variables. Have a look how to find out these variable names in Chrome DevTools.</p>
+<div  class="sphinx-contrib-video-container align-left"><video controls="True" preload="auto"><source src="../_images/howto-css-variable-in-browser.mp4" type="video/mp4"></video></div></section>
+</section>
+</section>
+
+</main>
+
+                  
+<!-- #Article navigation -->
+<nav class="my-8">
+  <ul
+    class="text-secondary-content flex justify-between gap-4"
+  >
+    
+      <li class="flex flex-col gap-1">
+        <span class="flex items-center text-xs font-light">
+          <span class="icon-[prime--angle-left]"></span>
+          Previous
+        </span>
+        <a
+          class="hover:text-accent-content text-sm underline"
+          href="../customize/footer/"
+          title="Previous article"
+          >Footer</a
+        >
+      </li>
+    
+    
+      <li class="flex flex-col gap-1 lg:items-end">
+        <span class="flex items-center text-xs font-light">
+          Next
+          <span class="icon-[prime--angle-right]"></span>
+        </span>
+        <a
+          class="hover:text-accent-content text-sm underline"
+          href="../reference/"
+          title="Next article"
+          >Reference</a
+        >
+      </li>
+    
+  </ul>
+</nav>
+<!-- .#Article navigation -->
+                  
+<!-- #Article footer -->
+<footer
+  class="article-footer border-base-200 text-secondary-content/80 my-4 border-t pt-8 text-sm"
+>
+  <div class="flex flex-col justify-between gap-4 lg:flex-row">
+    <div class="article-footer__left">
+      
+      
+    </div>
+    <div class="article-footer__right">
+      
+      
+    </div>
+  </div>
+</footer>
+<!-- .#Article footer -->
+                </article>
+
+                <!-- #Primary drawer (desktop) -->
+                <nav
+                  class="lg:sticky lg:top-[calc(var(--header-height)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-calc(var(--header-padding)*2))] lg:overflow-y-auto lg:scrollbar-hide lg:hover:scrollbar-default hidden lg:order-1 lg:block lg:w-2/12 lg:flex-none"
+                >
+                  
+
+
+  <div class="global-toc">
+    <p class="caption" role="heading"><span class="caption-text">Theme</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customize/">Customizations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How-tos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issues/">Common issues</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://readcraft.io/license">License</a></li>
+</ul>
+
+  </div>
+
+                </nav>
+                <!-- .#Primary drawer (desktop) -->
+
+                <!-- #Secondary drawer (desktop) -->
+                <aside
+                  class="lg:sticky lg:top-[calc(var(--header-height)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-calc(var(--header-padding)*2))] lg:overflow-y-auto lg:scrollbar-hide lg:hover:scrollbar-default hidden lg:order-3 lg:block lg:w-2/12 lg:flex-none"
+                >
+                  
+
+
+  
+    <div class="local-toc">
+      <p class="local-toc__caption mt-0 mb-4 font-semibold uppercase">
+        On this page
+      </p>
+      <ul>
+<li><a class="reference internal" href="#">How-tos</a><ul>
+<li><a class="reference internal" href="#howto-jinja-blocks">Overriding template blocks (e.g., adding tracking codes)</a></li>
+<li><a class="reference internal" href="#howto-add-custom-css-js">Adding custom CSS or JS files</a></li>
+<li><a class="reference internal" href="#howto-light-dark-fn">Handling light and dark mode variants in custom CSS</a></li>
+<li><a class="reference internal" href="#howto-css-variables">Overriding CSS variables</a><ul>
+<li><a class="reference internal" href="#howto-css-variable-in-browser">How to find out variable name to override</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  
+
+                </aside>
+                <!-- .#Secondary drawer (desktop) -->
+              </div>
+            </main>
+
+            
+<footer class="p-4">
+  <div
+    class="text-secondary-content container mx-auto flex h-8 items-center justify-center text-center text-sm"
+  >
+    <div>
+        Copyright &copy; 2026, ReadCraft.io
+      <br class="lg:hidden" />
+      Made with
+      <a
+        href="https://www.sphinx-doc.org"
+        class="hover:text-accent-content underline"
+        >Sphinx</a
+      >
+      and
+      <a
+        href="https://readcraft.io/sphinx-clarity-theme/?utm_source=sphinx_clarity_theme"
+        class="hover:text-accent-content underline"
+        >Clarity Theme for Sphinx </a
+      >.
+    </div>
+  </div>
+</footer>
+          </div>
+
+          
+<!-- #Scroll to top -->
+<div id="scroll-to-top" class="toast toast-end">
+  <a
+    class="btn btn-secondary btn-sm"
+    href="#top"
+    aria-label="Scroll to top"
+  >
+    Back to top
+    <span class="icon-[prime--arrow-up] text-base"></span>
+  </a>
+</div>
+<!-- .#Scroll to top -->
+          
+<!-- #Search dialog -->
+<dialog id="searchModal" class="modal">
+  <div class="modal-box absolute top-8 lg:top-16">
+    <search>
+      <form action="../search/" method="get">
+        <label class="input input-xl w-full">
+          <span class="icon-[prime--search] text-4xl"></span>
+          <input
+            type="search"
+            class="grow"
+            placeholder="Search the docs"
+            name="q"
+            placeholder="Search the documentation"
+            aria-label="Search the documentation"
+          />
+          <kbd class="kbd kbd-lg p-4">Enter</kbd>
+        </label>
+      </form>
+    </search>
+    <p class="mt-4 text-sm">
+      Press <kbd class="kbd">Enter</kbd> to search. Press
+      <kbd class="kbd">Esc</kbd> or click outside to close.
+    </p>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+<!-- .#Search dialog -->
+
+          <!-- ====================================================== -->
+          <!-- .Page content -->
+          <!-- ====================================================== -->
+
+          <!-- ====================================================== -->
+          <!-- Secondary drawer after markup -->
+          <!-- ====================================================== -->
+        </div>
+        <div class="drawer-side">
+          <label
+            for="secondary-drawer"
+            class="drawer-overlay"
+            aria-label="Close secondary sidebar"
+          ></label>
+          <div
+            class="bg-base-100 text-base-content mt-[var(--header-height)] min-h-full w-80 overflow-y-auto p-4"
+          >
+            <!-- ==================================================== -->
+            <!-- Secondary drawer (mobile) content -->
+            <!-- ==================================================== -->
+            <div class="text-xs">
+
+
+  
+    <div class="local-toc">
+      <p class="local-toc__caption mt-0 mb-4 font-semibold uppercase">
+        On this page
+      </p>
+      <ul>
+<li><a class="reference internal" href="#">How-tos</a><ul>
+<li><a class="reference internal" href="#howto-jinja-blocks">Overriding template blocks (e.g., adding tracking codes)</a></li>
+<li><a class="reference internal" href="#howto-add-custom-css-js">Adding custom CSS or JS files</a></li>
+<li><a class="reference internal" href="#howto-light-dark-fn">Handling light and dark mode variants in custom CSS</a></li>
+<li><a class="reference internal" href="#howto-css-variables">Overriding CSS variables</a><ul>
+<li><a class="reference internal" href="#howto-css-variable-in-browser">How to find out variable name to override</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================== -->
+      <!-- Primary drawer after markup -->
+      <!-- ========================================================== -->
+    </div>
+
+    <div class="drawer-side">
+      <label
+        for="primary-drawer"
+        aria-label="Close primary sidebar"
+        class="drawer-overlay"
+      ></label>
+      <div
+        class="bg-base-100 text-base-content mt-[var(--header-height)] min-h-full w-80 overflow-y-auto p-4"
+      >
+        <!-- ===================================================== -->
+        <!-- Primary drawer (mobile) content -->
+        <!-- ===================================================== -->
+        <div class="text-xs">
+
+
+  <div class="global-toc">
+    <p class="caption" role="heading"><span class="caption-text">Theme</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customize/">Customizations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How-tos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issues/">Common issues</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://readcraft.io/license">License</a></li>
+</ul>
+
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+
+
+    
+    <script
+  defer
+  src="../_static/scripts/scroll-to-top.js"
+></script>
+
+<script>
+  window.ScrollspyConfig = {
+    rootMargin: "-120px 0px -60% 0px",
+  };
+</script>
+<script defer src="../_static/scripts/scrollspy.js"></script>
+  <script src="../_static/documentation_options.js?v=86c0dea4"></script>
+  <script src="../_static/doctools.js?v=c73fddf3"></script>
+  <script src="../_static/sphinx_highlight.js?v=36527ec2"></script>
+  <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+  <script src="../_static/copybutton.js?v=f281be69"></script>
+  <script src="../_static/design-tabs.js?v=f930bc37"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript
+  ><iframe
+    src="https://www.googletagmanager.com/ns.html?id=GTM-WXSCL3ZR"
+    height="0"
+    width="0"
+    style="display: none; visibility: hidden"
+  ></iframe
+></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</body>
+</html>

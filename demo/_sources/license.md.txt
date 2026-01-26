@@ -1,0 +1,2 @@
+:::{include} ../../www/content/license.md
+:::

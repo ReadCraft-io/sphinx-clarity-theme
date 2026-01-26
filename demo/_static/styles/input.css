@@ -1,0 +1,829 @@
+/* ===================================================================== */
+/* Imports */
+/* ===================================================================== */
+/* Must come very first */
+
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap");
+
+/* ===================================================================== */
+/* Tailwind and plugins */
+/* ===================================================================== */
+
+@import "tailwindcss";
+
+/* Tailwind theme config */
+@theme {
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+}
+
+@plugin "@tailwindcss/typography";
+@plugin "@iconify/tailwind4";
+@import "tailwind-scrollbar-hide/v4";
+
+/* ===================================================================== */
+/* DaisyUI */
+/* ===================================================================== */
+
+@plugin "daisyui";
+
+/* === Themes ========================================================== */
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: #ffffff;
+  --color-base-200: var(--color-zinc-300);
+  --color-base-300: var(--color-zinc-800);
+  --color-base-content: oklch(21% 0.006 285.885);
+  --color-primary: var(--color-zinc-100);
+  --color-primary-content: var(--color-zinc-900);
+  --color-secondary: var(--color-zinc-50);
+  --color-secondary-content: var(--color-zinc-500);
+  --color-accent: transparent;
+  --color-accent-content: var(--color-sky-600);
+  --color-neutral: oklch(14% 0.005 285.823);
+  --color-neutral-content: oklch(92% 0.004 286.32);
+  --color-info: oklch(74% 0.16 232.661);
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: oklch(76% 0.177 163.223);
+  --color-success-content: oklch(37% 0.077 168.94);
+  --color-warning: oklch(82% 0.189 84.429);
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: oklch(71% 0.194 13.428);
+  --color-error-content: oklch(27% 0.105 12.094);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: oklch(25.33% 0.016 252.42);
+  --color-base-200: var(--color-gray-700);
+  --color-base-300: var(--color-gray-300);
+  --color-base-content: oklch(97.807% 0.029 256.847);
+  --color-primary: transparent;
+  --color-primary-content: var(--color-gray-100);
+  --color-secondary: transparent;
+  --color-secondary-content: var(--color-gray-400);
+  --color-accent: transparent;
+  --color-accent-content: var(--color-sky-400);
+  --color-neutral: oklch(92% 0.004 286.32);
+  --color-neutral-content: oklch(14% 0.005 285.823);
+  --color-info: oklch(74% 0.16 232.661);
+  --color-info-content: oklch(0.66 0.1679 245.88);
+  --color-success: oklch(76% 0.177 163.223);
+  --color-success-content: oklch(0.76 0.1553 167.31);
+  --color-warning: oklch(82% 0.189 84.429);
+  --color-warning-content: oklch(0.69 0.1973 44.2);
+  --color-error: oklch(71% 0.194 13.428);
+  --color-error-content: oklch(0.62 0.2434 13.31);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+/* DaisyUI dark mode is based on data-theme attribute. We need to redefine Tailwind dark modifier to use data-theme instead of default prefers-color-scheme media query */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* === Components customization ======================================== */
+/* https://daisyui.com/docs/utilities/ */
+
+.btn {
+  --btn-p: 0.5rem;
+  @apply bg-base-100;
+}
+
+/* Button needs border in dark mode */
+.btn:not(.btn-ghost) {
+  @apply dark:border-base-200/80;
+}
+
+/* Button needs background on hover in dark mode */
+.btn {
+  @apply dark:hover:bg-neutral/10;
+}
+
+/* Modal needs border in dark mode */
+.modal-box {
+  @apply dark:border-base-200/80 dark:border;
+}
+
+/* ===================================================================== */
+/* Global styles */
+/* ===================================================================== */
+
+@view-transition {
+  navigation: auto;
+}
+
+.light-only {
+  @apply dark:hidden;
+}
+.dark-only {
+  @apply hidden dark:block;
+}
+:is(p, div, h1, h2, h3, h4, h5, h6) .dark-only {
+  @apply dark:inline;
+}
+.invert-on-dark {
+  @apply dark:invert;
+}
+
+/* === Config ========================================================== */
+
+@layer base {
+  :root {
+    --article-heading--font: var(--font-sans);
+    --article-heading--scale: 1.25;
+    --article-heading--color: light-dark(
+      var(--color-zinc-900),
+      var(--color-zinc-100)
+    );
+
+    --article-text--font: var(--font-sans);
+    --article-text--color: light-dark(
+      var(--color-zinc-600),
+      var(--color-zinc-300)
+    );
+
+    --article-mono--color: light-dark(
+      var(--color-purple-800),
+      var(--color-purple-300)
+    );
+  }
+}
+
+/* ===================================================================== */
+/* Sphinx typography */
+/* ===================================================================== */
+
+/* `text-[0.92em]` - exactly enough to don't wrap 80 char long lines */
+@utility article-code-common {
+  @apply bg-base-200/25 border-base-200/50 rounded-sm border p-[0.1em] font-mono text-[0.92em] text-[var(--article-mono--color)];
+  font-variant-ligatures: none;
+}
+
+article main {
+  /* === Basic ========================================================= */
+
+  font-variant-numeric: oldstyle-nums;
+  color: var(--article-text--color);
+  font-family: var(--font-text);
+
+  /**
+   * Allows long words or unbreakable strings (like URLs) to be broken and
+   * wrapped onto the next line, preventing them from overflowing their container
+   * and breaking the layout.
+   */
+  overflow-wrap: break-word;
+
+  /* === Headings (and rubrics) ======================================== */
+
+  /* === All headings === */
+  :is(h1, h2, h3, h4, h5, h6),
+  .rubric {
+    font-family: var(--article-heading--font);
+    color: var(--article-heading--color);
+    @apply mt-8 mb-4 leading-[0.9];
+  }
+
+  /* Document title */
+  h1 {
+    @apply my-8;
+  }
+
+  h6,
+  .rubric {
+    @apply font-medium;
+  }
+
+  /* === Heading scale === */
+  h1 {
+    font-size: calc(
+      var(--text-base) * var(--article-heading--scale) *
+        var(--article-heading--scale) * var(--article-heading--scale) *
+        var(--article-heading--scale) * var(--article-heading--scale)
+    );
+  }
+
+  h2 {
+    font-size: calc(
+      var(--text-base) * var(--article-heading--scale) *
+        var(--article-heading--scale) * var(--article-heading--scale) *
+        var(--article-heading--scale)
+    );
+  }
+
+  h3 {
+    font-size: calc(
+      var(--text-base) * var(--article-heading--scale) *
+        var(--article-heading--scale) * var(--article-heading--scale)
+    );
+  }
+
+  h4 {
+    font-size: calc(
+      var(--text-base) * var(--article-heading--scale) *
+        var(--article-heading--scale)
+    );
+  }
+
+  h5 {
+    font-size: calc(var(--text-base) * var(--article-heading--scale));
+  }
+
+  h6,
+  .rubric {
+    font-size: var(--text-base);
+  }
+
+  /* === Permalinks === */
+  /* For h2-h6, hide on hover */
+  :is(h1, h2, h3, h4, h5, h6) {
+    a.headerlink {
+      @apply hidden;
+    }
+    &:hover {
+      a.headerlink {
+        @apply text-accent-content ml-2 inline;
+      }
+    }
+  }
+
+  /* === Divider around h2 sections === */
+  section:has(> h2) {
+    @apply border-base-200 my-8 block border-t;
+  }
+
+  /* === Lead ========================================================== */
+
+  h1 + p {
+    @apply my-8 text-lg font-semibold;
+  }
+
+  /* === Paragraphs ==================================================== */
+
+  p {
+    @apply my-4 leading-7;
+  }
+
+  /* === Links ========================================================= */
+
+  /* Fix "scrolling to the wrong place" */
+  [id] {
+    @apply scroll-mt-[calc(var(--header-height)+1rem)];
+  }
+
+  a {
+    @apply hover:text-accent-content decoration-accent-content underline decoration-1 underline-offset-4;
+  }
+
+  /* External links */
+  a.external {
+    @apply items-center gap-1;
+
+    &::after {
+      display: inline-block;
+      width: 0.75em;
+      height: 0.75em;
+      content: "";
+      background-color: currentColor;
+      mask-image: url("../icons/prime--external-link.svg");
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
+  }
+
+  /* === Footnotes ==================================================== */
+  a.footnote-reference {
+    @apply align-super text-xs;
+  }
+
+  .footnote-list {
+    @apply text-sm text-current/80;
+    .label {
+      @apply float-left mr-2;
+      .fn-bracket {
+        /* Make "[1]" to "[ 1 ]" for better readability */
+        @apply mx-1;
+      }
+      a {
+        @apply text-accent-content underline;
+      }
+    }
+  }
+
+  /* === Code examples ================================================== */
+  code,
+  pre {
+    @apply article-code-common;
+  }
+
+  /* Code inside heading */
+  :is(h1, h2, h3, h4, h5, h6) > code {
+    /* @apply border-0 bg-transparent p-0 text-current; */
+    @apply bg-base-200/10 border-base-200/25;
+  }
+
+  pre {
+    @apply my-4 overflow-x-auto p-2;
+
+    /* Line numbering */
+    .linenos {
+      @apply mr-4 text-[var(--article-text--color)]/70;
+    }
+
+    /* Highlighted lines in full width */
+    .hll {
+      @apply block;
+    }
+  }
+
+  /* === Code block caption === */
+  .literal-block-wrapper {
+    .code-block-caption {
+      @apply bg-base-200/25 border-base-200/50 m-0 rounded-sm rounded-br-none rounded-bl-none border border-b-0 px-4 py-4 text-sm;
+
+      .caption-text {
+        @apply text-current/80;
+      }
+      a.headerlink {
+        @apply hidden;
+      }
+      &:hover a.headerlink {
+        @apply text-accent-content ml-2 inline;
+      }
+    }
+    * > pre {
+      @apply m-0 rounded-tl-none rounded-tr-none;
+    }
+  }
+
+  /* === API docs ====================================================== */
+  /* Markup is dl/dd, so a little bit styling is needed */
+  dt.sig {
+    @apply article-code-common my-4 p-2 text-[var(--article-mono--color)]!;
+
+    .viewcode-link {
+      @apply float-right text-sm font-normal underline;
+    }
+  }
+
+  dl dl {
+    @apply mx-4;
+  }
+
+  /* === Horizontal rules ============================================== */
+  hr {
+    @apply border-base-200/75 mx-16 my-8 border-t pt-2;
+  }
+
+  /* === Lists ========================================================= */
+  ul,
+  ol {
+    @apply my-4 list-outside pl-6;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  li {
+    @apply my-2;
+  }
+
+  li > p {
+    @apply my-2;
+  }
+
+  /* Nested lists */
+  li ul,
+  li ol {
+    @apply my-2;
+  }
+
+  /* === Option, definition, field lists and glossary ================== */
+  dl,
+  dl.glossary {
+    dt {
+      @apply font-semibold text-[var(--article-heading--color)];
+
+      a.headerlink {
+        @apply hidden;
+      }
+      &:hover a.headerlink {
+        @apply text-accent-content ml-1 inline;
+      }
+    }
+    dd {
+      @apply ml-4;
+    }
+  }
+
+  /* === guilabel ====================================================== */
+  .guilabel,
+
+  /* === kbd =========================================================== */
+  .kbd, kbd {
+    @apply kbd bg-base-200/25;
+  }
+
+  /* === menuselection ================================================= */
+  .menuselection {
+    @apply bg-base-200/25 border-base-200/50 rounded-sm border p-[0.1em] text-[0.92em];
+  }
+
+  /* === centered ====================================================== */
+  .centered {
+    @apply text-center;
+  }
+
+  /* === Admonitions =================================================== */
+  .admonition {
+    @apply my-4 rounded-sm border p-4 text-sm;
+
+    p {
+      @apply my-2;
+    }
+
+    p.admonition-title {
+      @apply mr-2 inline font-semibold;
+      & + p {
+        @apply inline;
+      }
+    }
+
+    p:last-of-type {
+      @apply mb-0;
+    }
+
+    /* as color-info */
+    &.seealso,
+    &.admonition {
+      @apply bg-info/15 border-info/40;
+      .admonition-title {
+        @apply text-info-content;
+      }
+    }
+
+    /* as color-success */
+    &.hint,
+    &.note,
+    &.tip {
+      @apply bg-success/15 border-success/40;
+      .admonition-title {
+        @apply text-success-content;
+      }
+    }
+    /* as color-warning */
+    &.attention,
+    &.caution,
+    &.important,
+    &.warning {
+      @apply bg-warning/15 border-warning/40;
+      .admonition-title {
+        @apply text-warning-content;
+      }
+    }
+    /* as color-error */
+    &.danger,
+    &.error {
+      @apply bg-error/15 border-error/40;
+      .admonition-title {
+        @apply text-error-content;
+      }
+    }
+  }
+
+  /* === Sidebar ======================================================= */
+  .sidebar {
+    @apply border-base-200 float-right clear-right mb-4 ml-4 w-1/2 rounded-sm border px-4 text-sm text-current/80 lg:w-1/3;
+    p {
+      @apply my-2;
+    }
+    .sidebar-title {
+      @apply mr-2 font-semibold text-[var(--article-text--color)];
+    }
+  }
+
+  pre,
+  blockquote,
+  table,
+  section,
+  aside,
+  hr,
+  div {
+    @apply clear-right;
+  }
+
+  /* === Topic ========================================================= */
+  .topic {
+    @apply border-base-200 my-4 rounded-sm border px-4 text-sm;
+    p {
+      @apply my-2;
+    }
+    .topic-title {
+      @apply mr-2 font-semibold text-[var(--article-heading--color)];
+    }
+  }
+
+  /* === Version info ================================================== */
+  div.versionadded,
+  div.versionchanged,
+  div.deprecated {
+    /* @apply border-base-200/50 my-4 rounded-sm border px-4 text-sm text-current/80 italic; */
+    @apply m-4 text-sm text-current/80 italic;
+
+    p {
+      @apply my-2;
+    }
+
+    /* Title */
+    .versionmodified {
+      @apply font-semibold;
+
+      &::before {
+        display: inline-block;
+        width: 1lh;
+        height: 1lh;
+        content: "!";
+        background-color: currentColor;
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+      }
+    }
+  }
+
+  .versionadded .versionmodified::before {
+    mask-image: url("../icons/prime--plus-circle.svg");
+  }
+  .versionchanged .versionmodified::before {
+    mask-image: url("../icons/prime--clock.svg");
+  }
+  .deprecated .versionmodified::before {
+    mask-image: url("../icons/prime--minus-circle.svg");
+  }
+
+  /* === Blockquote ==================================================== */
+  blockquote {
+    @apply border-base-200 m-4 rounded-sm border-l-4 px-4 italic;
+  }
+
+  /* === Line block ==================================================== */
+  .line-block {
+    @apply my-4;
+  }
+
+  /* === Image ========================================================= */
+  /* Tailwind resets all img to block, but somewhere it is expected to be inline. */
+  :is(p, div, h1, h2, h3, h4, h5, h6) img {
+    @apply inline;
+  }
+
+  /* Consecutive images */
+  img + img {
+    @apply my-4;
+  }
+
+  img {
+    &.align-left {
+      @apply float-left clear-left mr-4 mb-4;
+    }
+    &.align-center {
+      @apply mx-auto my-4 block;
+    }
+    &.align-right {
+      @apply float-right clear-right mb-4 ml-4;
+    }
+  }
+
+  /* === Figure ======================================================== */
+  figure {
+    &.align-left {
+      @apply float-left clear-left my-2 mr-4;
+    }
+    &.align-center {
+      @apply flex flex-col items-center;
+    }
+    &.align-right {
+      @apply float-right clear-right my-2 ml-4;
+    }
+    figcaption {
+      @apply text-sm text-current/80 italic;
+
+      p {
+        @apply my-2;
+      }
+
+      a.headerlink {
+        @apply hidden;
+      }
+      &:hover a.headerlink {
+        @apply text-accent-content ml-2 inline-block w-4 no-underline;
+      }
+    }
+  }
+
+  /* === Tables ======================================================== */
+  table {
+    @apply my-4;
+
+    th {
+      @apply border-base-200/30 border-t text-left font-semibold text-[var(--article-heading--color)];
+    }
+
+    th,
+    td {
+      @apply border-base-200/30 border-b p-2;
+    }
+
+    tbody :not(tr:last-child) td {
+      @apply border-b;
+    }
+
+    p {
+      @apply my-1;
+    }
+  }
+
+  /* === Reset daisyUI conflict class names ============================ */
+  .label {
+    all: revert;
+  }
+}
+
+/* ===================================================================== */
+/* Sphinx search */
+/* ===================================================================== */
+
+.highlighted {
+  @apply rounded-sm border border-gray-300 bg-yellow-200 dark:bg-yellow-600/30;
+}
+
+/* Search page results */
+#search-results ul {
+  /* Display as vertical grid */
+  @apply grid list-none grid-cols-1 gap-4 p-0;
+
+  li a {
+    @apply text-xl;
+  }
+}
+
+/* ===================================================================== */
+/* Components */
+/* ===================================================================== */
+
+/** Reusable Hover effect for ToC items */
+@utility toc-hover-effect {
+  @apply hover:border-neutral hover:bg-neutral/5 p-[0.1rem] transition-all duration-200 hover:rounded-sm;
+}
+
+/* === Global ToC ====================================================== */
+@layer component {
+  .global-toc {
+    @apply text-secondary-content text-sm;
+
+    /* Every caption */
+    .caption {
+      @apply mt-8 mb-4 font-semibold uppercase;
+    }
+
+    /* The very first caption */
+    .caption:first-child {
+      @apply mt-0;
+    }
+
+    /* Every <li> */
+    li {
+      @apply my-2;
+    }
+
+    /* The very first <li> */
+    > ul > li {
+      @apply mt-0;
+    }
+
+    li {
+      /* Indent nested lists */
+      > ul {
+        @apply pl-4;
+      }
+
+      /* Current item */
+      &.current {
+        > a {
+          @apply text-accent-content font-semibold;
+        }
+        > ul {
+          @apply border-accent-content border-l;
+        }
+      }
+    }
+
+    /* Make links clickable in <li> (parent) full width */
+    a {
+      @apply block w-full;
+    }
+
+    /* Hover effect for full <li> */
+    li a {
+      @apply toc-hover-effect;
+    }
+
+    /* Icons on the right */
+    /* Not <li>s containing another <ul>s */
+    li:not(:has(ul)) {
+      @apply flex justify-between;
+    }
+    li:has(a.external)::after {
+      width: 1em;
+      content: "";
+      background-color: currentColor;
+      mask-image: url("../icons/prime--external-link.svg");
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
+  }
+}
+
+/* === Local ToC ======================================================= */
+@layer component {
+  .local-toc {
+    @apply text-secondary-content text-sm;
+
+    /* Hide very first li because it's page title */
+    > ul > li > a {
+      @apply hidden;
+    }
+
+    li {
+      @apply my-2;
+    }
+
+    /* L2 ul or deeper */
+    > ul > li > ul ul {
+      @apply ml-4;
+    }
+
+    a {
+      /* Make links clickable in <li> (parent) full width */
+      @apply block w-full;
+      @apply toc-hover-effect;
+    }
+
+    a.active {
+      @apply text-accent-content font-semibold;
+    }
+  }
+}
+
+/* === Article footer ================================================== */
+@layer component {
+  .article-footer {
+    a {
+      @apply hover:text-accent-content underline;
+    }
+  }
+}
+
+/* ===================================================================== */
+/* Sphinx extensions */
+/* ===================================================================== */
+
+article main {
+  /* === MyST Markdown ================================================= */
+
+  /* Checklist */
+  ul.contains-task-list {
+    @apply list-none p-0;
+
+    .task-list-item input[type="checkbox"] {
+      @apply checkbox cursor-text opacity-100;
+    }
+  }
+}
