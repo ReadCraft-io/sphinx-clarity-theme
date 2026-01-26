@@ -1,3 +1,5 @@
+<div align="center">
+
 # Clarity Theme for Sphinx
 
 ![Free for non-commercial use](https://img.shields.io/badge/license-free%20for%20non--commercial-blue)
@@ -7,6 +9,9 @@
 
 **A clean and professional documentation theme for Sphinx. Modern design with light/dark mode, responsive layout, and beautiful typography.**
 
+_Clean, modern typography · Optimized spacing for long pages_\
+_Excellent readability on desktop and mobile · Designed specifically for Sphinx documentation_\
+
 <!-- Screenshot -->
 <a href="https://readcraft.io/sphinx-clarity-theme" target="_blank">
   <p align="center">
@@ -14,14 +19,9 @@
   </p>
 </a>
 
-## ✨ Features and structure
+</div>
 
-- Clean, modern typography
-- Optimized spacing for long pages
-- Excellent readability on desktop and mobile
-- Designed specifically for Sphinx documentation
-
-## Directory structure
+## 📁 Directory structure
 
 ```
 .
@@ -31,13 +31,14 @@
 ├── preview/ - theme screenshots
 ├── demo/ - ready documentation website with the theme
 ```
+
 ## 🚀 Quickstart
 
-The theme is distributed as a Python wheel file (.whl), the standard binary distribution format for Python packages. Payments and wheel file delivery are handled by Lemon Squeezy, a third-party provider. After purchase, you will receive a wheel containing the theme files.
+The theme is distributed as a Python wheel file (`.whl`), the standard binary distribution format for Python packages. Payments and wheel file delivery are handled by Lemon Squeezy, a third-party provider. After purchase, you will receive a wheel containing the theme files.
 
 1. Get the theme at https://readcraft.io/sphinx-clarity-theme.
 1. Download the wheel file to the `vendors/` folder.
-1. Install wheel using preferred Python package manager. E.g.,
+1. Install wheel using the preferred Python package manager. E.g.,
    ```sh
    pip install vendors/sphinx_clarity_theme-<version>-py3-none-any.whl
    ```
