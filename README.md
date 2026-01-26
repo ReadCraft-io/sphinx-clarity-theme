@@ -11,7 +11,7 @@
 **A clean and professional documentation theme for Sphinx. Modern design with light/dark mode, responsive layout, and beautiful typography.**
 
 _Clean, modern typography · Optimized spacing for long pages_\
-_Excellent readability on desktop and mobile · Designed specifically for Sphinx documentation_\
+_Excellent readability on desktop and mobile · Designed specifically for Sphinx documentation_
 
 <!-- Screenshot -->
 <a href="https://readcraft.io/sphinx-clarity-theme" target="_blank">
