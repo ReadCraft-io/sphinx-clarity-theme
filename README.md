@@ -5,14 +5,14 @@
 [![Sphinx documentation](https://img.shields.io/badge/Sphinx%20documentation-%23346CB0?logo=sphinx&logoColor=white)](https://www.sphinx-doc.org/)
 [![Live demo](https://img.shields.io/badge/Live%20demo-%2334D399)](https://readcraft.io/sphinx-clarity-theme/demo/)
 
+**A clean and professional documentation theme for Sphinx. Modern design with light/dark mode, responsive layout, and beautiful typography.**
+
 <!-- Screenshot -->
 <a href="https://readcraft.io/sphinx-clarity-theme" target="_blank">
   <p align="center">
      <img src="preview/screenshot1.png" alt="Clarity Sphinx theme preview" width="800">
   </p>
 </a>
-
-A clean and professional documentation theme for Sphinx. Modern design with light/dark mode, responsive layout, and beautiful typography.
 
 ## ✨ Features and structure
 
