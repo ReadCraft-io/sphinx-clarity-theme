@@ -1,0 +1,32 @@
+<title>
+  {%- block title_tag %}{{ title|striptags|e }} &mdash; {{ docstitle|e }}{% endblock -%}
+</title>
+
+<meta charset="{{ encoding }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="generator"
+  content="Sphinx {{ sphinx_version }}, {{ theme_human_name }} {{ theme_version }} ({{ theme_url }})"
+/>
+{%- if pageurl %}
+  <link rel="canonical" href="{{ pageurl|e }}" />
+{%- endif %}
+
+{# <meta>s created with [`meta` directive](https://docutils.sourceforge.io/docs/ref/rst/directives.html#meta) #}
+{{ metatags }}
+
+{# Use before any CSS (<link>, <style>). #}
+<script src="{{ pathto('_static/scripts/dark-mode.js', 1) }}"></script>
+
+{%- for css in css_files %}
+  {%- if css|attr("filename") %}
+    {{ css_tag(css) }}
+  {%- else %}
+    <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
+  {%- endif %}
+{%- endfor %}
+
+{# If html_favicon in conf.py is set #}
+{%- if favicon_url %}
+  <link rel="icon" href="{{ favicon_url|e }}" />
+{%- endif %}

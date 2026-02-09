@@ -1,0 +1,37 @@
+{# Previous/Next article navigation #}
+<!-- #Article navigation -->
+<nav class="my-8">
+  <ul
+    class="text-secondary-content flex justify-between gap-4"
+  >
+    {% if prev %}
+      <li class="flex flex-col gap-1">
+        <span class="flex items-center text-xs font-light">
+          <span class="icon-[prime--angle-left]"></span>
+          {{ _('Previous') }}
+        </span>
+        <a
+          class="hover:text-accent-content text-sm underline"
+          href="{{ prev.link|e }}"
+          title="{{ _('Previous article') }}"
+          >{{ prev.title }}</a
+        >
+      </li>
+    {% endif %}
+    {% if next %}
+      <li class="flex flex-col gap-1 lg:items-end">
+        <span class="flex items-center text-xs font-light">
+          {{ _('Next') }}
+          <span class="icon-[prime--angle-right]"></span>
+        </span>
+        <a
+          class="hover:text-accent-content text-sm underline"
+          href="{{ next.link|e }}"
+          title="{{ _('Next article') }}"
+          >{{ next.title }}</a
+        >
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+<!-- .#Article navigation -->

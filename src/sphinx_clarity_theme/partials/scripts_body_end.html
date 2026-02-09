@@ -1,0 +1,19 @@
+<script
+  defer
+  src="{{ pathto('_static/scripts/scroll-to-top.js', 1) }}"
+></script>
+
+{# Watched area will be from 120px from the top of the viewport to 60% from the bottom -#}
+{#- Adjust based on header height. 120px is the height of the header and header bottom padding. -#}
+<script>
+  window.ScrollspyConfig = {
+    rootMargin: "-120px 0px -60% 0px",
+  };
+</script>
+<script defer src="{{ pathto('_static/scripts/scrollspy.js', 1) }}"></script>
+
+{#- Scripts at the end improves page load speed -#}
+{#- Insert <script>s requested by Sphinx, it's extensions or themes -#}
+{%- for js in script_files %}
+  {{ js_tag(js) }}
+{%- endfor -%}

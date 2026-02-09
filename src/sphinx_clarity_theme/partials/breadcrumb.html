@@ -1,0 +1,30 @@
+{# Breadcrumb navigation showing the current document path #}
+<!-- #Breadcrumb -->
+<nav class="flex flex-wrap items-center gap-1 text-sm">
+  {# Root #}
+  <a
+    href="{{ pathto(root_doc)|e }}"
+    class="text-secondary-content/80 hover:text-accent-content hover:underline"
+  >
+    {{ shorttitle|e }}
+  </a>
+
+  {# Path to current doc #}
+  {%- for parent in parents %}
+    <span
+      class="icon-[prime--arrow-right] text-secondary-content/50"
+    ></span>
+    <a
+      class="text-secondary-content/80 hover:text-accent-content hover:underline"
+      href="{{ parent.link|e }}"
+      >{{ parent.title }}</a
+    >
+  {%- endfor %}
+
+  {# Current doc #}
+  <span
+    class="icon-[prime--arrow-right] text-secondary-content/50"
+  ></span>
+  <span class="text-secondary-content/80">{{ title }}</span>
+</nav>
+<!-- .#Breadcrumb -->

@@ -1,0 +1,25 @@
+{# Main site footer #}
+<footer class="p-4">
+  <div
+    class="text-secondary-content container mx-auto flex h-8 items-center justify-center text-center text-sm"
+  >
+    <div>
+      {%- if show_copyright and copyright %}
+        Copyright &copy; {{ copyright }}
+      {%- endif %}
+      <br class="lg:hidden" />
+      Made with
+      <a
+        href="https://www.sphinx-doc.org"
+        class="hover:text-accent-content underline"
+        >Sphinx</a
+      >
+      and
+      <a
+        href="{{ theme_url }}?utm_source={{ theme_name }}"
+        class="hover:text-accent-content underline"
+        >{{ theme_human_name }} </a
+      >.
+    </div>
+  </div>
+</footer>

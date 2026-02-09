@@ -1,0 +1,57 @@
+{# Main header with logo, navigation, and toolbar #}
+{% from "partials/macros.html" import logo, language_selector, mode_switcher with context %}
+
+<!-- Header -->
+<header id="main-header" class="bg-base-100 sticky top-0 z-50">
+  <div
+    class="container mx-auto flex h-[var(--header-height)] items-center px-4 md:px-0"
+  >
+    <!-- Left side (logo) -->
+    <div class="flex-1">{% include "partials/logo.html" %}</div>
+
+    <!-- Right side -->
+    <div class="flex flex-1 items-center justify-end">
+      <!-- #Header menu (desktop) -->
+      <div class="hidden lg:block">
+        <!-- `[&_li]:self-center` - If a content of <li> is the button, the "self-center" required to properly vertically align it -->
+        <!-- `[&_li>a]:px-2 [&_li>a]:py-3` - Tweaks default menu ugly padding that doesn't match to buttons padding -->
+        <ul
+          class="menu menu-horizontal text-secondary-content gap-2 [&_li]:self-center [&_li>a]:px-2 [&_li>a]:py-3"
+        >
+          {{ header_menu() }}
+        </ul>
+      </div>
+      <!-- .#Header menu (desktop) -->
+
+      <!-- #Search button -->
+      <div class="tooltip tooltip-bottom" data-tip="Search">
+        <button
+          class="btn btn-ghost btn-secondary"
+          onclick="searchModal.showModal()"
+        >
+          <span class="icon-[prime--search] text-2xl"></span>
+        </button>
+      </div>
+      <!-- .#Search button -->
+
+      {{ language_selector() }}
+
+      {{ mode_switcher() }}
+
+      <!-- #Header menu (mobile) -->
+      <details class="dropdown dropdown-left lg:hidden">
+        <summary class="btn btn-secondary aspect-square" aria-label="Menu">
+          <span class="icon-[prime--bars]"></span>
+          <span class="sr-only">Menu</span>
+        </summary>
+        <!-- `[&_li>a.btn]:justify-start` - If a content of <li> is the button, it should be aligned to the start (left) -->
+        <ul
+          class="menu dropdown-content bg-base-100 rounded-box dark:border-base-200 z-1 w-52 p-2 shadow-sm dark:border [&_li>a.btn]:justify-start"
+        >
+          {{ header_menu() }}
+        </ul>
+      </details>
+      <!-- .#Header menu (mobile) -->
+    </div>
+  </div>
+</header>

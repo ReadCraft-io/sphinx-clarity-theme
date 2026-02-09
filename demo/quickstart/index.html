@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="generator"
-  content="Sphinx 8.2.3, Clarity Theme for Sphinx 0.1.0 (https://readcraft.io/sphinx-clarity-theme/)"
+  content="Sphinx 8.2.3, Clarity Theme for Sphinx 1.0.0 (https://readcraft.io/sphinx-clarity-theme/)"
 />
   <link rel="canonical" href="https://documatt.com/sphinx-themes/clarity/quickstart/" />
 
@@ -25,7 +25,7 @@
 
 <script src="../_static/scripts/dark-mode.js"></script>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/output.css?v=830f864c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/output.css?v=71cc70a9" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=a5519fdd" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -178,17 +178,19 @@
     <!-- .Left side -->
     <!-- Right side -->
     <div>
-      <button
-        class="btn btn-secondary btn-sm text-secondary-content/80 font-normal"
-      >
-        <label
-          for="secondary-drawer"
-          class="flex cursor-pointer items-center gap-1"
+      
+        <button
+          class="btn btn-secondary btn-sm text-secondary-content/80 font-normal"
         >
-          This page
-          <span class="icon-[prime--align-right] text-xl"></span>
-        </label>
-      </button>
+          <label
+            for="secondary-drawer"
+            class="flex cursor-pointer items-center gap-1"
+          >
+            This page
+            <span class="icon-[prime--align-right] text-xl"></span>
+          </label>
+        </button>
+      
     </div>
     <!-- .Right side -->
   </div>
@@ -226,26 +228,20 @@
 <p>This guide walks you through installing and enabling Clarity Theme for Sphinx so you can start building fast, attractive documentation with the <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> static site generator.</p>
 <section id="obtaining-the-theme">
 <h2>Obtaining the theme<a class="headerlink" href="#obtaining-the-theme" title="Link to this heading">#</a></h2>
-<p>The theme is distributed as a Python wheel file (<code class="docutils literal notranslate"><span class="pre">.whl</span></code>), the standard binary distribution format for Python packages. A wheel file is named like <code class="docutils literal notranslate"><span class="pre">sphinx_&lt;name&gt;_theme-&lt;version&gt;-py-none-any.whl</span></code> and contains the theme’s HTML, CSS, JavaScript, and Python code.</p>
-<p>Payments and wheel file delivery are handled by Lemon Squeezy, a third‑party provider.</p>
-<ol class="arabic simple">
-<li><p>After successful payment, you will be redirected to an order page with a URL like <code class="docutils literal notranslate"><span class="pre">https://app.lemonsqueezy.com/my-orders/&lt;order-id&gt;</span></code>.</p></li>
-<li><p>Download the wheel file from the order page to your computer.
-<a class="reference internal" href="../_images/lemonsqueezy-download.png"><img alt="Lemon Squeezy download" src="../_images/lemonsqueezy-download.png" style="width: 50%;" /></a></p></li>
-</ol>
+<p>The theme is dual-licensed under the free MIT or Commercial License. For commercial use, the Commercial License is recommended. It offers bonus assets, no attribution requirements, and priority support.</p>
+<p>Consider purchasing a license at <a class="reference external" href="https://readcraft.io/sphinx-clarity-theme">https://readcraft.io/sphinx-clarity-theme</a> to fund the development 🙏</p>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
-<p>Install the theme wheel file using your preferred Python package manager - we will describe pip and uv. Theme files and dependencies are placed where Sphinx can automatically find them.</p>
+<p>Install the theme file using your preferred Python package manager - we will describe pip and uv. Theme files and dependencies are placed where Sphinx can automatically find them.</p>
 <ol class="arabic">
-<li><p>Copy a wheel file to <code class="docutils literal notranslate"><span class="pre">vendors/</span></code> folder in your Sphinx project folder (a folder with <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>). The wheel folder name is only recommendation.</p></li>
-<li><p>Add the wheel as a dependency to virtual environment or Python project where do you manage Sphinx itself.</p>
+<li><p>Add the theme package as a dependency to virtual environment or Python project where do you manage Sphinx itself.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="tab" data-sync-id="pip" for="sd-tab-item-0">
 Using pip</label><div class="sd-tab-content docutils">
 <p>For <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>, the most common package installer:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>vendors/sphinx_clarity_theme-&lt;version&gt;-py3-none-any.whl
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx_clarity_theme
 </pre></div>
 </div>
 </div>
@@ -253,30 +249,12 @@ Using pip</label><div class="sd-tab-content docutils">
 <label class="sd-tab-label" data-sync-group="tab" data-sync-id="uv" for="sd-tab-item-1">
 Using uv</label><div class="sd-tab-content docutils">
 <p>For <a class="reference external" href="https://docs.astral.sh/uv/">uv</a>, a fast Python package manager:</p>
-<p><strong>Option 1: Add to existing project</strong> (modifies <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> dependencies):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>vendors/sphinx_clarity_theme-&lt;version&gt;-py3-none-any.whl
+<p><strong>Option 1: Add to existing project</strong> (if you have <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, it adds it as dependency to it):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>sphinx_clarity_theme
 </pre></div>
 </div>
-<p><strong>Option 2: Install without adding to project</strong>:</p>
+<p><strong>Option 2: Install to active environment</strong> (doesn’t modify or require <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>vendors/sphinx_clarity_theme-&lt;version&gt;-py3-none-any.whl
-</pre></div>
-</div>
-</div>
-</div>
-</li>
-<li><p>Verify installation. Check that the theme was installed successfully. You should see version information and the installation location.</p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" data-sync-group="tab" data-sync-id="pip" for="sd-tab-item-2">
-Using pip</label><div class="sd-tab-content docutils">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>show<span class="w"> </span>sphinx-clarity-theme
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" data-sync-group="tab" data-sync-id="uv" for="sd-tab-item-3">
-Using uv</label><div class="sd-tab-content docutils">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>sphinx-clarity-theme
 </pre></div>
 </div>
 </div>
@@ -366,7 +344,7 @@ Using uv</label><div class="sd-tab-content docutils">
 
                 <!-- #Primary drawer (desktop) -->
                 <nav
-                  class="lg:sticky lg:top-[calc(var(--header-height)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-calc(var(--header-padding)*2))] lg:overflow-y-auto lg:scrollbar-hide lg:hover:scrollbar-default hidden lg:order-1 lg:block lg:w-2/12 lg:flex-none"
+                  class="lg:sticky lg:top-[calc(var(--header-height)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-calc(var(--header-padding)*2))] lg:overflow-y-auto scrollbar-overlay hidden lg:order-1 lg:block lg:w-2/12 lg:flex-none"
                 >
                   
 
@@ -393,7 +371,7 @@ Using uv</label><div class="sd-tab-content docutils">
 
                 <!-- #Secondary drawer (desktop) -->
                 <aside
-                  class="lg:sticky lg:top-[calc(var(--header-height)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-calc(var(--header-padding)*2))] lg:overflow-y-auto lg:scrollbar-hide lg:hover:scrollbar-default hidden lg:order-3 lg:block lg:w-2/12 lg:flex-none"
+                  class="lg:sticky lg:top-[calc(var(--header-height)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-calc(var(--header-padding)*2))] lg:overflow-y-auto scrollbar-overlay hidden lg:order-3 lg:block lg:w-2/12 lg:flex-none"
                 >
                   
 

@@ -1,0 +1,41 @@
+{# Mobile sidebar toggle buttons #}
+<!-- #Sidebar toggles (mobile) -->
+<nav class="p-4 lg:hidden">
+  <div class="container mx-auto flex items-center justify-between text-sm">
+    <!-- Left side -->
+    <div>
+      {% if get_layout() == "default" %}
+        <button
+          class="btn btn-secondary btn-sm text-secondary-content/80 font-normal"
+        >
+          <label
+            for="primary-drawer"
+            class="flex cursor-pointer items-center gap-1"
+          >
+            <span class="icon-[prime--align-left] text-xl"></span>
+            Table of Contents
+          </label>
+        </button>
+      {% endif %}
+    </div>
+    <!-- .Left side -->
+    <!-- Right side -->
+    <div>
+      {% if display_toc %}
+        <button
+          class="btn btn-secondary btn-sm text-secondary-content/80 font-normal"
+        >
+          <label
+            for="secondary-drawer"
+            class="flex cursor-pointer items-center gap-1"
+          >
+            This page
+            <span class="icon-[prime--align-right] text-xl"></span>
+          </label>
+        </button>
+      {% endif %}
+    </div>
+    <!-- .Right side -->
+  </div>
+</nav>
+<!-- .#Sidebar toggles (mobile) -->

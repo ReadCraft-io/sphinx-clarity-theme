@@ -1,0 +1,30 @@
+{# Search modal dialog #}
+<!-- #Search dialog -->
+<dialog id="searchModal" class="modal">
+  <div class="modal-box absolute top-8 lg:top-16">
+    <search>
+      <form action="{{ pathto('search') }}" method="get">
+        <label class="input input-xl w-full">
+          <span class="icon-[prime--search] text-4xl"></span>
+          <input
+            type="search"
+            class="grow"
+            placeholder="Search the docs"
+            name="q"
+            placeholder="{{ _('Search the documentation') }}"
+            aria-label="{{ _('Search the documentation') }}"
+          />
+          <kbd class="kbd kbd-lg p-4">Enter</kbd>
+        </label>
+      </form>
+    </search>
+    <p class="mt-4 text-sm">
+      Press <kbd class="kbd">Enter</kbd> to search. Press
+      <kbd class="kbd">Esc</kbd> or click outside to close.
+    </p>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+<!-- .#Search dialog -->

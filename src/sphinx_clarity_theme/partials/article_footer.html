@@ -1,0 +1,17 @@
+{# Article footer with links to GitHub/Discord #}
+<!-- #Article footer -->
+<footer
+  class="article-footer border-base-200 text-secondary-content/80 my-4 border-t pt-8 text-sm"
+>
+  <div class="flex flex-col justify-between gap-4 lg:flex-row">
+    <div class="article-footer__left">
+      {% block article_footer_left %}
+      {% endblock %}
+    </div>
+    <div class="article-footer__right">
+      {% block article_footer_right %}
+      {% endblock %}
+    </div>
+  </div>
+</footer>
+<!-- .#Article footer -->

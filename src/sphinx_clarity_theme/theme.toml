@@ -1,0 +1,27 @@
+[theme]
+inherit = "sphinx_null_theme"
+# relative to static/
+stylesheets = [
+  "styles/output.css", # build by Tailwind CSS
+]
+# Code highlithing styles for light (default) and dark variant
+# Style names from https://pygments.org/styles/
+pygments_style = { default = "emacs", dark = "dracula" }
+
+# Options configurable via html_theme_options in conf.py.
+[options]
+# *** will be in null ***
+default_layout = "default"
+
+header_menu = []
+
+logo_url = ""
+# TOML does not have a null type. Use an empty string for optional string values.
+logo_dark = ""
+logo_dark_invert = false
+
+language_select = {}
+language_url = ""
+
+
+# *** theme specific options ***

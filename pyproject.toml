@@ -1,0 +1,34 @@
+[project]
+name = "sphinx_clarity_theme"
+dynamic = ["version", "description"]
+readme = "README.md"
+dependencies = ["sphinx-null-theme>=1.0.0", "beautifulsoup4>=4.13.3"]
+requires-python = ">=3.11"
+classifiers = [
+  "Framework :: Sphinx",
+  "Framework :: Sphinx :: Theme",
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Web Environment",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Topic :: Documentation",
+  "Topic :: Software Development :: Documentation",
+]
+authors = [{ name = "Documatt.com, s.r.o." }]
+license = { text = "MIT OR LicenseRef-Commercial" }
+
+[project.urls]
+Home = "https://readcraft.io/sphinx-clarity-theme/"
+Repository = "https://github.com/ReadCraft-io/sphinx-clarity-theme"
+License = "https://readcraft.io/license"
+
+# Register the theme into Sphinx
+[project.entry-points."sphinx.html_themes"]
+sphinx_clarity_theme = "sphinx_clarity_theme"
+
+[tool.uv.sources]
+sphinx-null-theme = { path = "../null", editable = true }
+
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"

@@ -1,0 +1,26 @@
+{# we can't use |default because TOML doesn't have null values, only blank strings #}
+<a href="{{ theme_logo_url if theme_logo_url != '' else pathto(root_doc) }}">
+  {# No reuse possible, like macro or set, because otherwise Tailwind doesn't detect the class names. #}
+  {% if logo_url and theme_logo_dark %}
+    <img src="{{ logo_url }}" class="h-6 dark:hidden" alt="{{ logo_alt|e }}" />
+    <img
+      src="{{ pathto(theme_logo_dark, 1) }}"
+      class="hidden h-6 dark:block"
+      alt="{{ logo_alt|e }}"
+    />
+  {% elif logo_url and theme_logo_dark_invert %}
+    <img src="{{ logo_url }}" class="h-6 dark:hidden" alt="{{ logo_alt|e }}" />
+    <img
+      src="{{ logo_url }}"
+      class="hidden h-6 dark:block dark:invert"
+      alt="{{ logo_alt|e }}"
+    />
+  {% elif logo_url %}
+    <img src="{{ logo_url }}" class="h-6" alt="{{ logo_alt|e }}" />
+  {% else %}
+    <span class="text-primary-content text-xl font-bold">
+      {# Corresponds to html_title #}
+      {{ docstitle|e }}
+    </span>
+  {% endif %}
+</a>

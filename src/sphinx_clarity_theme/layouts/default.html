@@ -1,0 +1,106 @@
+{% from "partials/macros.html" import drawer_sticky_and_scrollable with context %}
+{% extends "base.html" %}
+
+{% block body_tag_content %}
+  <!-- ============================================================== -->
+  <!-- Primary drawer before markup -->
+  <!-- ============================================================== -->
+  <div class="drawer">
+    <input id="primary-drawer" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content">
+      <!-- ========================================================== -->
+      <!-- Secondary drawer before markup -->
+      <!-- ========================================================== -->
+      <div class="drawer drawer-end">
+        <input id="secondary-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content">
+          <!-- ====================================================== -->
+          <!-- Page content -->
+          <!-- ====================================================== -->
+          <div class="bg-base-100 divide-base-200 divide-y">
+            {% include "partials/header.html" %}
+            {% include "partials/sidebar_toggles.html" %}
+
+            <main class="p-4 lg:pt-[var(--header-padding)]">
+              <div class="container mx-auto lg:flex lg:items-start">
+                <article class="lg:order-2 lg:w-8/12 lg:flex-none lg:px-12">
+                  {% include "partials/breadcrumb.html" %}
+
+                  {# role="main" required by built-in JavaScript search to show a page preview on the result page #}
+                  <main role="main">{% block body %}{% endblock %}</main>
+
+                  {% include "partials/article_nav.html" %}
+                  {% include "partials/article_footer.html" %}
+                </article>
+
+                <!-- #Primary drawer (desktop) -->
+                <nav
+                  class="{{ drawer_sticky_and_scrollable }} hidden lg:order-1 lg:block lg:w-2/12 lg:flex-none"
+                >
+                  {% include "sidebars/gtoc.html" %}
+                </nav>
+                <!-- .#Primary drawer (desktop) -->
+
+                <!-- #Secondary drawer (desktop) -->
+                <aside
+                  class="{{ drawer_sticky_and_scrollable }} hidden lg:order-3 lg:block lg:w-2/12 lg:flex-none"
+                >
+                  {% include "sidebars/ltoc.html" %}
+                </aside>
+                <!-- .#Secondary drawer (desktop) -->
+              </div>
+            </main>
+
+            {% include "partials/footer.html" %}
+          </div>
+
+          {% include "partials/scroll_to_top.html" %}
+          {% include "partials/search_dialog.html" %}
+
+          <!-- ====================================================== -->
+          <!-- .Page content -->
+          <!-- ====================================================== -->
+
+          <!-- ====================================================== -->
+          <!-- Secondary drawer after markup -->
+          <!-- ====================================================== -->
+        </div>
+        <div class="drawer-side">
+          <label
+            for="secondary-drawer"
+            class="drawer-overlay"
+            aria-label="Close secondary sidebar"
+          ></label>
+          <div
+            class="bg-base-100 text-base-content mt-[var(--header-height)] min-h-full w-80 overflow-y-auto p-4"
+          >
+            <!-- ==================================================== -->
+            <!-- Secondary drawer (mobile) content -->
+            <!-- ==================================================== -->
+            <div class="text-xs">{% include "sidebars/ltoc.html" %}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================== -->
+      <!-- Primary drawer after markup -->
+      <!-- ========================================================== -->
+    </div>
+
+    <div class="drawer-side">
+      <label
+        for="primary-drawer"
+        aria-label="Close primary sidebar"
+        class="drawer-overlay"
+      ></label>
+      <div
+        class="bg-base-100 text-base-content mt-[var(--header-height)] min-h-full w-80 overflow-y-auto p-4"
+      >
+        <!-- ===================================================== -->
+        <!-- Primary drawer (mobile) content -->
+        <!-- ===================================================== -->
+        <div class="text-xs">{% include "sidebars/gtoc.html" %}</div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

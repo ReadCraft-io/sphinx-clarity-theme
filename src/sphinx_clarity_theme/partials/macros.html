@@ -1,0 +1,79 @@
+{# Reusable macros for the theme #}
+
+{# Language selector component #}
+{% macro language_selector() %}
+  {# {} is the default value. #}
+  {% if theme_language_select and theme_language_select != {} %}
+    {% if theme_language_url == "" %}
+      {{ warning('html_theme_options.language_url is not set. Please set it to enable language switcher.') }}
+    {% endif %}
+    <!-- #Language select -->
+    <div class="tooltip tooltip-bottom" data-tip="Language">
+      <details class="dropdown dropdown-left">
+        <summary class="btn btn-secondary btn-ghost">
+          <span class="icon-[prime--language] text-2xl"></span>
+        </summary>
+        <ul
+          class="menu dropdown-content bg-base-100 rounded-box dark:border-base-200 z-1 w-32 p-2 shadow-sm dark:border"
+        >
+          {% for code, label in theme_language_select.items() %}
+            {#
+            `pathto('/' + pagename)` - pathto() needs absolute path, but pagename returns string without "/"
+
+            But `pathto('/' + pagename)` produces double slashes in the URL (e.g. //index.html). So we need to strip leading slash with `lstrip('/')`.
+            #}
+            {% set pagename_url = pathto('/' + pagename).lstrip('/') %}
+            {%
+              set language_url = theme_language_url
+              .replace("{language}", code)
+              .replace("{page}", pagename_url)
+            %}
+            <li>
+              <a href="{{ language_url }}">{{ label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </details>
+    </div>
+    <!-- .#Language select -->
+  {% endif %}
+{% endmacro %}
+
+{# Theme mode switcher (light/dark) #}
+{% macro mode_switcher() %}
+  <!-- #Mode select -->
+  <div class="tooltip tooltip-bottom" data-tip="Light/dark mode">
+    <button class="btn btn-ghost btn-secondary">
+      <label class="swap swap-rotate">
+        <!-- this hidden checkbox controls the state -->
+        <input type="checkbox" onclick="toggleMode()" />
+        <!-- light mode icon -->
+        <span class="icon-[prime--sun] swap-on text-2xl"></span>
+        <!-- dark mode icon -->
+        <span class="icon-[prime--moon] swap-off text-2xl"></span>
+      </label>
+    </button>
+  </div>
+  <!-- .#Mode select -->
+{% endmacro %}
+
+{# Primary drawer content (global TOC) #}
+{% macro gtoc() %}
+  <div class="global-toc">
+    {{ toctree(collapse=true, maxdepth="", titles_only=true, includehidden=true) }}
+  </div>
+{% endmacro %}
+
+{# Secondary drawer content (local TOC) #}
+{% macro ltoc() %}
+  {% if display_toc %}
+    <div class="local-toc">
+      <p class="local-toc__caption mt-0 mb-4 font-semibold uppercase">
+        On this page
+      </p>
+      {{ toc }}
+    </div>
+  {% endif %}
+{% endmacro %}
+
+{% set drawer_sticky_and_scrollable = "lg:sticky lg:top-[calc(var(--header-height)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-calc(var(--header-padding)*2))] lg:overflow-y-auto scrollbar-overlay" %}

@@ -2,13 +2,14 @@
 
 Clarity is a modern, fast, and accessible Sphinx theme focused on clean reading experience, excellent typography, and zero-configuration performance. It ships sensible defaults yet stays highly customizable through Tailwind CSS variables and flexible page layouts. Use it for narrative guides, API references, or mixed documentation sites that need to look polished out of the box.
 
-<img src="../../www/public/sphinx-clarity-theme/screenshot1.png">
+<img src="../../www/public/sphinx-clarity-theme/preview/screenshot1.png">
 
 :::{admonition} Made by ReadCraft
 
-This theme is developed and maintained by ReadCraft.io. Explore our portfolio of premium Sphinx themes—designed for readability, performance, and effortless customization—to find the perfect match for your documentation.
+This theme is developed and maintained by ReadCraft.io (https://readcraft.io).
 
-See the full collection and get support at [ReadCraft.io](https://readcraft.io) or {{ theme_url }}.
+- Explore our portfolio of premium Sphinx themes—designed for readability, performance, and effortless customization. See the full collection and get support at [ReadCraft.io](https://readcraft.io).
+- Dual-licensed under the MIT or Commercial License. For commercial use, the Commercial License is recommended. It offers bonus assets, no attribution requirements, and priority support.
 :::
 
 ## Features

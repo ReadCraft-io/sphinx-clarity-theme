@@ -1,0 +1,15 @@
+{% extends "!partials/article_footer.html" %}
+
+{% block article_footer_left %}
+  Do you have a question? Ask on
+  <a href="#" class="hover:text-accent-content underline">Discord</a>
+{% endblock %}
+
+{% block article_footer_right %}
+  Edit this page on
+  <a
+    href="https://github.com/your-repo/{{ pagename }}.md?edit"
+    class="hover:text-accent-content underline"
+    >GitHub</a
+  >
+{% endblock %}

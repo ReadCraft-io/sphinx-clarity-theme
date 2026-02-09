@@ -1,0 +1,29 @@
+<!doctype html>
+<html
+  {% if language is not none %}lang="{{ language }}"{% endif %}
+  data-content_root="{{ content_root }}"
+  class="scroll-smooth [--header-height:calc(var(--spacing)*18)] [--header-padding:calc(var(--spacing)*12)]"
+  id="top"
+  {%- block html_tag_attrs %}
+  {% endblock %}
+>
+  <head>
+    {% include "partials/head.html" %}
+
+    {% block head_tag_end %}
+    {% endblock %}
+  </head>
+
+  <body {% block body_tag_attrs %}{% endblock %}>
+    {%- block body_tag_start %}
+    {% endblock -%}
+
+    {% block body_tag_content %}
+    {% endblock %}
+
+    {# the rest #}
+    {% include "partials/scripts_body_end.html" %}
+    {%- block body_tag_end %}
+    {% endblock -%}
+  </body>
+</html>

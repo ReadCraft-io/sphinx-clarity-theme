@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap");
+
+h2 {
+  background-color: light-dark(#a470d9, #edadb7);
+}
+
+:root {
+  --font-sans: "Bitter", sans-serif;
+  --article-heading--font: "Oswald", sans-serif;
+  --article-heading--scale: 1.414;
+}
