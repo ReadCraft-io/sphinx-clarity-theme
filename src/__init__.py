@@ -1,6 +1,6 @@
 """A clean and professional documentation theme for Sphinx. Modern design with light/dark mode, responsive layout, and beautiful typography."""
 
-__version__ = "1.0.1post3"
+__version__ = "1.0.2"
 
 from pathlib import Path
 from typing import Any

@@ -41,7 +41,7 @@ Install the theme file using your preferred Python package manager - we will des
    **Option 2: Install to active environment** (doesn't modify or require `pyproject.toml`):
    
    ```bash
-   uv pip install vendors/sphinx_clarity_theme-<version>-py3-none-any.whl
+   uv pip install sphinx_clarity_theme
    ```
 
    :::

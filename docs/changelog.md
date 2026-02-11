@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 % - changed:
 % - removed:
 
+## [1.0.2] - 2026-02-10
+
+- fixed: missing static/styles/output.css in whl/sdist
+
 ## [1.0.1post3] - 2026-02-09
 
 - changed: dual-license either under MIT or Commerical License
