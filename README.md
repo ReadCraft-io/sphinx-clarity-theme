@@ -9,7 +9,7 @@
 [![Sphinx](https://img.shields.io/badge/Sphinx%20doc-%23346CB0?logo=sphinx&logoColor=white)](https://www.sphinx-doc.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-%2338B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![PyPI version](https://img.shields.io/pypi/v/sphinx-clarity-theme)](https://pypi.org/project/sphinx-clarity-theme/)
-[![Python versions](https://img.shields.io/pypi/pyversions/sphinx-clarity-theme)](https://pypi.org/project/sphinx-clarity-theme/)
+[![Python versions](https://img.shields.io/badge/dynamic/json?url=https://pypi.org/pypi/sphinx-clarity-theme/json&query=%24.info.requires_python&label=Python&color=3776AB&logo=python&logoColor=white)](https://pypi.org/project/sphinx-clarity-theme/)
 
 **A clean and professional documentation theme for Sphinx. Modern design with light/dark mode, responsive layout, and beautiful typography.**
 
