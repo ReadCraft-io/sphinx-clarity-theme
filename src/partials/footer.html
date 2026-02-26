@@ -5,7 +5,8 @@
   >
     <div>
       {%- if show_copyright and copyright %}
-        Copyright &copy; {{ copyright }}
+        Copyright &copy;
+        {{ copyright }}{%- if not copyright.endswith('.') %}.{%- endif %}
       {%- endif %}
       <br class="lg:hidden" />
       Made with

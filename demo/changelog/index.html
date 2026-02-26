@@ -14,9 +14,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="generator"
-  content="Sphinx 8.2.3, Clarity Theme for Sphinx 1.0.2 (https://readcraft.io/sphinx-clarity-theme/)"
+  content="Sphinx 8.2.3, Clarity Theme for Sphinx 1.0.3 (https://readcraft.io/sphinx-clarity-theme/)"
 />
-  <link rel="canonical" href="https://documatt.com/sphinx-themes/clarity/changelog/" />
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,7 +24,7 @@
 
 <script src="../_static/scripts/dark-mode.js"></script>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/output.css?v=bbb64fb4" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/output.css?v=9fa5ca33" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=a5519fdd" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -75,7 +74,7 @@
 <!-- Header -->
 <header id="main-header" class="bg-base-100 sticky top-0 z-50">
   <div
-    class="container mx-auto flex h-[var(--header-height)] items-center px-4 md:px-0"
+    class="container mx-auto flex h-[var(--header-height)] items-center px-4 xl:px-0"
   >
     <!-- Left side (logo) -->
     <div class="flex-1">
@@ -98,7 +97,7 @@
         <!-- `[&_li]:self-center` - If a content of <li> is the button, the "self-center" required to properly vertically align it -->
         <!-- `[&_li>a]:px-2 [&_li>a]:py-3` - Tweaks default menu ugly padding that doesn't match to buttons padding -->
         <ul
-          class="menu menu-horizontal text-secondary-content gap-2 [&_li]:self-center [&_li>a]:px-2 [&_li>a]:py-3"
+          class="menu menu-horizontal gap-2 text-[var(--btn-fg)] [&_li]:self-center [&_li>a]:px-2 [&_li>a]:py-3"
         >
           
         </ul>
@@ -139,18 +138,7 @@
 
 
       <!-- #Header menu (mobile) -->
-      <details class="dropdown dropdown-left lg:hidden">
-        <summary class="btn btn-secondary aspect-square" aria-label="Menu">
-          <span class="icon-[prime--bars]"></span>
-          <span class="sr-only">Menu</span>
-        </summary>
-        <!-- `[&_li>a.btn]:justify-start` - If a content of <li> is the button, it should be aligned to the start (left) -->
-        <ul
-          class="menu dropdown-content bg-base-100 rounded-box dark:border-base-200 z-1 w-52 p-2 shadow-sm dark:border [&_li>a.btn]:justify-start"
-        >
-          
-        </ul>
-      </details>
+      
       <!-- .#Header menu (mobile) -->
     </div>
   </div>
@@ -225,11 +213,31 @@
                   <main role="main">
   <section id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">#</a></h1>
-<p>All notable changes to for Clarity Theme for Sphinx will be documented in this file.</p>
+<p>All notable changes to the project will be documented in this file.</p>
 <p>The format is based on <a class="reference external" href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>,
 and this project adheres to <a class="reference external" href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<!-- 
+% ## [x.y.z] - MMMM-MM-DD
+%
+% - added:
+% - fixed:
+% - changed:
+% - removed:
+-->
 <section id="id1">
-<h2>[1.0.2] - 2026-02-10<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2>[1.0.3] - 2026-02-26<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>fixed: sidebar overflows over horizontal rule</p></li>
+<li><p>added: add basic styles for API signatures</p></li>
+<li><p>fixed: header menu isn’t of the same color as builtin buttons, if displayed “as”: “button”</p></li>
+<li><p>fixed: header menu on mobile is shown even when empty</p></li>
+<li><p>fixed: missing header padding on tablet</p></li>
+<li><p>fixed: next/prev are not on right/left on first/last page</p></li>
+<li><p>fixed: missing “.” in footer between author and “Made with…”</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>[1.0.2] - 2026-02-10<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>fixed: missing static/styles/output.css in whl/sdist</p></li>
 </ul>
@@ -242,15 +250,15 @@ and this project adheres to <a class="reference external" href="https://semver.o
 <li><p>changed: lower Python dependency to 3.11 (instead of 3.13)</p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>[0.1.1] - 2026-02-02<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h2>[0.1.1] - 2026-02-02<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>fix: Hide right sidebar button on mobile is not hidden if page has no subheadings.</p></li>
 <li><p>refactor: Replace Null’s <code class="docutils literal notranslate"><span class="pre">display_local_toc</span></code> with Sphinx builtin <code class="docutils literal notranslate"><span class="pre">display_toc</span></code> Jinja context function to detect whether show a local ToC.</p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>[0.1.0] - 2026-01-23<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h2>[0.1.0] - 2026-01-23<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>Initial release.</p>
 </section>
 </section>
@@ -259,25 +267,25 @@ and this project adheres to <a class="reference external" href="https://semver.o
 
                   
 <!-- #Article navigation -->
-<nav class="my-8">
-  <ul
-    class="text-secondary-content flex justify-between gap-4"
-  >
-    
-      <li class="flex flex-col gap-1">
+<nav class="clear-both py-8">
+  <ul class="text-secondary-content flex justify-between gap-4">
+    <li class="flex flex-col gap-1">
+      
         <span class="flex items-center text-xs font-light">
           <span class="icon-[prime--angle-left]"></span>
           Previous
         </span>
         <a
-          class="hover:text-accent-content text-sm underline"
+          class="hover:text-accent-content pl-1 text-sm underline"
           href="../issues/"
           title="Previous article"
           >Common issues</a
         >
-      </li>
-    
-    
+      
+    </li>
+    <li class="flex flex-col gap-1 lg:items-end">
+      
+    </li>
   </ul>
 </nav>
 <!-- .#Article navigation -->
@@ -341,10 +349,11 @@ and this project adheres to <a class="reference external" href="https://semver.o
       </p>
       <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#id1">[1.0.2] - 2026-02-10</a></li>
+<li><a class="reference internal" href="#id1">[1.0.3] - 2026-02-26</a></li>
+<li><a class="reference internal" href="#id2">[1.0.2] - 2026-02-10</a></li>
 <li><a class="reference internal" href="#post3-2026-02-09">[1.0.1post3] - 2026-02-09</a></li>
-<li><a class="reference internal" href="#id2">[0.1.1] - 2026-02-02</a></li>
-<li><a class="reference internal" href="#id3">[0.1.0] - 2026-01-23</a></li>
+<li><a class="reference internal" href="#id3">[0.1.1] - 2026-02-02</a></li>
+<li><a class="reference internal" href="#id4">[0.1.0] - 2026-01-23</a></li>
 </ul>
 </li>
 </ul>
@@ -363,7 +372,8 @@ and this project adheres to <a class="reference external" href="https://semver.o
     class="text-secondary-content container mx-auto flex h-8 items-center justify-center text-center text-sm"
   >
     <div>
-        Copyright &copy; 2026, ReadCraft.io
+        Copyright &copy;
+        2026, ReadCraft.io.
       <br class="lg:hidden" />
       Made with
       <a
@@ -456,10 +466,11 @@ and this project adheres to <a class="reference external" href="https://semver.o
       </p>
       <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#id1">[1.0.2] - 2026-02-10</a></li>
+<li><a class="reference internal" href="#id1">[1.0.3] - 2026-02-26</a></li>
+<li><a class="reference internal" href="#id2">[1.0.2] - 2026-02-10</a></li>
 <li><a class="reference internal" href="#post3-2026-02-09">[1.0.1post3] - 2026-02-09</a></li>
-<li><a class="reference internal" href="#id2">[0.1.1] - 2026-02-02</a></li>
-<li><a class="reference internal" href="#id3">[0.1.0] - 2026-01-23</a></li>
+<li><a class="reference internal" href="#id3">[0.1.1] - 2026-02-02</a></li>
+<li><a class="reference internal" href="#id4">[0.1.0] - 2026-01-23</a></li>
 </ul>
 </li>
 </ul>

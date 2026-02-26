@@ -382,7 +382,7 @@ article main {
   /* === API docs ====================================================== */
   /* Markup is dl/dd, so a little bit styling is needed */
   dt.sig {
-    @apply article-code-common my-4 p-2 text-[var(--article-mono--color)]!;
+    @apply article-code-common my-4 p-2 font-normal! text-[var(--article-mono--color)]!;
 
     .viewcode-link {
       @apply float-right text-sm font-normal underline;
@@ -391,6 +391,16 @@ article main {
 
   dl dl {
     @apply mx-4;
+  }
+
+  /* Object main name */
+  .sig-name {
+    @apply font-semibold;
+  }
+
+  /* Parentheses */
+  .sig-paren {
+    @apply text-current/60;
   }
 
   /* === Horizontal rules ============================================== */

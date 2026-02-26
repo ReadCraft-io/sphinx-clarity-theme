@@ -55,8 +55,6 @@ html_theme_options = {
     #     },
     # ],
 }
-html_baseurl = "https://documatt.com/sphinx-themes/clarity/"
-
 html_static_path = ["_static"]
 
 highlight_language = "none"

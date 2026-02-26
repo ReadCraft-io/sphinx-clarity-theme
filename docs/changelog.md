@@ -1,16 +1,28 @@
 # Changelog
 
-All notable changes to for {{ project }} will be documented in this file.
+All notable changes to the project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<!-- 
 % ## [x.y.z] - MMMM-MM-DD
 %
 % - added:
 % - fixed:
 % - changed:
 % - removed:
+-->
+
+## [1.0.3] - 2026-02-26
+
+- fixed: sidebar overflows over horizontal rule
+- added: add basic styles for API signatures
+- fixed: header menu isn't of the same color as builtin buttons, if displayed "as": "button"
+- fixed: header menu on mobile is shown even when empty
+- fixed: missing header padding on tablet
+- fixed: next/prev are not on right/left on first/last page
+- fixed: missing "." in footer between author and "Made with..."
 
 ## [1.0.2] - 2026-02-10
 
