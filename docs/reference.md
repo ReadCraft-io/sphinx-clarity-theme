@@ -14,6 +14,9 @@ Technical reference for {{ project }}: theme options, template blocks, and CSS v
 - - `default_layout`
   - `"default"`
   - Page layout used when no per‑page override (`"default"` or `"compact"`).
+- - `header_title`
+  - `""`
+  - Header title (next to the header logo). By default (blank string), it shows value of `html_title`. To hide header title, set to `False`.
 - - `logo_dark`
   - `""`
   - Path/URL to dark mode logo variant.

@@ -22,7 +22,7 @@ templates_path = ["_templates"]
 
 html_theme = "sphinx_clarity_theme"
 
-html_logo = "_static/logo.svg"
+html_logo = "_static/favicon.svg"
 html_favicon = "_static/favicon.svg"
 
 

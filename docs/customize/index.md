@@ -8,7 +8,7 @@ Basic visual assets (logo, favicon, etc.) use standard Sphinx `conf.py` settings
 :hidden:
 
 layouts
-header-logo
+header-branding
 header-menu
 language-selection
 dark-mode

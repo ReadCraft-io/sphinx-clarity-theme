@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="generator"
-  content="Sphinx 8.2.3, Clarity Theme for Sphinx 1.0.3 (https://readcraft.io/sphinx-clarity-theme/)"
+  content="Sphinx 8.2.3, Clarity Theme for Sphinx 1.1.0 (https://readcraft.io/sphinx-clarity-theme/)"
 />
 
 
@@ -76,17 +76,37 @@
   <div
     class="container mx-auto flex h-[var(--header-height)] items-center px-4 xl:px-0"
   >
-    <!-- Left side (logo) -->
+    <!-- Left side (header branding) -->
     <div class="flex-1">
-<a href="https://readcraft.io">
+<a
+  href="https://readcraft.io"
+  class="header-branding flex items-center gap-4"
+>
   
   
-    <img src="../_static/logo.svg" class="h-6 dark:hidden" alt="Logo of Clarity Theme for Sphinx" />
+    
+    
+    
     <img
-      src="../_static/logo-dark.svg"
-      class="hidden h-6 dark:block"
+      src="../_static/favicon.svg"
+      class="header-branding__logo h-8 dark:hidden"
       alt="Logo of Clarity Theme for Sphinx"
     />
+    <img
+      src="../_static/logo-dark.svg"
+      class="header-branding__logo h-8  hidden dark:block"
+      alt="Logo of Clarity Theme for Sphinx"
+    />
+  
+
+  
+    <span
+      class="header-branding__title text-primary-content text-2xl font-semibold"
+    >
+      
+        Clarity Theme for Sphinx
+      
+    </span>
   
 </a></div>
 
@@ -228,27 +248,31 @@
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;default&quot;</span></code></p></td>
 <td><p>Page layout used when no per‑page override (<code class="docutils literal notranslate"><span class="pre">&quot;default&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;compact&quot;</span></code>).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">logo_dark</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">header_title</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td><p>Header title (next to the header logo). By default (blank string), it shows value of <code class="docutils literal notranslate"><span class="pre">html_title</span></code>. To hide header title, set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logo_dark</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
 <td><p>Path/URL to dark mode logo variant.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logo_dark_invert</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">logo_dark_invert</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
 <td><p>Automatically invert light logo for dark mode when true.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">logo_url</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logo_url</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
 <td><p>Override default root link target for logo/text.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header_menu</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">header_menu</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
 <td><p>List of navigation items (<code class="docutils literal notranslate"><span class="pre">label</span></code>, <code class="docutils literal notranslate"><span class="pre">url</span></code>, optional <code class="docutils literal notranslate"><span class="pre">as=&quot;button&quot;</span></code>).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">language_select</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">language_select</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">{}</span></code></p></td>
 <td><p>Mapping of language codes to display names for selector.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">language_url</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">language_url</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
 <td><p>URL pattern with placeholders <code class="docutils literal notranslate"><span class="pre">{language}</span></code> and <code class="docutils literal notranslate"><span class="pre">{page}</span></code>.</p></td>
 </tr>

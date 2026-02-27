@@ -8,13 +8,13 @@
   
 >
   <head>
-    <title>Header logo or title &mdash; Clarity Theme for Sphinx</title>
+    <title>Header logo and title &mdash; Clarity Theme for Sphinx</title>
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="generator"
-  content="Sphinx 8.2.3, Clarity Theme for Sphinx 1.0.3 (https://readcraft.io/sphinx-clarity-theme/)"
+  content="Sphinx 8.2.3, Clarity Theme for Sphinx 1.1.0 (https://readcraft.io/sphinx-clarity-theme/)"
 />
 
 
@@ -76,17 +76,37 @@
   <div
     class="container mx-auto flex h-[var(--header-height)] items-center px-4 xl:px-0"
   >
-    <!-- Left side (logo) -->
+    <!-- Left side (header branding) -->
     <div class="flex-1">
-<a href="https://readcraft.io">
+<a
+  href="https://readcraft.io"
+  class="header-branding flex items-center gap-4"
+>
   
   
-    <img src="../../_static/logo.svg" class="h-6 dark:hidden" alt="Logo of Clarity Theme for Sphinx" />
+    
+    
+    
     <img
-      src="../../_static/logo-dark.svg"
-      class="hidden h-6 dark:block"
+      src="../../_static/favicon.svg"
+      class="header-branding__logo h-8 dark:hidden"
       alt="Logo of Clarity Theme for Sphinx"
     />
+    <img
+      src="../../_static/logo-dark.svg"
+      class="header-branding__logo h-8  hidden dark:block"
+      alt="Logo of Clarity Theme for Sphinx"
+    />
+  
+
+  
+    <span
+      class="header-branding__title text-primary-content text-2xl font-semibold"
+    >
+      
+        Clarity Theme for Sphinx
+      
+    </span>
   
 </a></div>
 
@@ -213,25 +233,26 @@
   <span
     class="icon-[prime--arrow-right] text-secondary-content/50"
   ></span>
-  <span class="text-secondary-content/80">Header logo or title</span>
+  <span class="text-secondary-content/80">Header logo and title</span>
 </nav>
 <!-- .#Breadcrumb -->
 
                   
                   <main role="main">
-  <section id="header-logo-or-title">
-<h1>Header logo or title<a class="headerlink" href="#header-logo-or-title" title="Link to this heading">#</a></h1>
-<p>The header can show either a logo image or text, giving your documentation immediate branding. Swapping variants and tailoring light/dark mode versions is straightforward. The logo region spans roughly half the header width to fit even wide logos or names.</p>
-<p><img alt="" src="../../_images/header-logo-region.webp" /></p>
-<section id="no-logo-text-only">
-<h2>No logo (text only)<a class="headerlink" href="#no-logo-text-only" title="Link to this heading">#</a></h2>
-<p>Instead of an image you can display arbitrary text — commonly a project or organization name.</p>
-<p class="rubric">Set header text instead of logo</p>
+  <section id="header-logo-and-title">
+<h1>Header logo and title<a class="headerlink" href="#header-logo-and-title" title="Link to this heading">#</a></h1>
+<p>The header can show logo image, title text, or both, giving your documentation immediate branding. Swapping variants and tailoring light/dark mode versions is straightforward.</p>
+<p>If set, by default, the both logo and title are shown. The header branding region spans roughly half the header width to fit even wide logos and titles.</p>
+<p><img alt="" src="../../_images/header-branding-region.webp" /></p>
+<section id="header-title">
+<h2>Header title<a class="headerlink" href="#header-title" title="Link to this heading">#</a></h2>
+<section id="the-same-as-page-title">
+<h3>The same as page title<a class="headerlink" href="#the-same-as-page-title" title="Link to this heading">#</a></h3>
+<p>By default, the header title uses Sphinx standard <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_title"><code class="docutils literal notranslate"><span class="pre">html_title</span></code> option</a> used for HTML page title (<code class="docutils literal notranslate"><span class="pre">&lt;title&gt;</span></code>). The default value is <em>&lt;project&gt; &lt;release&gt; documentation</em>. E.g., for <code class="docutils literal notranslate"><span class="pre">project</span> <span class="pre">=</span> <span class="pre">&quot;Foo&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">release</span> <span class="pre">=</span> <span class="pre">&quot;1.5&quot;</span></code>, it becomes <em>Foo 1.5 documentation</em>.</p>
+<p class="rubric">Set page and header title</p>
 <ol class="arabic">
-<li><p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> unset the logo: <code class="docutils literal notranslate"><span class="pre">html_logo</span> <span class="pre">=</span> <span class="pre">None</span></code>.</p></li>
-<li><p>Set text via <code class="docutils literal notranslate"><span class="pre">html_title</span></code> (default is <em>&lt;project&gt; &lt;release&gt; documentation</em>). If <code class="docutils literal notranslate"><span class="pre">project</span> <span class="pre">=</span> <span class="pre">&quot;Foo&quot;</span></code> and release is <code class="docutils literal notranslate"><span class="pre">1.0</span></code>, the text becomes <em>Foo 1.0 documentation</em>.</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_logo</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">html_title</span> <span class="o">=</span> <span class="s2">&quot;My project&quot;</span>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_title</span> <span class="o">=</span> <span class="s2">&quot;REST API&quot;</span>
 </pre></div>
 </div>
 </li>
@@ -242,11 +263,42 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">=</span> <span class="n">html_title</span> <span class="o">=</span> <span class="s2">&quot;My Awesome Project&quot;</span>
 </pre></div>
 </div>
-<p><img alt="" src="../../_images/header-text.webp" /></p>
 </div>
 </section>
+<section id="different-than-page-title">
+<h3>Different than page title<a class="headerlink" href="#different-than-page-title" title="Link to this heading">#</a></h3>
+<p>If you want header title different than <code class="docutils literal notranslate"><span class="pre">html_title</span></code>, use the <code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code>’s <code class="docutils literal notranslate"><span class="pre">header_title</span></code> option.</p>
+<p class="rubric">Set custom header title</p>
+<ol class="arabic">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_title</span> <span class="o">=</span> <span class="s2">&quot;REST API&quot;</span>
+<span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s2">&quot;header_title&quot;</span><span class="p">:</span> <span class="s2">&quot;Getting started with RESTful API&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="disable-title">
+<h3>Disable title<a class="headerlink" href="#disable-title" title="Link to this heading">#</a></h3>
+<p>To completely disable showing a header title, set the <code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code>’s <code class="docutils literal notranslate"><span class="pre">header_title</span></code> option to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p class="rubric">Disable header title</p>
+<ol class="arabic">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s2">&quot;header_title&quot;</span><span class="p">:</span> <span class="kc">False</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="header-logo">
+<h2>Header logo<a class="headerlink" href="#header-logo" title="Link to this heading">#</a></h2>
 <section id="same-logo-for-light-and-dark-mode">
-<h2>Same logo for light and dark mode<a class="headerlink" href="#same-logo-for-light-and-dark-mode" title="Link to this heading">#</a></h2>
+<h3>Same logo for light and dark mode<a class="headerlink" href="#same-logo-for-light-and-dark-mode" title="Link to this heading">#</a></h3>
 <p>Use the standard Sphinx <code class="docutils literal notranslate"><span class="pre">html_logo</span></code>; the file appears in both modes.</p>
 <p class="rubric">Set a header logo</p>
 <ol class="arabic">
@@ -258,7 +310,7 @@
 </ol>
 </section>
 <section id="different-logo-for-light-and-dark-mode">
-<h2>Different logo for light and dark mode<a class="headerlink" href="#different-logo-for-light-and-dark-mode" title="Link to this heading">#</a></h2>
+<h3>Different logo for light and dark mode<a class="headerlink" href="#different-logo-for-light-and-dark-mode" title="Link to this heading">#</a></h3>
 <p>If the light logo doesn’t look good against a dark background, supply a separate dark variant.</p>
 <p class="rubric">Set a dark mode logo</p>
 <ol class="arabic simple">
@@ -276,7 +328,7 @@
 </div>
 </section>
 <section id="automatic-dark-mode-logo">
-<h2>Automatic dark mode logo<a class="headerlink" href="#automatic-dark-mode-logo" title="Link to this heading">#</a></h2>
+<h3>Automatic dark mode logo<a class="headerlink" href="#automatic-dark-mode-logo" title="Link to this heading">#</a></h3>
 <p>Alternatively, invert the light logo automatically. This can be “good enough” if you lack a dedicated dark asset.</p>
 <p class="rubric">Turn on automatic dark logo</p>
 <ol class="arabic">
@@ -291,7 +343,7 @@
 </ol>
 </section>
 <section id="logo-link">
-<h2>Logo link<a class="headerlink" href="#logo-link" title="Link to this heading">#</a></h2>
+<h3>Logo link<a class="headerlink" href="#logo-link" title="Link to this heading">#</a></h3>
 <p>The logo (or title) links to the <em>root document</em> by default (usually <code class="docutils literal notranslate"><span class="pre">index.md</span></code> / <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>).</p>
 <p class="rubric">Change logo link</p>
 <ol class="arabic">
@@ -303,6 +355,22 @@
 </div>
 </li>
 </ol>
+</section>
+<section id="disable-logo">
+<h3>Disable logo<a class="headerlink" href="#disable-logo" title="Link to this heading">#</a></h3>
+<p>To completely disable logo, just unset the <code class="docutils literal notranslate"><span class="pre">html_logo</span></code> option.</p>
+<p class="rubric">Unset logo, use title only</p>
+<ol class="arabic">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> unset the logo: <code class="docutils literal notranslate"><span class="pre">html_logo</span> <span class="pre">=</span> <span class="pre">None</span></code>.</p></li>
+<li><p>Set title using <code class="docutils literal notranslate"><span class="pre">html_title</span></code> option.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_logo</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">html_title</span> <span class="o">=</span> <span class="s2">&quot;My project&quot;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><img alt="" src="../../_images/header-title-only.webp" /></p>
+</section>
 </section>
 </section>
 
@@ -375,7 +443,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart/">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../">Customizations</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../layouts/">Page layouts</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Header logo or title</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Header logo and title</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../header-menu/">Header menu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../language-selection/">Language selection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dark-mode/">Dark mode</a></li>
@@ -415,12 +483,21 @@
         On this page
       </p>
       <ul>
-<li><a class="reference internal" href="#">Header logo or title</a><ul>
-<li><a class="reference internal" href="#no-logo-text-only">No logo (text only)</a></li>
+<li><a class="reference internal" href="#">Header logo and title</a><ul>
+<li><a class="reference internal" href="#header-title">Header title</a><ul>
+<li><a class="reference internal" href="#the-same-as-page-title">The same as page title</a></li>
+<li><a class="reference internal" href="#different-than-page-title">Different than page title</a></li>
+<li><a class="reference internal" href="#disable-title">Disable title</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#header-logo">Header logo</a><ul>
 <li><a class="reference internal" href="#same-logo-for-light-and-dark-mode">Same logo for light and dark mode</a></li>
 <li><a class="reference internal" href="#different-logo-for-light-and-dark-mode">Different logo for light and dark mode</a></li>
 <li><a class="reference internal" href="#automatic-dark-mode-logo">Automatic dark mode logo</a></li>
 <li><a class="reference internal" href="#logo-link">Logo link</a></li>
+<li><a class="reference internal" href="#disable-logo">Disable logo</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -532,12 +609,21 @@
         On this page
       </p>
       <ul>
-<li><a class="reference internal" href="#">Header logo or title</a><ul>
-<li><a class="reference internal" href="#no-logo-text-only">No logo (text only)</a></li>
+<li><a class="reference internal" href="#">Header logo and title</a><ul>
+<li><a class="reference internal" href="#header-title">Header title</a><ul>
+<li><a class="reference internal" href="#the-same-as-page-title">The same as page title</a></li>
+<li><a class="reference internal" href="#different-than-page-title">Different than page title</a></li>
+<li><a class="reference internal" href="#disable-title">Disable title</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#header-logo">Header logo</a><ul>
 <li><a class="reference internal" href="#same-logo-for-light-and-dark-mode">Same logo for light and dark mode</a></li>
 <li><a class="reference internal" href="#different-logo-for-light-and-dark-mode">Different logo for light and dark mode</a></li>
 <li><a class="reference internal" href="#automatic-dark-mode-logo">Automatic dark mode logo</a></li>
 <li><a class="reference internal" href="#logo-link">Logo link</a></li>
+<li><a class="reference internal" href="#disable-logo">Disable logo</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -575,7 +661,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart/">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../">Customizations</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../layouts/">Page layouts</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Header logo or title</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Header logo and title</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../header-menu/">Header menu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../language-selection/">Language selection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dark-mode/">Dark mode</a></li>

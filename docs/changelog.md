@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 % - removed:
 -->
 
+## [1.1.0] - 2026-02-27
+
+- added: header title: show by default, option to hide it and set it to custom value
+
 ## [1.0.3] - 2026-02-26
 
 - fixed: sidebar overflows over horizontal rule

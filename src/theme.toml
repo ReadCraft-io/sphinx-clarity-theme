@@ -13,6 +13,8 @@ pygments_style = { default = "emacs", dark = "dracula" }
 # *** will be in null ***
 default_layout = "default"
 
+header_title = ""
+
 header_menu = []
 
 logo_url = ""

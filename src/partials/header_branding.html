@@ -1,0 +1,34 @@
+{# we can't use |default because TOML doesn't have null values, only blank strings #}
+<a
+  href="{{ theme_logo_url if theme_logo_url != '' else pathto(root_doc) }}"
+  class="header-branding flex items-center gap-4"
+>
+  {# No reuse possible, like macro or set, because otherwise Tailwind doesn't detect the class names. #}
+  {% if logo_url %}
+    {% set dark_src = pathto(theme_logo_dark, 1) if theme_logo_dark else logo_url %}
+    {% set dark_invert = 'dark:invert' if theme_logo_dark_invert else '' %}
+    {% set classes = 'header-branding__logo h-8' %}
+    <img
+      src="{{ logo_url }}"
+      class="{{ classes }} dark:hidden"
+      alt="{{ logo_alt|e }}"
+    />
+    <img
+      src="{{ dark_src }}"
+      class="{{ classes }} {{ dark_invert }} hidden dark:block"
+      alt="{{ logo_alt|e }}"
+    />
+  {% endif %}
+
+  {% if theme_header_title is not false %}
+    <span
+      class="header-branding__title text-primary-content text-2xl font-semibold"
+    >
+      {% if theme_header_title != "" %}
+        {{ theme_header_title|e }}
+      {% else %}
+        {{ docstitle|e }}
+      {% endif %}
+    </span>
+  {% endif %}
+</a>
