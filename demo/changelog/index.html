@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="generator"
-  content="Sphinx 8.2.3, Clarity Theme for Sphinx 1.1.0 (https://readcraft.io/sphinx-clarity-theme/)"
+  content="Sphinx 8.2.3, Clarity Theme for Sphinx 1.2.0 (https://readcraft.io/sphinx-clarity-theme/)"
 />
 
 
@@ -24,7 +24,7 @@
 
 <script src="../_static/scripts/dark-mode.js"></script>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/output.css?v=9fa5ca33" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/output.css?v=8dde9795" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=a5519fdd" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -69,15 +69,15 @@
           <!-- ====================================================== -->
           <div class="bg-base-100 divide-base-200 divide-y">
             
-
-
 <!-- Header -->
 <header id="main-header" class="bg-base-100 sticky top-0 z-50">
   <div
     class="container mx-auto flex h-[var(--header-height)] items-center px-4 xl:px-0"
   >
-    <!-- Left side (header branding) -->
+    <!-- Left side -->
     <div class="flex-1">
+      <div class="flex items-center gap-4">
+        
 <a
   href="https://readcraft.io"
   class="header-branding flex items-center gap-4"
@@ -101,14 +101,19 @@
 
   
     <span
-      class="header-branding__title text-primary-content text-2xl font-semibold"
+      class="header-branding__title text-primary-content text-2xl font-normal whitespace-nowrap"
     >
       
         Clarity Theme for Sphinx
       
     </span>
   
-</a></div>
+</a>
+        <!-- #Version select -->
+
+<!-- .#Version select -->
+      </div>
+    </div>
 
     <!-- Right side -->
     <div class="flex flex-1 items-center justify-end">
@@ -136,26 +141,24 @@
       <!-- .#Search button -->
 
       
-  
-  
+<!-- #Language select -->
 
-
+<!-- .#Language select -->
       
-  <!-- #Mode select -->
-  <div class="tooltip tooltip-bottom" data-tip="Light/dark mode">
-    <button class="btn btn-ghost btn-secondary">
-      <label class="swap swap-rotate">
-        <!-- this hidden checkbox controls the state -->
-        <input type="checkbox" onclick="toggleMode()" />
-        <!-- light mode icon -->
-        <span class="icon-[prime--sun] swap-on text-2xl"></span>
-        <!-- dark mode icon -->
-        <span class="icon-[prime--moon] swap-off text-2xl"></span>
-      </label>
-    </button>
-  </div>
-  <!-- .#Mode select -->
-
+<!-- #Mode select -->
+<div class="tooltip tooltip-bottom" data-tip="Light/dark mode">
+  <button class="btn btn-ghost btn-secondary">
+    <label class="swap swap-rotate">
+      <!-- this hidden checkbox controls the state -->
+      <input type="checkbox" onclick="toggleMode()" />
+      <!-- light mode icon -->
+      <span class="icon-[prime--sun] swap-on text-2xl"></span>
+      <!-- dark mode icon -->
+      <span class="icon-[prime--moon] swap-off text-2xl"></span>
+    </label>
+  </button>
+</div>
+<!-- .#Mode select -->
 
       <!-- #Header menu (mobile) -->
       
@@ -245,13 +248,21 @@ and this project adheres to <a class="reference external" href="https://semver.o
 % - removed:
 -->
 <section id="id1">
-<h2>[1.1.0] - 2026-02-27<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2>[1.2.0] - 2026-03-07<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>added: version select - dropdown UI, configuration, client-side redirection</p></li>
+<li><p>added: enhance article footer with edit and view page source</p></li>
+<li><p>added: type hints for <code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code> for better DX</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>[1.1.0] - 2026-02-27<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>added: header title: show by default, option to hide it and set it to custom value</p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>[1.0.3] - 2026-02-26<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h2>[1.0.3] - 2026-02-26<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>fixed: sidebar overflows over horizontal rule</p></li>
 <li><p>added: add basic styles for API signatures</p></li>
@@ -262,8 +273,8 @@ and this project adheres to <a class="reference external" href="https://semver.o
 <li><p>fixed: missing “.” in footer between author and “Made with…”</p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>[1.0.2] - 2026-02-10<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h2>[1.0.2] - 2026-02-10<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>fixed: missing static/styles/output.css in whl/sdist</p></li>
 </ul>
@@ -276,15 +287,15 @@ and this project adheres to <a class="reference external" href="https://semver.o
 <li><p>changed: lower Python dependency to 3.11 (instead of 3.13)</p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>[0.1.1] - 2026-02-02<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h2>[0.1.1] - 2026-02-02<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>fix: Hide right sidebar button on mobile is not hidden if page has no subheadings.</p></li>
 <li><p>refactor: Replace Null’s <code class="docutils literal notranslate"><span class="pre">display_local_toc</span></code> with Sphinx builtin <code class="docutils literal notranslate"><span class="pre">display_toc</span></code> Jinja context function to detect whether show a local ToC.</p></li>
 </ul>
 </section>
-<section id="id5">
-<h2>[0.1.0] - 2026-01-23<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2>[0.1.0] - 2026-01-23<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>Initial release.</p>
 </section>
 </section>
@@ -323,11 +334,13 @@ and this project adheres to <a class="reference external" href="https://semver.o
   <div class="flex flex-col justify-between gap-4 lg:flex-row">
     <div class="article-footer__left">
       
-      
+  <p>Do you have a question? Ask on <a href="https://github.com/orgs/ReadCraft-io/discussions">Forum</a>.</p>
+
     </div>
-    <div class="article-footer__right">
+    <div class="article-footer__right flex items-center gap-2">
       
-      
+  <p>Use <code>DOCS20</code> to get 20% off a <a href="https://www.creem.io/payment/prod_5RXFc4ZeY8LSpIBkLIbcpv">Commercial License</a>!</p>
+
     </div>
   </div>
 </footer>
@@ -339,10 +352,8 @@ and this project adheres to <a class="reference external" href="https://semver.o
                   class="lg:sticky lg:top-[calc(var(--header-height)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-calc(var(--header-padding)*2))] lg:overflow-y-auto scrollbar-overlay hidden lg:order-1 lg:block lg:w-2/12 lg:flex-none"
                 >
                   
-
-
-  <div class="global-toc">
-    <p class="caption" role="heading"><span class="caption-text">Theme</span></p>
+<div class="global-toc">
+  <p class="caption" role="heading"><span class="caption-text">Theme</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../customize/">Customizations</a></li>
@@ -356,8 +367,7 @@ and this project adheres to <a class="reference external" href="https://semver.o
 <li class="toctree-l1"><a class="reference external" href="https://readcraft.io/license">License</a></li>
 </ul>
 
-  </div>
-
+</div>
                 </nav>
                 <!-- .#Primary drawer (desktop) -->
 
@@ -367,26 +377,24 @@ and this project adheres to <a class="reference external" href="https://semver.o
                 >
                   
 
-
-  
-    <div class="local-toc">
-      <p class="local-toc__caption mt-0 mb-4 font-semibold uppercase">
-        On this page
-      </p>
-      <ul>
+  <div class="local-toc">
+    <p class="local-toc__caption mt-0 mb-4 font-semibold uppercase">
+      On this page
+    </p>
+    <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#id1">[1.1.0] - 2026-02-27</a></li>
-<li><a class="reference internal" href="#id2">[1.0.3] - 2026-02-26</a></li>
-<li><a class="reference internal" href="#id3">[1.0.2] - 2026-02-10</a></li>
+<li><a class="reference internal" href="#id1">[1.2.0] - 2026-03-07</a></li>
+<li><a class="reference internal" href="#id2">[1.1.0] - 2026-02-27</a></li>
+<li><a class="reference internal" href="#id3">[1.0.3] - 2026-02-26</a></li>
+<li><a class="reference internal" href="#id4">[1.0.2] - 2026-02-10</a></li>
 <li><a class="reference internal" href="#post3-2026-02-09">[1.0.1post3] - 2026-02-09</a></li>
-<li><a class="reference internal" href="#id4">[0.1.1] - 2026-02-02</a></li>
-<li><a class="reference internal" href="#id5">[0.1.0] - 2026-01-23</a></li>
+<li><a class="reference internal" href="#id5">[0.1.1] - 2026-02-02</a></li>
+<li><a class="reference internal" href="#id6">[0.1.0] - 2026-01-23</a></li>
 </ul>
 </li>
 </ul>
 
-    </div>
-  
+  </div>
 
                 </aside>
                 <!-- .#Secondary drawer (desktop) -->
@@ -485,26 +493,24 @@ and this project adheres to <a class="reference external" href="https://semver.o
             <!-- ==================================================== -->
             <div class="text-xs">
 
-
-  
-    <div class="local-toc">
-      <p class="local-toc__caption mt-0 mb-4 font-semibold uppercase">
-        On this page
-      </p>
-      <ul>
+  <div class="local-toc">
+    <p class="local-toc__caption mt-0 mb-4 font-semibold uppercase">
+      On this page
+    </p>
+    <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#id1">[1.1.0] - 2026-02-27</a></li>
-<li><a class="reference internal" href="#id2">[1.0.3] - 2026-02-26</a></li>
-<li><a class="reference internal" href="#id3">[1.0.2] - 2026-02-10</a></li>
+<li><a class="reference internal" href="#id1">[1.2.0] - 2026-03-07</a></li>
+<li><a class="reference internal" href="#id2">[1.1.0] - 2026-02-27</a></li>
+<li><a class="reference internal" href="#id3">[1.0.3] - 2026-02-26</a></li>
+<li><a class="reference internal" href="#id4">[1.0.2] - 2026-02-10</a></li>
 <li><a class="reference internal" href="#post3-2026-02-09">[1.0.1post3] - 2026-02-09</a></li>
-<li><a class="reference internal" href="#id4">[0.1.1] - 2026-02-02</a></li>
-<li><a class="reference internal" href="#id5">[0.1.0] - 2026-01-23</a></li>
+<li><a class="reference internal" href="#id5">[0.1.1] - 2026-02-02</a></li>
+<li><a class="reference internal" href="#id6">[0.1.0] - 2026-01-23</a></li>
 </ul>
 </li>
 </ul>
 
-    </div>
-  
+  </div>
 </div>
           </div>
         </div>
@@ -528,10 +534,8 @@ and this project adheres to <a class="reference external" href="https://semver.o
         <!-- Primary drawer (mobile) content -->
         <!-- ===================================================== -->
         <div class="text-xs">
-
-
-  <div class="global-toc">
-    <p class="caption" role="heading"><span class="caption-text">Theme</span></p>
+<div class="global-toc">
+  <p class="caption" role="heading"><span class="caption-text">Theme</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../customize/">Customizations</a></li>
@@ -545,8 +549,7 @@ and this project adheres to <a class="reference external" href="https://semver.o
 <li class="toctree-l1"><a class="reference external" href="https://readcraft.io/license">License</a></li>
 </ul>
 
-  </div>
-</div>
+</div></div>
       </div>
     </div>
   </div>
@@ -564,6 +567,8 @@ and this project adheres to <a class="reference external" href="https://semver.o
   };
 </script>
 <script defer src="../_static/scripts/scrollspy.js"></script>
+
+
   <script src="../_static/documentation_options.js?v=86c0dea4"></script>
   <script src="../_static/doctools.js?v=c73fddf3"></script>
   <script src="../_static/sphinx_highlight.js?v=36527ec2"></script>

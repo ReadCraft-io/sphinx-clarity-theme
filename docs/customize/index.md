@@ -10,7 +10,8 @@ Basic visual assets (logo, favicon, etc.) use standard Sphinx `conf.py` settings
 layouts
 header-branding
 header-menu
-language-selection
+language-select
+version-select
 dark-mode
 colors
 fonts

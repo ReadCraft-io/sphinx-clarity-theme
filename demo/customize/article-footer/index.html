@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="generator"
-  content="Sphinx 8.2.3, Clarity Theme for Sphinx 1.1.0 (https://readcraft.io/sphinx-clarity-theme/)"
+  content="Sphinx 8.2.3, Clarity Theme for Sphinx 1.2.0 (https://readcraft.io/sphinx-clarity-theme/)"
 />
 
 
@@ -24,7 +24,7 @@
 
 <script src="../../_static/scripts/dark-mode.js"></script>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=75810a84" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/output.css?v=9fa5ca33" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/output.css?v=8dde9795" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=a5519fdd" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -69,15 +69,15 @@
           <!-- ====================================================== -->
           <div class="bg-base-100 divide-base-200 divide-y">
             
-
-
 <!-- Header -->
 <header id="main-header" class="bg-base-100 sticky top-0 z-50">
   <div
     class="container mx-auto flex h-[var(--header-height)] items-center px-4 xl:px-0"
   >
-    <!-- Left side (header branding) -->
+    <!-- Left side -->
     <div class="flex-1">
+      <div class="flex items-center gap-4">
+        
 <a
   href="https://readcraft.io"
   class="header-branding flex items-center gap-4"
@@ -101,14 +101,19 @@
 
   
     <span
-      class="header-branding__title text-primary-content text-2xl font-semibold"
+      class="header-branding__title text-primary-content text-2xl font-normal whitespace-nowrap"
     >
       
         Clarity Theme for Sphinx
       
     </span>
   
-</a></div>
+</a>
+        <!-- #Version select -->
+
+<!-- .#Version select -->
+      </div>
+    </div>
 
     <!-- Right side -->
     <div class="flex flex-1 items-center justify-end">
@@ -136,26 +141,24 @@
       <!-- .#Search button -->
 
       
-  
-  
+<!-- #Language select -->
 
-
+<!-- .#Language select -->
       
-  <!-- #Mode select -->
-  <div class="tooltip tooltip-bottom" data-tip="Light/dark mode">
-    <button class="btn btn-ghost btn-secondary">
-      <label class="swap swap-rotate">
-        <!-- this hidden checkbox controls the state -->
-        <input type="checkbox" onclick="toggleMode()" />
-        <!-- light mode icon -->
-        <span class="icon-[prime--sun] swap-on text-2xl"></span>
-        <!-- dark mode icon -->
-        <span class="icon-[prime--moon] swap-off text-2xl"></span>
-      </label>
-    </button>
-  </div>
-  <!-- .#Mode select -->
-
+<!-- #Mode select -->
+<div class="tooltip tooltip-bottom" data-tip="Light/dark mode">
+  <button class="btn btn-ghost btn-secondary">
+    <label class="swap swap-rotate">
+      <!-- this hidden checkbox controls the state -->
+      <input type="checkbox" onclick="toggleMode()" />
+      <!-- light mode icon -->
+      <span class="icon-[prime--sun] swap-on text-2xl"></span>
+      <!-- dark mode icon -->
+      <span class="icon-[prime--moon] swap-off text-2xl"></span>
+    </label>
+  </button>
+</div>
+<!-- .#Mode select -->
 
       <!-- #Header menu (mobile) -->
       
@@ -186,6 +189,18 @@
     <!-- .Left side -->
     <!-- Right side -->
     <div>
+      
+        <button
+          class="btn btn-secondary btn-sm text-secondary-content/80 font-normal"
+        >
+          <label
+            for="secondary-drawer"
+            class="flex cursor-pointer items-center gap-1"
+          >
+            This page
+            <span class="icon-[prime--align-right] text-xl"></span>
+          </label>
+        </button>
       
     </div>
     <!-- .Right side -->
@@ -229,33 +244,73 @@
                   <main role="main">
   <section id="custom-article-footer">
 <h1>Article footer<a class="headerlink" href="#custom-article-footer" title="Link to this heading">#</a></h1>
-<p>The article footer appears directly after page content. It’s empty by default, but you can inject custom actions, links, or messages (any HTML) by overriding Jinja blocks.</p>
-<img alt="../../_images/article-footer.webp" src="../../_images/article-footer.webp" />
-<p class="rubric">Customize article footer</p>
-<p>The footer consists of two blocks: <code class="docutils literal notranslate"><span class="pre">article_footer_left</span></code> and <code class="docutils literal notranslate"><span class="pre">article_footer_right</span></code>.</p>
+<p>The article footer appears at the bottom of every page, below the main content and article navigation. It shows a page source link by default, but you can enable an edit page link and inject arbitrary HTML by overriding the respective Jinja blocks.</p>
+<section id="view-page-source">
+<h2>View page source<a class="headerlink" href="#view-page-source" title="Link to this heading">#</a></h2>
+<p>By default, the theme adds a link to view the source of a page (i.e., the underlying reStructuredText or MyST Markdown for the page).</p>
+<p>(This is controlled by the Sphinx options <code class="docutils literal notranslate"><span class="pre">html_show_sourcelink</span></code> and <code class="docutils literal notranslate"><span class="pre">html_copy_source</span></code>, which are both true by default.)</p>
+<a class="reference internal image-reference" href="../../_images/article-footer-show-source.png"><img alt="../../_images/article-footer-show-source.png" src="../../_images/article-footer-show-source.png" style="width: 75%;" />
+</a>
+<p class="rubric" id="disable-view-page-link">Disable view page link</p>
+<p>To disable it, use the following configuration:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_show_sourcelink</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</section>
+<section id="edit-page-source">
+<h2>Edit page source<a class="headerlink" href="#edit-page-source" title="Link to this heading">#</a></h2>
+<p>You can add a link to edit the page source on every page, enabling users to directly modify the documentation and submit a pull request with their changes.</p>
+<p>Two theme options control the “edit page” link:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">edit_page_label</span></code>: the link text</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edit_page_url</span></code>: a template to build the edit URL, where <code class="docutils literal notranslate"><span class="pre">{filename}</span></code> will be replaced by the page source filename</p></li>
+<li><p>both <code class="docutils literal notranslate"><span class="pre">edit_page_label</span></code> and <code class="docutils literal notranslate"><span class="pre">edit_page_url</span></code> must be set</p></li>
+</ul>
+<p>The URL template <code class="docutils literal notranslate"><span class="pre">edit_page_url</span></code> is, e.g., for GitHub in format <code class="docutils literal notranslate"><span class="pre">https://github.com/&lt;org&gt;/&lt;repo&gt;/edit/&lt;branch&gt;/&lt;filename&gt;</span></code>.</p>
+<p>Choose between “view source” (read-only reference) and “edit page” (invites contributions) based on your documentation goals. Typically, you’ll enable one or the other, not both.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disable &quot;Show page source&quot;</span>
+<span class="n">html_show_sourcelink</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1"># Set both to enable &quot;Edit page source&quot;</span>
+  <span class="s2">&quot;edit_page_label&quot;</span><span class="p">:</span> <span class="s2">&quot;Edit on GitHub&quot;</span><span class="p">,</span>
+  <span class="c1"># {filename} will be replaced by actual source filename</span>
+  <span class="s2">&quot;edit_page_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/syncthing/docs/edit/main/</span><span class="si">{filename}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/article-footer-edit-page.png"><img alt="../../_images/article-footer-edit-page.png" src="../../_images/article-footer-edit-page.png" style="width: 75%;" />
+</a>
+</section>
+<section id="customize-article-footer">
+<h2>Customize article footer<a class="headerlink" href="#customize-article-footer" title="Link to this heading">#</a></h2>
+<p>The article footer consists of two Jinja blocks: <code class="docutils literal notranslate"><span class="pre">article_footer_left</span></code> and <code class="docutils literal notranslate"><span class="pre">article_footer_right</span></code>, which allow you to fully customize it.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>List of all <a class="reference internal" href="../../reference/#reference-templates-and-blocks"><span class="std std-ref">Jinja templates and blocks</span></a> you can override.</p>
+<p>Learn more about <a class="reference internal" href="../../howtos/#howto-jinja-blocks"><span class="std std-ref">Jinja blocks</span></a>, or list of all <a class="reference internal" href="../../reference/#reference-templates-and-blocks"><span class="std std-ref">Jinja templates and blocks</span></a> you can override.</p>
 </div>
+<p>For example, to show a forum link on the left and a discount code on the right:</p>
 <ol class="arabic">
-<li><p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> set <code class="docutils literal notranslate"><span class="pre">templates_path</span> <span class="pre">=</span> <span class="pre">[&quot;_templates&quot;]</span></code>.</p></li>
-<li><p>Create <code class="docutils literal notranslate"><span class="pre">_templates/partials/article-footer.html</span></code>.</p></li>
-<li><p>Extend the original template and override desired blocks. Example:</p>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, set <code class="docutils literal notranslate"><span class="pre">templates_path</span> <span class="pre">=</span> <span class="pre">[&quot;_templates&quot;]</span></code>.</p></li>
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">_templates/partials/article_footer.html</span></code>.</p></li>
+<li><p>Extend the original template and override the desired blocks:</p>
 <div class="highlight-html+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;!partials/article_footer.html&quot;</span> <span class="cp">%}</span>
 
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">article_footer_left</span> <span class="cp">%}</span>
-  Do you have a question? Ask on
-  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://discord.gg/uaEa43HB&quot;</span><span class="p">&gt;</span>Discord<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Do you have a question? Ask on <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://discord.gg/uaEa43HB&quot;</span><span class="p">&gt;</span>Discord<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">article_footer_right</span> <span class="cp">%}</span>
-  Edit this page on
-  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://github.com/your-repo/</span><span class="cp">{{</span> <span class="nv">pagename</span> <span class="cp">}}</span><span class="s">.md?edit&quot;</span><span class="p">&gt;</span>GitHub<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Use <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>LTDR72CZSUS7<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> at checkout to get -20%!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 </li>
 </ol>
+<p>The result:</p>
+<a class="reference internal image-reference" href="../../_images/article-footer-custom-content.png"><img alt="../../_images/article-footer-custom-content.png" src="../../_images/article-footer-custom-content.png" style="width: 75%;" />
+</a>
+</section>
 </section>
 
 </main>
@@ -303,11 +358,13 @@
   <div class="flex flex-col justify-between gap-4 lg:flex-row">
     <div class="article-footer__left">
       
-      
+  <p>Do you have a question? Ask on <a href="https://github.com/orgs/ReadCraft-io/discussions">Forum</a>.</p>
+
     </div>
-    <div class="article-footer__right">
+    <div class="article-footer__right flex items-center gap-2">
       
-      
+  <p>Use <code>DOCS20</code> to get 20% off a <a href="https://www.creem.io/payment/prod_5RXFc4ZeY8LSpIBkLIbcpv">Commercial License</a>!</p>
+
     </div>
   </div>
 </footer>
@@ -319,17 +376,16 @@
                   class="lg:sticky lg:top-[calc(var(--header-height)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-calc(var(--header-padding)*2))] lg:overflow-y-auto scrollbar-overlay hidden lg:order-1 lg:block lg:w-2/12 lg:flex-none"
                 >
                   
-
-
-  <div class="global-toc">
-    <p class="caption" role="heading"><span class="caption-text">Theme</span></p>
+<div class="global-toc">
+  <p class="caption" role="heading"><span class="caption-text">Theme</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart/">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../">Customizations</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../layouts/">Page layouts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../header-branding/">Header logo and title</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../header-menu/">Header menu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../language-selection/">Language selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-select/">Language select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../version-select/">Version select</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dark-mode/">Dark mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../colors/">Colors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fonts/">Fonts</a></li>
@@ -349,8 +405,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://readcraft.io/license">License</a></li>
 </ul>
 
-  </div>
-
+</div>
                 </nav>
                 <!-- .#Primary drawer (desktop) -->
 
@@ -360,8 +415,20 @@
                 >
                   
 
+  <div class="local-toc">
+    <p class="local-toc__caption mt-0 mb-4 font-semibold uppercase">
+      On this page
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Article footer</a><ul>
+<li><a class="reference internal" href="#view-page-source">View page source</a></li>
+<li><a class="reference internal" href="#edit-page-source">Edit page source</a></li>
+<li><a class="reference internal" href="#customize-article-footer">Customize article footer</a></li>
+</ul>
+</li>
+</ul>
 
-  
+  </div>
 
                 </aside>
                 <!-- .#Secondary drawer (desktop) -->
@@ -460,8 +527,20 @@
             <!-- ==================================================== -->
             <div class="text-xs">
 
+  <div class="local-toc">
+    <p class="local-toc__caption mt-0 mb-4 font-semibold uppercase">
+      On this page
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Article footer</a><ul>
+<li><a class="reference internal" href="#view-page-source">View page source</a></li>
+<li><a class="reference internal" href="#edit-page-source">Edit page source</a></li>
+<li><a class="reference internal" href="#customize-article-footer">Customize article footer</a></li>
+</ul>
+</li>
+</ul>
 
-  
+  </div>
 </div>
           </div>
         </div>
@@ -485,17 +564,16 @@
         <!-- Primary drawer (mobile) content -->
         <!-- ===================================================== -->
         <div class="text-xs">
-
-
-  <div class="global-toc">
-    <p class="caption" role="heading"><span class="caption-text">Theme</span></p>
+<div class="global-toc">
+  <p class="caption" role="heading"><span class="caption-text">Theme</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart/">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../">Customizations</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../layouts/">Page layouts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../header-branding/">Header logo and title</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../header-menu/">Header menu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../language-selection/">Language selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../language-select/">Language select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../version-select/">Version select</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dark-mode/">Dark mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../colors/">Colors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fonts/">Fonts</a></li>
@@ -515,8 +593,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://readcraft.io/license">License</a></li>
 </ul>
 
-  </div>
-</div>
+</div></div>
       </div>
     </div>
   </div>
@@ -534,6 +611,8 @@
   };
 </script>
 <script defer src="../../_static/scripts/scrollspy.js"></script>
+
+
   <script src="../../_static/documentation_options.js?v=86c0dea4"></script>
   <script src="../../_static/doctools.js?v=c73fddf3"></script>
   <script src="../../_static/sphinx_highlight.js?v=36527ec2"></script>

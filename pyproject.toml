@@ -31,7 +31,7 @@ sphinx-null-theme = { path = "../null", editable = true }
 
 [tool.flit.sdist]
 include = ["**/styles/output.css"]
-exclude = ["**/styles/input.css", "**/.DS_Store"]
+exclude = ["**/styles/input.css", "**/.DS_Store", "**/*.test.*"]
 
 [build-system]
 requires = ["flit_core >=3.2,<4"]

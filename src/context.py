@@ -5,8 +5,7 @@ from typing import Any
 from bs4 import BeautifulSoup
 from sphinx.application import Sphinx
 
-DEFAULT_LAYOUT = "default"
-LAYOUTS = [DEFAULT_LAYOUT, "compact"]
+from .options import DEFAULT_LAYOUT, LAYOUTS
 
 
 def render_header_menu(header_menu):

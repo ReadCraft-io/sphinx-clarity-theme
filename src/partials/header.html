@@ -1,13 +1,16 @@
 {# Main header with logo, navigation, and toolbar #}
-{% from "partials/macros.html" import logo, language_selector, mode_switcher with context %}
-
 <!-- Header -->
 <header id="main-header" class="bg-base-100 sticky top-0 z-50">
   <div
     class="container mx-auto flex h-[var(--header-height)] items-center px-4 xl:px-0"
   >
-    <!-- Left side (header branding) -->
-    <div class="flex-1">{% include "partials/header_branding.html" %}</div>
+    <!-- Left side -->
+    <div class="flex-1">
+      <div class="flex items-center gap-4">
+        {% include "partials/header_branding.html" %}
+        {% include "partials/version_select.html" %}
+      </div>
+    </div>
 
     <!-- Right side -->
     <div class="flex flex-1 items-center justify-end">
@@ -34,9 +37,8 @@
       </div>
       <!-- .#Search button -->
 
-      {{ language_selector() }}
-
-      {{ mode_switcher() }}
+      {% include "partials/language_select.html" %}
+      {% include "partials/mode_select.html" %}
 
       <!-- #Header menu (mobile) -->
       {% if header_menu() %}

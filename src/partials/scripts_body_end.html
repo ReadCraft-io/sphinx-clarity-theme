@@ -12,6 +12,18 @@
 </script>
 <script defer src="{{ pathto('_static/scripts/scrollspy.js', 1) }}"></script>
 
+{% if show_version_select() %}
+  <script>
+    window.VERSION_SELECT_CURRENT_VERSION =
+      "{{ theme_version_select_current }}";
+  </script>
+  <script
+    defer
+    src="{{ pathto('_static/scripts/version-select.js', 1) }}"
+    type="module"
+  ></script>
+{% endif %}
+
 {#- Scripts at the end improves page load speed -#}
 {#- Insert <script>s requested by Sphinx, it's extensions or themes -#}
 {%- for js in script_files %}

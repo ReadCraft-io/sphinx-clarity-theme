@@ -20,7 +20,7 @@ def test_header_title_same_as_html_title(app: SphinxTestApp):
     el = soup(html).select_one(".header-branding")
     assert el
 
-    expected = """<a class="header-branding flex items-center gap-4" href="#"><span class="header-branding__title text-primary-content text-2xl font-semibold">Foo</span></a>"""
+    expected = """<a class="header-branding flex items-center gap-4" href="#"><span class="header-branding__title text-primary-content text-2xl font-normal whitespace-nowrap">Foo</span></a>"""
 
     assert el.prettify() == soup(expected).prettify()
 
@@ -38,7 +38,7 @@ def test_custom_header_title(app: SphinxTestApp):
     el = soup(html).select_one(".header-branding")
     assert el
 
-    expected = """<a class="header-branding flex items-center gap-4" href="#"><span class="header-branding__title text-primary-content text-2xl font-semibold">Bar</span></a>"""
+    expected = """<a class="header-branding flex items-center gap-4" href="#"><span class="header-branding__title text-primary-content text-2xl font-normal whitespace-nowrap">Bar</span></a>"""
 
     assert el.prettify() == soup(expected).prettify()
 

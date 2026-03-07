@@ -1,8 +1,8 @@
-# Language selection
+# Language select
 
 If your documentation is translated into multiple languages, {{ project }} provides a locale dropdown for quick switching.
 
-<img src="images/language-select.gif" width="50%">
+<img src="images/language-select.gif">
 
 :::{rubric} Enable language selection
 :::

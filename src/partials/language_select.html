@@ -1,0 +1,36 @@
+{# {} is the default value. #}
+<!-- #Language select -->
+{% if theme_language_select and theme_language_select != {} %}
+  {% if not theme_language_url %}
+    {{ warning('html_theme_options.language_url is not set. Please set it to enable language switcher.') }}
+  {% else %}
+    <div class="tooltip tooltip-bottom" data-tip="Language">
+      <details class="dropdown dropdown-left">
+        <summary class="btn btn-secondary btn-ghost">
+          <span class="icon-[prime--language] text-2xl"></span>
+        </summary>
+        <ul
+          class="menu dropdown-content bg-base-100 rounded-box dark:border-base-200 z-1 w-32 p-2 shadow-sm dark:border"
+        >
+          {% for code, label in theme_language_select.items() %}
+            {#
+            `pathto('/' + pagename)` - pathto() needs absolute path, but pagename returns string without "/"
+
+            But `pathto('/' + pagename)` produces double slashes in the URL (e.g. //index.html). So we need to strip leading slash with `lstrip('/')`.
+            #}
+            {% set pagename_url = pathto('/' + pagename).lstrip('/') %}
+            {%
+              set language_url = theme_language_url
+              .replace("{language}", code)
+              .replace("{page}", pagename_url)
+            %}
+            <li>
+              <a href="{{ language_url }}">{{ label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </details>
+    </div>
+  {% endif %}
+{% endif %}
+<!-- .#Language select -->

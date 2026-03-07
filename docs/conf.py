@@ -1,3 +1,5 @@
+from sphinx_clarity_theme import ThemeOptions
+
 project = html_title = "Clarity Theme for Sphinx"
 author = "ReadCraft.io"
 copyright = f"%Y, {author}"
@@ -10,7 +12,7 @@ extensions = [
     "myst_parser",
     "sphinx_design",
     # "sphinxcontrib.mermaid",
-    # "sphinx_reredirects",
+    "sphinx_reredirects",
     # "sphinx_sitemap",
     "sphinx_copybutton",
     # "ablog",
@@ -24,11 +26,14 @@ html_theme = "sphinx_clarity_theme"
 
 html_logo = "_static/favicon.svg"
 html_favicon = "_static/favicon.svg"
+# html_show_sourcelink = False
 
-
-html_theme_options = {
+html_theme_options: ThemeOptions = {
     "logo_dark": "_static/logo-dark.svg",
     "logo_url": "https://readcraft.io",
+    # "edit_page_label": "Edit page on GitHub",
+    # "edit_page_url": "https://github.com/documatt/readcraft/edit/main/testdocs/sphinx-clarity-theme/{filename}",
+    # https://github.com/documatt/readcraft/edit/main/testdocs/sphinx-clarity-theme/howtos.md
     # "language_select": {
     #     "en": "English",
     #     "cs": "čeština",
@@ -89,3 +94,8 @@ myst_heading_anchors = 6
 
 # Linky only those that begin with a schema (http://, etc.). Now `documatt.com` will not be converted to a link.
 myst_linkify_fuzzy_links = False
+
+# -- Options for Sphinx Redirects ----------------------------------------------------
+redirects = {
+    "customize/language-selection": "../language-select/",
+}

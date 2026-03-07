@@ -1,0 +1,10 @@
+{# page_source_suffix is only set for pages with source files (not for generated pages like indices) #}
+{% if theme_edit_page_label and theme_edit_page_url and page_source_suffix %}
+  {%- set filename = pagename + page_source_suffix -%}
+  <a
+    href="{{ theme_edit_page_url | replace('{filename}', filename) }}"
+    rel="nofollow"
+    class="edit-page-source"
+    >{{ theme_edit_page_label }}</a
+  >
+{% endif %}

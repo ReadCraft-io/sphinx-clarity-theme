@@ -10,7 +10,7 @@ Consider purchasing a license at https://readcraft.io/sphinx-clarity-theme to fu
 
 ## Installation
 
-Install the theme file using your preferred Python package manager - we will describe pip and uv. Theme files and dependencies are placed where Sphinx can automatically find them.
+Install the theme file using your preferred Python package manager like pip or uv. Theme files and dependencies are placed where Sphinx can automatically find them.
 
 1. Add the theme package as a dependency to virtual environment or Python project where do you manage Sphinx itself.
 
@@ -68,3 +68,31 @@ Configure the theme in your Sphinx `conf.py`.
    ```
 
 Rebuild your docs and you should see {{ project }} applied.
+
+### Theme options
+
+To configure theme, you use the `html_theme_options` in `conf.py`, which is a plain dictionary.
+
+```py
+html_theme_options = {
+    "logo_dark": "_static/logo-dark.svg",
+    "logo_url": "https://readcraft.io",
+    ...
+}
+```
+
+However, for code auto-completion in IDE and typos prevention when editing, you can use the `ThemeOptions` type.
+
+```py
+from sphinx_clarity_theme import ThemeOptions
+
+...
+
+html_theme_options: ThemeOptions = {
+    "logo_dark": "_static/logo-dark.svg",
+    "logo_url": "https://readcraft.io",
+    ...
+}
+```
+
+<img src="./images/ide-typehints.png" width="50%">

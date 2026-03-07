@@ -1,0 +1,15 @@
+{# Theme mode switcher (light/dark) #}
+<!-- #Mode select -->
+<div class="tooltip tooltip-bottom" data-tip="Light/dark mode">
+  <button class="btn btn-ghost btn-secondary">
+    <label class="swap swap-rotate">
+      <!-- this hidden checkbox controls the state -->
+      <input type="checkbox" onclick="toggleMode()" />
+      <!-- light mode icon -->
+      <span class="icon-[prime--sun] swap-on text-2xl"></span>
+      <!-- dark mode icon -->
+      <span class="icon-[prime--moon] swap-off text-2xl"></span>
+    </label>
+  </button>
+</div>
+<!-- .#Mode select -->

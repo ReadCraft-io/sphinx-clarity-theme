@@ -8,8 +8,10 @@
       {% block article_footer_left %}
       {% endblock %}
     </div>
-    <div class="article-footer__right">
+    <div class="article-footer__right flex items-center gap-2">
       {% block article_footer_right %}
+        {% include "partials/show_page_source.html" %}
+        {% include "partials/edit_page_source.html" %}
       {% endblock %}
     </div>
   </div>

@@ -14,6 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 % - removed:
 -->
 
+## [1.2.0] - 2026-03-07
+
+- added: version select - dropdown UI, configuration, client-side redirection
+- added: enhance article footer with edit and view page source
+- added: type hints for `html_theme_options` for better DX
+
 ## [1.1.0] - 2026-02-27
 
 - added: header title: show by default, option to hide it and set it to custom value

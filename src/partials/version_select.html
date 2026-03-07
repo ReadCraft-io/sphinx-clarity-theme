@@ -1,0 +1,25 @@
+<!-- #Version select -->
+{% if show_version_select() %}
+  <div class="tooltip tooltip-bottom" data-tip="Choose version">
+    {# onchange="if(this.value) window.location.href=this.value" #}
+    <select
+      class="select select-ghost"
+      aria-label="Version select"
+      id="version-select"
+    >
+      {% for data in theme_version_select_data %}
+        {% set url = theme_version_select_url.replace("{version}", data.version) %}
+        <option
+          value="{{ data.version }}"
+          data-url="{{ url }}"
+          {% if data.version == theme_version_select_current %}
+            selected disabled
+          {% endif %}
+        >
+          {{ data.label or data.version }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+{% endif %}
+<!-- .#Version select -->

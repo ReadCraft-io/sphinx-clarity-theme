@@ -25,5 +25,11 @@ logo_dark_invert = false
 language_select = {}
 language_url = ""
 
+edit_page_label = ""
+edit_page_url = ""
+
+version_select_current = ""
+version_select_data = []
+version_select_url = ""
 
 # *** theme specific options ***
