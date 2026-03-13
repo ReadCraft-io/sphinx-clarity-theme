@@ -24,6 +24,13 @@
   ></script>
 {% endif %}
 
+{% if theme_announcement %}
+  <script
+    defer
+    src="{{ pathto('_static/scripts/announcement.js', 1) }}"
+  ></script>
+{% endif %}
+
 {#- Scripts at the end improves page load speed -#}
 {#- Insert <script>s requested by Sphinx, it's extensions or themes -#}
 {%- for js in script_files %}

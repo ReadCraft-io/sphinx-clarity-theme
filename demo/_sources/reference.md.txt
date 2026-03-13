@@ -28,13 +28,13 @@ Technical reference for {{ project }}: theme options, template blocks, and CSS v
   - Override default root link target for logo/text.
 - - `header_menu`
   - `[]`
-  - List of navigation items (`label`, `url`, optional `as="button"`).
+  - List of navigation items (`content`, `url`, ...).
 - - `language_select`
   - `{}`
   - Mapping of language codes to display names for selector.
 - - `language_url`
   - `""`
-  - URL pattern with placeholders `{language}` and `{page}`.
+  - URL pattern with placeholders like `$LANGUAGE$` or `$PAGE$`.
 :::
 
 

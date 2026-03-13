@@ -29,7 +29,7 @@ html_favicon = "_static/favicon.svg"
 # html_show_sourcelink = False
 
 html_theme_options: ThemeOptions = {
-    "logo_dark": "_static/logo-dark.svg",
+    "logo_dark": "_static/favicon.svg",
     "logo_url": "https://readcraft.io",
     # "edit_page_label": "Edit page on GitHub",
     # "edit_page_url": "https://github.com/documatt/readcraft/edit/main/testdocs/sphinx-clarity-theme/{filename}",
@@ -39,22 +39,22 @@ html_theme_options: ThemeOptions = {
     #     "cs": "čeština",
     #     "ua": "Українська",
     # },
-    # "language_url": "sphinx-clarity-theme/docs/{language}/latest/{page}",
+    # "language_url": "sphinx-clarity-theme/docs/$LANGUAGE$/latest/$PAGE$",
     # "header_menu": [
     #     {
-    #         "label": "Getting Started",
+    #         "content": "Getting Started",
     #         "url": "some/url",
     #     },
     #     {
-    #         "label": "Pricing ",
+    #         "content": "Pricing ",
     #         "url": "some/url",
     #     },
     #     {
-    #         "label": "Resources",
+    #         "content": "Resources",
     #         "url": "some/url",
     #     },
     #     {
-    #         "label": """Download <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3v8"/><path d="M3.5 8.5L8 13l4.5-4.5"/></svg>""",
+    #         "content": """Download <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3v8"/><path d="M3.5 8.5L8 13l4.5-4.5"/></svg>""",
     #         "url": "some/url",
     #         "as": "button",
     #     },

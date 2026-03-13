@@ -1,6 +1,6 @@
 """A clean and professional documentation theme for Sphinx. Modern design with light/dark mode, responsive layout, and beautiful typography."""
 
-__version__ = "1.2.0"
+__version__ = "2.0.0"
 
 from pathlib import Path
 from typing import Any
@@ -8,12 +8,21 @@ from typing import Any
 import docutils
 from sphinx.application import Sphinx
 
-from .context import get_layout, render_header_menu
-from .options import HeaderMenu, ThemeOptions, VersionSelectData, VersionSelectDataItem
-from .version_select import show_version_select, validate_version_select
+from .context import get_layout, show_header_menu
+from .options import (
+    HeaderMenuItem,
+    ThemeOptions,
+    VersionSelectData,
+    VersionSelectDataItem,
+)
+from .version_select import (
+    get_version_url,
+    show_version_select,
+    validate_version_select,
+)
 
 __all__ = [
-    "HeaderMenu",
+    "HeaderMenuItem",
     "ThemeOptions",
     "VersionSelectData",
     "VersionSelectDataItem",
@@ -32,16 +41,19 @@ def register_to_context(
     doctree: docutils.nodes.document | None,
 ):
     # Add it to the page's context
-    context["header_menu"] = lambda: render_header_menu(
-        app.config.html_theme_options.get("header_menu", [])
-    )
     context["theme_version"] = __version__
     context["theme_name"] = THEME_NAME
     context["theme_human_name"] = THEME_HUMAN_NAME
     context["theme_url"] = THEME_URL
     context["get_layout"] = lambda: get_layout(app, context)
+    context["show_header_menu"] = lambda: show_header_menu(
+        app.config.html_theme_options
+    )
     context["show_version_select"] = lambda: show_version_select(
         app.config.html_theme_options
+    )
+    context["get_version_url"] = lambda version: get_version_url(
+        app.config.html_theme_options, version
     )
 
 

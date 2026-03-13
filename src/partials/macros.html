@@ -1,3 +1,4 @@
 {# Reusable macros for the theme #}
 
-{% set drawer_sticky_and_scrollable = "lg:sticky lg:top-[calc(var(--header-height)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-calc(var(--header-padding)*2))] lg:overflow-y-auto scrollbar-overlay" %}
+{# Desktop drawer sticky positioning - includes announcement height for correct top position and available height #}
+{% set drawer_sticky_and_scrollable = "lg:sticky lg:top-[calc(var(--header-height)+var(--announcement-height,0px)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-var(--announcement-height,0px)-calc(var(--header-padding)*2))] lg:overflow-y-auto scrollbar-overlay" %}

@@ -1,0 +1,17 @@
+---
+:orphan:
+---
+
+# Announcement bar
+
+has default "prose" styling...
+
+$PAGE$ - cesta aktuální stránky (pagename). Např. "navigation/world/Europe/" pro dirhtml builder, nebo "navigation/world/Europe.html" pro html builder. Použijte k sestavení úplné URL. Např. `<a href="/stable/$PAGE$">See this page in stable version</a>`
+
+## Tip: conditional announcement
+
+```py
+# "dev version" warning banner
+if "a" in release or "b" in release:
+    html_theme_options["announcement"] = "You are viewing the development version. See this page in latest <a href='/en/stable/$PAGE$'>stable version</a>."
+```

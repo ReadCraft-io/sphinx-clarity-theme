@@ -59,8 +59,9 @@
         class="drawer-overlay"
         aria-label="Close secondary sidebar"
       ></label>
+      {# Mobile drawer margin-top - includes announcement height to clear sticky header #}
       <div
-        class="bg-base-100 text-base-content mt-[var(--header-height)] min-h-full w-80 overflow-y-auto p-4"
+        class="bg-base-100 text-base-content mt-[calc(var(--header-height)+var(--announcement-height,0px))] min-h-full w-80 overflow-y-auto p-4"
       >
         <!-- ==================================================== -->
         <!-- Secondary drawer (mobile) content -->

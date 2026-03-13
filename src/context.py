@@ -2,32 +2,14 @@
 
 from typing import Any
 
-from bs4 import BeautifulSoup
 from sphinx.application import Sphinx
 
-from .options import DEFAULT_LAYOUT, LAYOUTS
+from .options import DEFAULT_LAYOUT, LAYOUTS, ThemeOptions
 
 
-def render_header_menu(header_menu):
-    """Render header menu items as HTML list items."""
-    soup = BeautifulSoup("", "html.parser")
-    result = []
-
-    for item in header_menu:
-        li = soup.new_tag("li")
-        a = soup.new_tag("a", href=item["url"])
-
-        if item.get("as") == "button":
-            a["class"] = "btn btn-primary"
-            a["role"] = "button"
-
-        # Parse label as HTML to preserve any tags like <svg>
-        a.append(BeautifulSoup(item["label"], "html.parser"))
-
-        li.append(a)
-        result.append(str(li))
-
-    return "\n".join(result)
+def show_header_menu(options: ThemeOptions) -> bool:
+    """Determine whether the header menu should be shown on the current page."""
+    return bool(options.get("header_menu"))
 
 
 def get_layout(app: Sphinx, context: dict[str, Any]) -> str:

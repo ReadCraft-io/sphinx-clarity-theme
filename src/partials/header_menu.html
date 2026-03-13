@@ -1,0 +1,18 @@
+{%- if show_header_menu() %}
+  {%- for item in theme_header_menu %}
+    <li>
+      {% if item.tooltip %}
+      <div class="tooltip tooltip-bottom" data-tip="{{ item.tooltip | striptags }}">
+      {% endif %}
+      
+        <a
+          href="{% if item.url.startswith(('http')) %}{{ item.url }}{% else %}{{ pathto(item.url) }}{% endif %}"
+          class="flex items-center gap-1 {% if item.get('as') == 'button' %}btn btn-primary{% endif %}"
+          {% if item.get("as") == "button" %}role="button"{% endif %}
+        >
+          {{- item.content | safe }}
+        </a>
+      {% if item.tooltip %}</div>{% endif %}
+    </li>
+  {%- endfor %}
+{%- endif %}

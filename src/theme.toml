@@ -31,5 +31,9 @@ edit_page_url = ""
 version_select_current = ""
 version_select_data = []
 version_select_url = ""
+version_select_preferred = ""
+version_select_preferred_warning = "You are viewing an old version. Click here to view the preferred $PREFERRED$ version."
+
+announcement = ""
 
 # *** theme specific options ***

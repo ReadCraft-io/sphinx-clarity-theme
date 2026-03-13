@@ -1,17 +1,27 @@
 <!-- #Version select -->
 {% if show_version_select() %}
-  <div class="tooltip tooltip-bottom" data-tip="Choose version">
-    {# onchange="if(this.value) window.location.href=this.value" #}
+  <div class="version-select">
+    {% if (theme_version_select_preferred) and (theme_version_select_preferred != theme_version_select_current) %}
+      <div
+        class="tooltip tooltip-bottom tooltip-open tooltip-warning"
+      >
+        <div class="tooltip-content pointer-events-auto">
+          <a href="{{ get_version_url(theme_version_select_preferred) }}">
+          {{ theme_version_select_preferred_warning.replace("$PREFERRED$", theme_version_select_preferred) }}
+          </a>
+        </div>
+    {% else %}
+      <div class="tooltip tooltip-bottom" data-tip="Choose a version">
+    {% endif %}
+
     <select
-      class="select select-ghost"
+      class="select select-ghost select-sm md:select-md m-1"
       aria-label="Version select"
-      id="version-select"
     >
       {% for data in theme_version_select_data %}
-        {% set url = theme_version_select_url.replace("{version}", data.version) %}
         <option
           value="{{ data.version }}"
-          data-url="{{ url }}"
+          data-url="{{ get_version_url(data.version) }}"
           {% if data.version == theme_version_select_current %}
             selected disabled
           {% endif %}
@@ -20,6 +30,7 @@
         </option>
       {% endfor %}
     </select>
-  </div>
+  </div> {# .tooltip #}
+</div>
 {% endif %}
 <!-- .#Version select -->

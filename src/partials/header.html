@@ -1,29 +1,37 @@
 {# Main header with logo, navigation, and toolbar #}
 <!-- Header -->
 <header id="main-header" class="bg-base-100 sticky top-0 z-50">
+  {% include "partials/announcement.html" %}
+
   <div
-    class="container mx-auto flex h-[var(--header-height)] items-center px-4 xl:px-0"
+    class="container mx-auto flex h-[var(--header-height)] items-center px-4 md:px-0"
   >
     <!-- Left side -->
-    <div class="flex-1">
-      <div class="flex items-center gap-4">
-        {% include "partials/header_branding.html" %}
-        {% include "partials/version_select.html" %}
+    <div class="min-w-0 flex-1">
+      <div class="flex items-center gap-1 overflow-hidden md:gap-4">
+        <div class="min-w-0">{% include "partials/header_branding.html" %}</div>
+        <div class="flex-shrink-0">
+          {% include "partials/version_select.html" %}
+        </div>
       </div>
     </div>
 
     <!-- Right side -->
-    <div class="flex flex-1 items-center justify-end">
-      <!-- #Header menu (desktop) -->
-      <div class="hidden lg:block">
-        <!-- `[&_li]:self-center` - If a content of <li> is the button, the "self-center" required to properly vertically align it -->
-        <!-- `[&_li>a]:px-2 [&_li>a]:py-3` - Tweaks default menu ugly padding that doesn't match to buttons padding -->
-        <ul
-          class="menu menu-horizontal gap-2 text-[var(--btn-fg)] [&_li]:self-center [&_li>a]:px-2 [&_li>a]:py-3"
-        >
-          {{ header_menu() }}
-        </ul>
-      </div>
+    <div class="flex min-w-0 flex-1 items-center justify-end">
+      {% if show_header_menu() %}
+        <!-- #Header menu (desktop) -->
+        <div class="header-menu header-menu--desktop">
+          <div class="hidden lg:block">
+            {# `[&_li]:self-center` - If a content of <li> is the button, the "self-center" required to properly vertically align it #}
+            {# `[&_li>a]:px-2 [&_li>a]:py-3` - Tweaks default menu ugly padding that doesn't match to buttons padding #}
+            <ul
+              class="menu menu-horizontal gap-2 text-[var(--btn-fg)] [&_li]:self-center [&_li>a]:px-2 [&_li>a]:py-3"
+            >
+              {% include "partials/header_menu.html" %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
       <!-- .#Header menu (desktop) -->
 
       <!-- #Search button -->
@@ -41,19 +49,21 @@
       {% include "partials/mode_select.html" %}
 
       <!-- #Header menu (mobile) -->
-      {% if header_menu() %}
-        <details class="dropdown dropdown-left lg:hidden">
-          <summary class="btn btn-secondary aspect-square" aria-label="Menu">
-            <span class="icon-[prime--bars]"></span>
-            <span class="sr-only">Menu</span>
-          </summary>
-          <!-- `[&_li>a.btn]:justify-start` - If a content of <li> is the button, it should be aligned to the start (left) -->
-          <ul
-            class="menu dropdown-content bg-base-100 rounded-box dark:border-base-200 z-1 w-52 p-2 shadow-sm dark:border [&_li>a.btn]:justify-start"
-          >
-            {{ header_menu() }}
-          </ul>
-        </details>
+      {% if show_header_menu() %}
+        <div class="header-menu header-menu--mobile">
+          <details class="dropdown dropdown-left lg:hidden">
+            <summary class="btn btn-secondary aspect-square" aria-label="Menu">
+              <span class="icon-[prime--bars]"></span>
+              <span class="sr-only">Menu</span>
+            </summary>
+            <!-- `[&_li>a.btn]:justify-start` - If a content of <li> is the button, it should be aligned to the start (left) -->
+            <ul
+              class="menu dropdown-content bg-base-100 rounded-box dark:border-base-200 z-1 w-52 p-2 shadow-sm dark:border [&_li>a.btn]:justify-start"
+            >
+              {% include "partials/header_menu.html" %}
+            </ul>
+          </details>
+        </div>
       {% endif %}
       <!-- .#Header menu (mobile) -->
     </div>

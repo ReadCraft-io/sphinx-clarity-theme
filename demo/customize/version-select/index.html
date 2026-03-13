@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="generator"
-  content="Sphinx 8.2.3, Clarity Theme for Sphinx 1.2.0 (https://readcraft.io/sphinx-clarity-theme/)"
+  content="Sphinx 8.2.3, Clarity Theme for Sphinx 2.0.0 (https://readcraft.io/sphinx-clarity-theme/)"
 />
 
 
@@ -24,7 +24,7 @@
 
 <script src="../../_static/scripts/dark-mode.js"></script>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=75810a84" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/output.css?v=8dde9795" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/output.css?v=1c5165ed" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=a5519fdd" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -71,13 +71,17 @@
             
 <!-- Header -->
 <header id="main-header" class="bg-base-100 sticky top-0 z-50">
+  <!-- Announcement banner -->
+
+<!-- .Announcement banner -->
+
   <div
-    class="container mx-auto flex h-[var(--header-height)] items-center px-4 xl:px-0"
+    class="container mx-auto flex h-[var(--header-height)] items-center px-4 md:px-0"
   >
     <!-- Left side -->
-    <div class="flex-1">
-      <div class="flex items-center gap-4">
-        
+    <div class="min-w-0 flex-1">
+      <div class="flex items-center gap-1 overflow-hidden md:gap-4">
+        <div class="min-w-0">
 <a
   href="https://readcraft.io"
   class="header-branding flex items-center gap-4"
@@ -93,7 +97,7 @@
       alt="Logo of Clarity Theme for Sphinx"
     />
     <img
-      src="../../_static/logo-dark.svg"
+      src="../../_static/favicon.svg"
       class="header-branding__logo h-8  hidden dark:block"
       alt="Logo of Clarity Theme for Sphinx"
     />
@@ -101,32 +105,25 @@
 
   
     <span
-      class="header-branding__title text-primary-content text-2xl font-normal whitespace-nowrap"
+      class="header-branding__title text-primary-content font-heading hidden overflow-hidden text-2xl font-normal whitespace-nowrap md:inline"
     >
       
         Clarity Theme for Sphinx
       
     </span>
   
-</a>
-        <!-- #Version select -->
+</a></div>
+        <div class="flex-shrink-0">
+          <!-- #Version select -->
 
 <!-- .#Version select -->
+        </div>
       </div>
     </div>
 
     <!-- Right side -->
-    <div class="flex flex-1 items-center justify-end">
-      <!-- #Header menu (desktop) -->
-      <div class="hidden lg:block">
-        <!-- `[&_li]:self-center` - If a content of <li> is the button, the "self-center" required to properly vertically align it -->
-        <!-- `[&_li>a]:px-2 [&_li>a]:py-3` - Tweaks default menu ugly padding that doesn't match to buttons padding -->
-        <ul
-          class="menu menu-horizontal gap-2 text-[var(--btn-fg)] [&_li]:self-center [&_li>a]:px-2 [&_li>a]:py-3"
-        >
-          
-        </ul>
-      </div>
+    <div class="flex min-w-0 flex-1 items-center justify-end">
+      
       <!-- .#Header menu (desktop) -->
 
       <!-- #Search button -->
@@ -146,17 +143,19 @@
 <!-- .#Language select -->
       
 <!-- #Mode select -->
-<div class="tooltip tooltip-bottom" data-tip="Light/dark mode">
-  <button class="btn btn-ghost btn-secondary">
-    <label class="swap swap-rotate">
-      <!-- this hidden checkbox controls the state -->
-      <input type="checkbox" onclick="toggleMode()" />
-      <!-- light mode icon -->
-      <span class="icon-[prime--sun] swap-on text-2xl"></span>
-      <!-- dark mode icon -->
-      <span class="icon-[prime--moon] swap-off text-2xl"></span>
-    </label>
-  </button>
+<div class="mode-select hidden md:block">
+  <div class="tooltip tooltip-bottom" data-tip="Light/dark mode">
+    <button class="btn btn-ghost btn-secondary">
+      <label class="swap swap-rotate">
+        <!-- this hidden checkbox controls the state -->
+        <input type="checkbox" onclick="toggleMode()" />
+        <!-- light mode icon -->
+        <span class="icon-[prime--sun] swap-on text-2xl"></span>
+        <!-- dark mode icon -->
+        <span class="icon-[prime--moon] swap-off text-2xl"></span>
+      </label>
+    </button>
+  </div>
 </div>
 <!-- .#Mode select -->
 
@@ -244,28 +243,30 @@
                   <main role="main">
   <section id="version-select">
 <h1>Version select<a class="headerlink" href="#version-select" title="Link to this heading">#</a></h1>
-<p>Let users switch between different documentation versions with a dropdown selector. The user will select a version, and the theme will redirect them to the corresponding page in a different version.</p>
-<p>The version select features:</p>
+<p>Let users switch between different documentation versions using a dropdown selector. When users select a version, the theme automatically redirects them to the corresponding page.</p>
+<p>Key features:</p>
 <ul class="simple">
-<li><p>The validation and preparation are done at Sphinx build time for better error handling.</p></li>
-<li><p>Minimal client-side JavaScript—only for navigation.</p></li>
-<li><p>Prevents 404 errors if page for a version doesn’t exist.</p></li>
-<li><p>Switching preserves URL fragments like <code class="docutils literal notranslate"><span class="pre">#setup</span></code> and <code class="docutils literal notranslate"><span class="pre">#faq</span></code>.</p></li>
-<li><p>Highlights the current version in the dropdown.</p></li>
+<li><p>Validation and preparation happen at Sphinx build time for better error handling</p></li>
+<li><p>Minimal client-side JavaScript—only for navigation</p></li>
+<li><p>Prevents 404 errors when a page doesn’t exist in a target version</p></li>
+<li><p>Preserves URL fragments like <code class="docutils literal notranslate"><span class="pre">#setup</span></code> and <code class="docutils literal notranslate"><span class="pre">#faq</span></code> when switching</p></li>
+<li><p>Highlights the current version in the dropdown</p></li>
+<li><p>Shows a warning if users aren’t viewing the preferred version</p></li>
 </ul>
-<div  class="sphinx-contrib-video-container align-left"><video controls="True" preload="auto"><source src="../../_images/version-select.mp4" type="video/mp4"></video></div><section id="organize-sphinx-documentation-for-multiple-versions">
+<img alt="../../_images/version-select.gif" src="../../_images/version-select.gif" />
+<section id="organize-sphinx-documentation-for-multiple-versions">
 <h2>Organize Sphinx documentation for multiple versions<a class="headerlink" href="#organize-sphinx-documentation-for-multiple-versions" title="Link to this heading">#</a></h2>
-<p>The theme makes version switching easy, but doesn’t build, prepare or deploy multiple documentation website versions.</p>
-<p>Manage both source files (<code class="docutils literal notranslate"><span class="pre">.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">.md</span></code>) and built website files (<code class="docutils literal notranslate"><span class="pre">.html</span></code>, <code class="docutils literal notranslate"><span class="pre">.css</span></code>) across versions. Choose a strategy that matches your project’s complexity.</p>
+<p>The theme handles version switching, but you need to manage building, preparing, and deploying multiple documentation versions yourself.</p>
+<p>You’ll manage both source files (<code class="docutils literal notranslate"><span class="pre">.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">.md</span></code>) and built website files (<code class="docutils literal notranslate"><span class="pre">.html</span></code>, <code class="docutils literal notranslate"><span class="pre">.css</span></code>) across versions. Choose a strategy that fits your project’s needs.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Already have multiple versions set up? Jump to <a class="reference internal" href="#configuration"><span class="std std-ref">Configuration</span></a>.</p>
 </div>
 <section id="source-files-organization">
 <h3>Source files organization<a class="headerlink" href="#source-files-organization" title="Link to this heading">#</a></h3>
-<p>Three common approaches:</p>
+<p>Here are three common approaches:</p>
 <p><strong>Separate branches</strong> (recommended for large projects)</p>
-<p>Each version lives on its own branch (<code class="docutils literal notranslate"><span class="pre">docs/1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">docs/2.0</span></code>, etc.). Built docs deploy to version-specific directories on your hosting.</p>
+<p>Each version lives on its own branch (<code class="docutils literal notranslate"><span class="pre">docs/1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">docs/2.0</span></code>, etc.). Built documentation deploys to version-specific directories on your hosting.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root/
 ├── docs/
 │   ├── conf.py
@@ -275,7 +276,7 @@
 </pre></div>
 </div>
 <p><strong>Monorepo approach</strong> (good for smaller projects)</p>
-<p>All versions live in a single branch. Use symlinks to sync <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> across versions.</p>
+<p>All versions live in a single branch. Use symlinks or other mechanisms to share <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> across versions.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root/
 ├── docs/
 │   ├── shared/          # Optional common files (glossary, styles, etc.)
@@ -301,8 +302,8 @@
 </section>
 <section id="output-files-organization">
 <h3>Output files organization<a class="headerlink" href="#output-files-organization" title="Link to this heading">#</a></h3>
-<p>Deploy built websites consistently under the same URL pattern. Configure this with the <a class="reference internal" href="#version-select-url"><code class="docutils literal notranslate"><span class="pre">version_select_url</span></code> option</a>. Examples: <code class="docutils literal notranslate"><span class="pre">&lt;version&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">/docs/&lt;version&gt;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&lt;language&gt;/&lt;version&gt;</span></code>.</p>
-<p>Build and deploy each version’s website separately. Structure them consistently:</p>
+<p>Deploy built websites consistently under the same URL pattern using the <a class="reference internal" href="#version-select-url"><code class="docutils literal notranslate"><span class="pre">version_select_url</span></code> option</a>. Examples include <code class="docutils literal notranslate"><span class="pre">&lt;version&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">/docs/&lt;version&gt;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&lt;language&gt;/&lt;version&gt;</span></code>.</p>
+<p>Build and deploy each version separately with a consistent structure:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root/
 ├── 3.0/
 │   ├── _images/
@@ -331,25 +332,32 @@
     └── ...
 </pre></div>
 </div>
-<p>You typically create a script that will build up the above directory structure.</p>
+<p>Typically, you’ll create a script to build and organize this directory structure.</p>
 </section>
 </section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
-<p>Configure three options in each version’s <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> under <code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code>:</p>
+<p>Add these required options to each version’s <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> under <code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">version_select_url</span></code> — URL pattern for the version</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">version_select_current</span></code> — the current documentation version</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">version_select_data</span></code> — list of available versions</p></li>
 </ul>
+<p>To show a warning when users aren’t viewing the preferred version, also set:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">version_select_preferred</span></code> — the preferred version</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version_select_preferred_warning</span></code> — customize the warning message (optional)</p></li>
+</ul>
+<p>For example:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/</span><span class="si">{version}</span><span class="s2">/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/$VERSION$/&quot;</span><span class="p">,</span>
   <span class="s2">&quot;version_select_current&quot;</span><span class="p">:</span> <span class="s2">&quot;latest&quot;</span><span class="p">,</span>
   <span class="s2">&quot;version_select_data&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;latest&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;latest (3.0)&quot;</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span> <span class="p">},</span>
   <span class="p">],</span>
+  <span class="s2">&quot;version_preferred&quot;</span><span class="p">:</span> <span class="s2">&quot;latest&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -359,23 +367,22 @@
 </div>
 <section id="version-select-url">
 <h3><code class="docutils literal notranslate"><span class="pre">version_select_url</span></code><a class="headerlink" href="#version-select-url" title="Link to this heading">#</a></h3>
-<p>Specifies the version homepage’s URL pattern for navigating between versions. The actual URL is calculated by JavaScript based on the page the user is reading.</p>
+<p>Defines the URL pattern for the version homepage. JavaScript calculates the actual URL based on the current page.</p>
 <ul class="simple">
-<li><p>Must include <code class="docutils literal notranslate"><span class="pre">{version}</span></code> placeholder (replaced at runtime with the actual version)</p></li>
-<li><p>Invalid: <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">version</span> <span class="pre">}</span></code>, <code class="docutils literal notranslate"><span class="pre">{{version}}</span></code>, etc.</p></li>
-<li><p>Can be a full URL: <code class="docutils literal notranslate"><span class="pre">https://help.example.com/{version}</span></code></p></li>
-<li><p>Or just a path: <code class="docutils literal notranslate"><span class="pre">/docs/{version}</span></code></p></li>
-<li><p>Can end with or without trailing slash <code class="docutils literal notranslate"><span class="pre">/</span></code></p></li>
+<li><p>Must include <code class="docutils literal notranslate"><span class="pre">$VERSION$</span></code> placeholder (replaced at runtime with the actual version)</p></li>
+<li><p>Can be a full URL: <code class="docutils literal notranslate"><span class="pre">https://help.example.com/$VERSION$</span></code></p></li>
+<li><p>Or just a path: <code class="docutils literal notranslate"><span class="pre">/docs/$VERSION$</span></code></p></li>
+<li><p>Can end with or without a trailing slash</p></li>
 </ul>
 </section>
 <section id="version-select-current">
 <h3><code class="docutils literal notranslate"><span class="pre">version_select_current</span></code><a class="headerlink" href="#version-select-current" title="Link to this heading">#</a></h3>
-<p>Specifies the current documentation version. Clarity Theme for Sphinx uses this to highlight the active version in the dropdown.</p>
+<p>Sets the current documentation version. The theme highlights this version in the dropdown.</p>
 <a class="reference internal image-reference" href="../../_images/version-select-current.png"><img alt="../../_images/version-select-current.png" src="../../_images/version-select-current.png" style="width: 50%;" />
 </a>
 <p>This value must match one of the versions in <code class="docutils literal notranslate"><span class="pre">version_select_data</span></code>:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/</span><span class="si">{version}</span><span class="s2">/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/$VERSION$/&quot;</span><span class="p">,</span>
 <span class="hll">  <span class="s2">&quot;version_select_current&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
 </span>  <span class="s2">&quot;version_select_data&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;latest&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;latest (3.0)&quot;</span> <span class="p">},</span>
@@ -393,9 +400,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> — required, any string identifying the version</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">label</span></code> — optional, displayed name (defaults to <code class="docutils literal notranslate"><span class="pre">version</span></code> if omitted)</p></li>
 </ul>
-<p><strong>Versions display in the order you list them</strong> (no automatic sorting). Users typically expect latest versions first, so arrange them accordingly.</p>
+<p><strong>Versions appear in the order you list them</strong>—there’s no automatic sorting. Users typically expect latest versions first, so order them accordingly.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/</span><span class="si">{version}</span><span class="s2">/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/$VERSION$/&quot;</span><span class="p">,</span>
   <span class="s2">&quot;version_select_current&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
   <span class="s2">&quot;version_select_data&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v2.0.0&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;latest (v2.0.0)&quot;</span> <span class="p">},</span>
@@ -407,41 +414,71 @@
 </pre></div>
 </div>
 </section>
+<section id="version-select-preferred">
+<h3><code class="docutils literal notranslate"><span class="pre">version_select_preferred</span></code><a class="headerlink" href="#version-select-preferred" title="Link to this heading">#</a></h3>
+<p>The preferred version must exist in <code class="docutils literal notranslate"><span class="pre">version_select_data</span></code>. When users click the warning message, they’re redirected to the preferred version.</p>
+<img alt="../../_images/version-select-preferred-warning.png" src="../../_images/version-select-preferred-warning.png" />
+</section>
+<section id="version-select-preferred-warning">
+<h3><code class="docutils literal notranslate"><span class="pre">version_select_preferred_warning</span></code><a class="headerlink" href="#version-select-preferred-warning" title="Link to this heading">#</a></h3>
+<p>Customize the message shown when users aren’t viewing the preferred version. Use the <code class="docutils literal notranslate"><span class="pre">$PREFERRED$</span></code> placeholder to insert the preferred version name.</p>
+<p>The default message is: <em>“You are viewing an old version. Click here to view the preferred $PREFERRED$ version.”</em></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/$VERSION$/&quot;</span><span class="p">,</span>
+<span class="hll">  <span class="s2">&quot;version_select_current&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+</span>  <span class="s2">&quot;version_select_data&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;3.0&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;latest (3.0)&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span> <span class="p">},</span>
+  <span class="p">],</span>
+<span class="hll">  <span class="s2">&quot;version_select_preferred&quot;</span><span class="p">:</span> <span class="s2">&quot;3.0&quot;</span><span class="p">,</span>
+</span><span class="hll">  <span class="s2">&quot;version_select_preferred_warning&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Click to see $PREFERRED$ version.&quot;</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="syncing-configuration">
 <h2>Syncing configuration<a class="headerlink" href="#syncing-configuration" title="Link to this heading">#</a></h2>
-<p>Ensure consistent configuration across all versions’ <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> files. Since <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> is regular Python, you can set the version dynamically, load from JSON files, or use other methods.</p>
-<p>Here are examples of synchronized configuration across 3 versions:</p>
-<a class="reference internal image-reference" href="../../_images/version-select-current.png"><img alt="../../_images/version-select-current.png" src="../../_images/version-select-current.png" style="width: 50%;" />
-</a>
+<p>Keep configuration consistent across all versions’ <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> files. Since <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> is regular Python, you can use any mechanism to sync it—load from JSON, read from a Python package, etc.</p>
+<p>Ensure these options are synchronized across versions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">version_select_url</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version_select_data</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version_select_preferred</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version_select_preferred_warning</span></code> (if using warnings)</p></li>
+</ul>
+<p>For example, here’s how three versions’ <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> files might look:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
-3.0</label><div class="sd-tab-content docutils">
-<p>It is common practice to call the most current version as “latest”. Use the <code class="docutils literal notranslate"><span class="pre">label</span></code> field to indicate to users which version number is the latest.</p>
+3.0 (latest)</label><div class="sd-tab-content docutils">
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/</span><span class="si">{version}</span><span class="s2">/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/$VERSION$/&quot;</span><span class="p">,</span>
 <span class="hll">  <span class="s2">&quot;version_select_current&quot;</span><span class="p">:</span> <span class="s2">&quot;latest&quot;</span><span class="p">,</span>
 </span>  <span class="s2">&quot;version_select_data&quot;</span><span class="p">:</span> <span class="p">[</span>
 <span class="hll">    <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;latest&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;latest (3.0)&quot;</span> <span class="p">},</span>
 </span>    <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span> <span class="p">},</span>
   <span class="p">],</span>
+  <span class="s2">&quot;version_select_preferred&quot;</span><span class="p">:</span> <span class="s2">&quot;latest&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>Common practice: call the most current version “latest” and use the <code class="docutils literal notranslate"><span class="pre">label</span></code> field to show the actual version number.</p>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
 2.0</label><div class="sd-tab-content docutils">
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/</span><span class="si">{version}</span><span class="s2">/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/$VERSION$/&quot;</span><span class="p">,</span>
 <span class="hll">  <span class="s2">&quot;version_select_current&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
 </span>  <span class="s2">&quot;version_select_data&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;latest&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;latest (3.0)&quot;</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span> <span class="p">},</span>
   <span class="p">],</span>
+  <span class="s2">&quot;version_select_preferred&quot;</span><span class="p">:</span> <span class="s2">&quot;latest&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -450,22 +487,36 @@
 <label class="sd-tab-label" for="sd-tab-item-2">
 1.0</label><div class="sd-tab-content docutils">
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/</span><span class="si">{version}</span><span class="s2">/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version_select_url&quot;</span><span class="p">:</span> <span class="s2">&quot;/$VERSION$/&quot;</span><span class="p">,</span>
 <span class="hll">  <span class="s2">&quot;version_select_current&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
 </span>  <span class="s2">&quot;version_select_data&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;latest&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;latest (3.0)&quot;</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span> <span class="p">},</span>
   <span class="p">],</span>
+  <span class="s2">&quot;version_select_preferred&quot;</span><span class="p">:</span> <span class="s2">&quot;latest&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="load-from-json-example">
-<h3>Load from JSON example<a class="headerlink" href="#load-from-json-example" title="Link to this heading">#</a></h3>
+<section id="load-current-version-from-python-package">
+<h3>Load current version from Python package<a class="headerlink" href="#load-current-version-from-python-package" title="Link to this heading">#</a></h3>
+<p>If your Python package and documentation are in the same repository, you can read the version directly from the package:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">version</span> <span class="o">=</span> <span class="n">my_package_name</span><span class="o">.</span><span class="n">__version__</span>
+<span class="o">...</span>
+<span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="o">...</span>
+  <span class="s2">&quot;version_select_current&quot;</span><span class="p">:</span> <span class="n">version</span><span class="p">,</span>
+  <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="load-data-from-json">
+<h3>Load data from JSON<a class="headerlink" href="#load-data-from-json" title="Link to this heading">#</a></h3>
 <ol class="arabic">
-<li><p>Create the <code class="docutils literal notranslate"><span class="pre">versions.json</span></code> that conforms to <a class="reference internal" href="#version-select-data"><code class="docutils literal notranslate"><span class="pre">version_select_data</span></code> option</a>’s structure.</p>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">versions.json</span></code> file following the <a class="reference internal" href="#version-select-data"><code class="docutils literal notranslate"><span class="pre">version_select_data</span></code></a> structure:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
 <span class="w">  </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;latest&quot;</span><span class="p">,</span>
@@ -478,7 +529,7 @@
 </pre></div>
 </div>
 </li>
-<li><p>Save it in the folder with <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.</p></li>
+<li><p>Place it in the same folder as <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.</p></li>
 <li><p>Load it in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
@@ -497,15 +548,13 @@
 </li>
 </ol>
 </section>
-<section id="load-from-url-example">
-<h3>Load from URL example<a class="headerlink" href="#load-from-url-example" title="Link to this heading">#</a></h3>
+<section id="load-data-from-url">
+<h3>Load data from URL<a class="headerlink" href="#load-data-from-url" title="Link to this heading">#</a></h3>
 <ol class="arabic">
-<li><p>Create a <code class="docutils literal notranslate"><span class="pre">versions.json</span></code> file that conforms to the <a class="reference internal" href="#version-select-data"><code class="docutils literal notranslate"><span class="pre">version_select_data</span></code> option</a> structure.</p></li>
-<li><p>Publish the JSON at a publicly available URL.</p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">versions.json</span></code> file following the <a class="reference internal" href="#version-select-data"><code class="docutils literal notranslate"><span class="pre">version_select_data</span></code></a> structure.</p></li>
+<li><p>Publish it at a publicly accessible URL.</p></li>
 <li><p>Load it in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-
-<span class="o">...</span>
 
 <span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
     <span class="o">...</span>
@@ -516,37 +565,41 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The snippet above uses the third-party <code class="docutils literal notranslate"><span class="pre">requests</span></code> library, but you don’t need to install it—Sphinx already depends on it.</p>
+<p>This example uses the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library, which Sphinx already depends on—no extra installation needed.</p>
 </div>
 </li>
 </ol>
 </section>
 </section>
-<section id="prevention">
-<h2>404 prevention<a class="headerlink" href="#prevention" title="Link to this heading">#</a></h2>
-<p>Before switching versions, a small JavaScript script checks whether the corresponding page exists in the target version to prevent 404 errors.</p>
-<p>If the check fails (URL doesn’t exist, or CORS/network error occurs), the user is redirected to the version homepage. For example:</p>
+<section id="preventing-404-errors">
+<h2>Preventing 404 errors<a class="headerlink" href="#preventing-404-errors" title="Link to this heading">#</a></h2>
+<p>Before switching versions, a small JavaScript script checks if the page exists in the target version.</p>
+<p>If the page doesn’t exist, or if a network error occurs, users are redirected to the version homepage instead. Here’s an example:</p>
 <ol class="arabic simple">
-<li><p>You’re viewing version 2.0 at <code class="docutils literal notranslate"><span class="pre">https://docs.example.com/2.0/user-guide.html</span></code></p></li>
-<li><p>You switch to version 1.0</p></li>
+<li><p>Viewing version 2.0 at <code class="docutils literal notranslate"><span class="pre">https://docs.example.com/2.0/user-guide.html</span></code></p></li>
+<li><p>Switch to version 1.0</p></li>
 <li><p>JavaScript checks if <code class="docutils literal notranslate"><span class="pre">https://docs.example.com/1.0/user-guide.html</span></code> exists</p></li>
-<li><p>If not, you’re redirected to <code class="docutils literal notranslate"><span class="pre">https://docs.example.com/1.0/</span></code> instead</p></li>
+<li><p>If not, redirect to <code class="docutils literal notranslate"><span class="pre">https://docs.example.com/1.0/</span></code> instead</p></li>
 </ol>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>URL checks use the HEAD method and are subject to <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS">CORS restrictions</a>. Same-origin requests work fine (the script and docs are on the same domain). In most cases, you will not experience any issues because the script and documentation are on the same site (same-origin).</p>
+<p>URL checks use the HEAD method and are subject to <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS">CORS restrictions</a>. Same-origin requests (script and docs on the same domain) work fine. Most setups won’t experience issues since the documentation is self-hosted.</p>
 </div>
 </section>
-<section id="common-issues">
-<h2>Common issues<a class="headerlink" href="#common-issues" title="Link to this heading">#</a></h2>
-<section id="javascript-error-current-version-not-found-in-url">
-<h3>JavaScript error: Current version not found in URL<a class="headerlink" href="#javascript-error-current-version-not-found-in-url" title="Link to this heading">#</a></h3>
-<p>Test your documentation thoroughly—client-side errors can occur:</p>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<section id="error-current-version-not-found-in-url">
+<h3>Error: “Current version not found in URL”<a class="headerlink" href="#error-current-version-not-found-in-url" title="Link to this heading">#</a></h3>
+<p>If you see this error in the browser console:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>version-select.js:21 Uncaught Error: Current version &#39;3.0&#39; not found in current page URL
 </pre></div>
 </div>
-<p>This error means the URL doesn’t contain the version. The script can’t extract and replace the version part.</p>
-<p><strong>Example:</strong> If you are viewing a page like <code class="docutils literal notranslate"><span class="pre">https://docs.example.com/guide/install/</span></code> which has no version in the URL, switching versions will fail because the script doesn’t know how to construct a new version URL. Your documentation URLs must include the version: <code class="docutils literal notranslate"><span class="pre">https://docs.example.com/2.0/guide/install/</span></code>.</p>
+<p>It means the current page URL doesn’t include the version. The script can’t extract the version to replace it when switching.</p>
+<p><strong>Solution:</strong> Your documentation URLs must include the version. For example:</p>
+<ul class="simple">
+<li><p>❌ Invalid: <code class="docutils literal notranslate"><span class="pre">https://docs.example.com/guide/install/</span></code></p></li>
+<li><p>✅ Valid: <code class="docutils literal notranslate"><span class="pre">https://docs.example.com/2.0/guide/install/</span></code></p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -611,7 +664,7 @@
 
                 <!-- #Primary drawer (desktop) -->
                 <nav
-                  class="lg:sticky lg:top-[calc(var(--header-height)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-calc(var(--header-padding)*2))] lg:overflow-y-auto scrollbar-overlay hidden lg:order-1 lg:block lg:w-2/12 lg:flex-none"
+                  class="lg:sticky lg:top-[calc(var(--header-height)+var(--announcement-height,0px)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-var(--announcement-height,0px)-calc(var(--header-padding)*2))] lg:overflow-y-auto scrollbar-overlay hidden lg:order-1 lg:block lg:w-2/12 lg:flex-none"
                 >
                   
 <div class="global-toc">
@@ -649,7 +702,7 @@
 
                 <!-- #Secondary drawer (desktop) -->
                 <aside
-                  class="lg:sticky lg:top-[calc(var(--header-height)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-calc(var(--header-padding)*2))] lg:overflow-y-auto scrollbar-overlay hidden lg:order-3 lg:block lg:w-2/12 lg:flex-none"
+                  class="lg:sticky lg:top-[calc(var(--header-height)+var(--announcement-height,0px)+var(--header-padding))] lg:h-[calc(100vh-var(--header-height)-var(--announcement-height,0px)-calc(var(--header-padding)*2))] lg:overflow-y-auto scrollbar-overlay hidden lg:order-3 lg:block lg:w-2/12 lg:flex-none"
                 >
                   
 
@@ -668,16 +721,19 @@
 <li><a class="reference internal" href="#version-select-url"><code class="docutils literal notranslate"><span class="pre">version_select_url</span></code></a></li>
 <li><a class="reference internal" href="#version-select-current"><code class="docutils literal notranslate"><span class="pre">version_select_current</span></code></a></li>
 <li><a class="reference internal" href="#version-select-data"><code class="docutils literal notranslate"><span class="pre">version_select_data</span></code></a></li>
+<li><a class="reference internal" href="#version-select-preferred"><code class="docutils literal notranslate"><span class="pre">version_select_preferred</span></code></a></li>
+<li><a class="reference internal" href="#version-select-preferred-warning"><code class="docutils literal notranslate"><span class="pre">version_select_preferred_warning</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#syncing-configuration">Syncing configuration</a><ul>
-<li><a class="reference internal" href="#load-from-json-example">Load from JSON example</a></li>
-<li><a class="reference internal" href="#load-from-url-example">Load from URL example</a></li>
+<li><a class="reference internal" href="#load-current-version-from-python-package">Load current version from Python package</a></li>
+<li><a class="reference internal" href="#load-data-from-json">Load data from JSON</a></li>
+<li><a class="reference internal" href="#load-data-from-url">Load data from URL</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#prevention">404 prevention</a></li>
-<li><a class="reference internal" href="#common-issues">Common issues</a><ul>
-<li><a class="reference internal" href="#javascript-error-current-version-not-found-in-url">JavaScript error: Current version not found in URL</a></li>
+<li><a class="reference internal" href="#preventing-404-errors">Preventing 404 errors</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#error-current-version-not-found-in-url">Error: “Current version not found in URL”</a></li>
 </ul>
 </li>
 </ul>
@@ -775,8 +831,9 @@
             class="drawer-overlay"
             aria-label="Close secondary sidebar"
           ></label>
+          
           <div
-            class="bg-base-100 text-base-content mt-[var(--header-height)] min-h-full w-80 overflow-y-auto p-4"
+            class="bg-base-100 text-base-content mt-[calc(var(--header-height)+var(--announcement-height,0px))] min-h-full w-80 overflow-y-auto p-4"
           >
             <!-- ==================================================== -->
             <!-- Secondary drawer (mobile) content -->
@@ -798,16 +855,19 @@
 <li><a class="reference internal" href="#version-select-url"><code class="docutils literal notranslate"><span class="pre">version_select_url</span></code></a></li>
 <li><a class="reference internal" href="#version-select-current"><code class="docutils literal notranslate"><span class="pre">version_select_current</span></code></a></li>
 <li><a class="reference internal" href="#version-select-data"><code class="docutils literal notranslate"><span class="pre">version_select_data</span></code></a></li>
+<li><a class="reference internal" href="#version-select-preferred"><code class="docutils literal notranslate"><span class="pre">version_select_preferred</span></code></a></li>
+<li><a class="reference internal" href="#version-select-preferred-warning"><code class="docutils literal notranslate"><span class="pre">version_select_preferred_warning</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#syncing-configuration">Syncing configuration</a><ul>
-<li><a class="reference internal" href="#load-from-json-example">Load from JSON example</a></li>
-<li><a class="reference internal" href="#load-from-url-example">Load from URL example</a></li>
+<li><a class="reference internal" href="#load-current-version-from-python-package">Load current version from Python package</a></li>
+<li><a class="reference internal" href="#load-data-from-json">Load data from JSON</a></li>
+<li><a class="reference internal" href="#load-data-from-url">Load data from URL</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#prevention">404 prevention</a></li>
-<li><a class="reference internal" href="#common-issues">Common issues</a><ul>
-<li><a class="reference internal" href="#javascript-error-current-version-not-found-in-url">JavaScript error: Current version not found in URL</a></li>
+<li><a class="reference internal" href="#preventing-404-errors">Preventing 404 errors</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#error-current-version-not-found-in-url">Error: “Current version not found in URL”</a></li>
 </ul>
 </li>
 </ul>
@@ -831,8 +891,9 @@
         aria-label="Close primary sidebar"
         class="drawer-overlay"
       ></label>
+      
       <div
-        class="bg-base-100 text-base-content mt-[var(--header-height)] min-h-full w-80 overflow-y-auto p-4"
+        class="bg-base-100 text-base-content mt-[calc(var(--header-height)+var(--announcement-height,0px))] min-h-full w-80 overflow-y-auto p-4"
       >
         <!-- ===================================================== -->
         <!-- Primary drawer (mobile) content -->
@@ -885,6 +946,8 @@
   };
 </script>
 <script defer src="../../_static/scripts/scrollspy.js"></script>
+
+
 
 
   <script src="../../_static/documentation_options.js?v=86c0dea4"></script>

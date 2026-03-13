@@ -28,7 +28,7 @@ You can add a link to edit the page source on every page, enabling users to dire
 Two theme options control the "edit page" link:
 
 - `edit_page_label`: the link text
-- `edit_page_url`: a template to build the edit URL, where `{filename}` will be replaced by the page source filename
+- `edit_page_url`: a template to build the edit URL, where `$FILENAME$` will be replaced by the page source filename
 - both `edit_page_label` and `edit_page_url` must be set
 
 The URL template `edit_page_url` is, e.g., for GitHub in format `https://github.com/<org>/<repo>/edit/<branch>/<filename>`.
@@ -43,7 +43,7 @@ html_theme_options = {
   # Set both to enable "Edit page source"
   "edit_page_label": "Edit on GitHub",
   # {filename} will be replaced by actual source filename
-  "edit_page_url": "https://github.com/syncthing/docs/edit/main/{filename}"
+  "edit_page_url": "https://github.com/syncthing/docs/edit/main/$FILENAME$"
 }
 ```
 

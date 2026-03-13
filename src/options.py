@@ -5,14 +5,17 @@ LAYOUTS = [DEFAULT_LAYOUT, "compact"]
 
 # Nice TypedDict class syntax cannot be used due to collision of key names with Python reserved keywords (e.g. "as", etc.)
 
-HeaderMenu = TypedDict(
-    "HeaderMenu",
+HeaderMenuItem = TypedDict(
+    "HeaderMenuItem",
     {
-        "label": str,
+        "content": str,
         "url": str,
         "as": NotRequired[Literal["button"]],
+        "tooltip": NotRequired[str],
     },
 )
+
+HeaderMenu = Sequence[HeaderMenuItem]
 
 VersionSelectDataItem = TypedDict(
     "VersionSelectDataItem",
@@ -27,7 +30,7 @@ ThemeOptions = TypedDict(
     {
         "default_layout": str,
         "header_title": str | Literal[False],
-        "header_menu": list[HeaderMenu],
+        "header_menu": HeaderMenu,
         "logo_url": str,
         "logo_dark": str,
         "logo_dark_invert": bool,
@@ -38,6 +41,9 @@ ThemeOptions = TypedDict(
         "version_select_current": str,
         "version_select_data": VersionSelectData,
         "version_select_url": str,
+        "version_select_preferred": str,
+        "version_select_preferred_warning": str,
+        "announcement": str,
     },
     total=False,
 )

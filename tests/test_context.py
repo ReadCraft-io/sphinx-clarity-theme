@@ -1,49 +1,13 @@
 import re
 
 import pytest
-from bs4 import BeautifulSoup
-from sphinx_clarity_theme.context import LAYOUTS, get_layout, render_header_menu
+from sphinx_clarity_theme.context import LAYOUTS, get_layout, show_header_menu
 
 
-class TestRenderHeaderMenu:
-    def test_render_header_menu(self):
-        header_menu = [
-            {
-                "label": "Getting Started",
-                "url": "some/url",
-            },
-            {
-                "label": "Pricing",
-                "url": "some/url",
-            },
-            {
-                "label": 'Download <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1em;"><polyline points="6 9 12 15 18 9"/></svg>',
-                "url": "some/url",
-                "as": "button",
-            },
-        ]
-
-        expected = """
-        <li><a href="some/url">Getting Started</a></li>
-        <li><a href="some/url">Pricing</a></li>
-        <li>
-        <a class="btn btn-primary" href="some/url" role="button">
-            Download
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1em;"><polyline points="6 9 12 15 18 9"/></svg>
-        </a>
-        </li>"""
-
-        output = render_header_menu(header_menu)
-
-        assert (
-            BeautifulSoup(output, "html.parser").prettify()
-            == BeautifulSoup(expected, "html.parser").prettify()
-        )
-
-    def test_render_header_menu_empty(self):
-        header_menu = []
-        output = render_header_menu(header_menu)
-        assert output == ""
+def test_show_header_menu():
+    assert not show_header_menu({})
+    assert not show_header_menu({"header_menu": []})
+    assert show_header_menu({"header_menu": [{"content": "Home", "url": "/"}]})
 
 
 class TestGetLayout:

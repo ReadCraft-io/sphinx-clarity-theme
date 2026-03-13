@@ -21,8 +21,8 @@
             {% set pagename_url = pathto('/' + pagename).lstrip('/') %}
             {%
               set language_url = theme_language_url
-              .replace("{language}", code)
-              .replace("{page}", pagename_url)
+              .replace("$LANGUAGE", code)
+              .replace("$PAGE", pagename_url)
             %}
             <li>
               <a href="{{ language_url }}">{{ label }}</a>

@@ -3,7 +3,7 @@
 /* ===================================================================== */
 /* Must come very first */
 
-@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bitter&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap");
 
 /* ===================================================================== */
 /* Tailwind and plugins */
@@ -15,6 +15,7 @@
 @theme {
   --font-sans: "Geist", sans-serif;
   --font-mono: "Geist Mono", monospace;
+  --font-heading: "Bitter", serif;
 }
 
 @plugin "@tailwindcss/typography";
@@ -152,7 +153,7 @@
 
 @layer base {
   :root {
-    --article-heading--font: var(--font-sans);
+    --article-heading--font: var(--font-heading);
     --article-heading--scale: 1.25;
     --article-heading--color: light-dark(
       var(--color-zinc-900),
@@ -288,9 +289,9 @@ article main {
 
   /* === Links ========================================================= */
 
-  /* Fix "scrolling to the wrong place" */
+  /* Fix "scrolling to the wrong place" - includes announcement height for correct scroll offset */
   [id] {
-    @apply scroll-mt-[calc(var(--header-height)+1rem)];
+    @apply scroll-mt-[calc(var(--header-height)+var(--announcement-height,0px)+1rem)];
   }
 
   a {

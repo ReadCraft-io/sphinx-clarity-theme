@@ -3,6 +3,8 @@ from .options import ThemeOptions
 VERSION_SELECT_DATA = "version_select_data"
 VERSION_SELECT_CURRENT = "version_select_current"
 VERSION_SELECT_URL = "version_select_url"
+VERSION_SELECT_URL_PLACEHOLDER = "$VERSION$"
+VERSION_SELECT_PREFERRED = "version_select_preferred"
 
 REQUIRED = (VERSION_SELECT_DATA, VERSION_SELECT_CURRENT, VERSION_SELECT_URL)
 
@@ -36,9 +38,9 @@ def validate_version_select(options: ThemeOptions):
 
     # Validate URL contains version placeholder
     assert VERSION_SELECT_URL in options
-    if "{version}" not in options[VERSION_SELECT_URL]:  # type: ignore[literal-required]
+    if VERSION_SELECT_URL_PLACEHOLDER not in options[VERSION_SELECT_URL]:  # type: ignore[literal-required]
         raise ValueError(
-            f"The '{VERSION_SELECT_URL}' option must contain the '{{version}}' placeholder."
+            f"The '{VERSION_SELECT_URL}' option must contain the '{VERSION_SELECT_URL_PLACEHOLDER}' placeholder."
         )
 
     # Ensure the current version matches one of the data versions
@@ -52,7 +54,26 @@ def validate_version_select(options: ThemeOptions):
             f"The '{VERSION_SELECT_CURRENT}' version ({current_version}) doesn't exist in '{VERSION_SELECT_DATA}' versions."
         )
 
+    # If preferred version is set, ensure it matches one of the data versions
+    if VERSION_SELECT_PREFERRED in options:
+        preferred_version = options[VERSION_SELECT_PREFERRED]  # type: ignore[literal-required]
+        if not any(
+            option["version"] == preferred_version
+            for option in options[VERSION_SELECT_DATA]  # type: ignore[literal-required]
+        ):
+            raise ValueError(
+                f"The '{VERSION_SELECT_PREFERRED}' version ({preferred_version}) doesn't exist in '{VERSION_SELECT_DATA}' versions."
+            )
+
 
 def show_version_select(theme_options: ThemeOptions) -> bool:
     """Determine whether to show the version select in the header."""
     return all(key in theme_options for key in REQUIRED)
+
+
+def get_version_url(theme_options: ThemeOptions, version: str) -> str:
+    """Get the URL for a specific version based on the theme options."""
+    assert VERSION_SELECT_URL in theme_options
+    template_url = theme_options[VERSION_SELECT_URL]  # type: ignore[literal-required]
+    new_url = template_url.replace(VERSION_SELECT_URL_PLACEHOLDER, version)
+    return new_url

@@ -1,0 +1,23 @@
+<!-- Announcement banner -->
+{% if theme_announcement %}
+  <div class="announcement">
+    <div class="bg-base-200/25 text-base-content border-base-200 border-b">
+      <div
+        class="container mx-auto flex items-center justify-between gap-4 px-4 py-2 text-sm"
+      >
+        <div class="flex flex-1 items-center justify-center gap-2">
+          <div class="announcement__content prose prose-sm max-w-none">
+            {#-
+            `pathto('/' + pagename)` - pathto() needs absolute path, but pagename returns string without "/"
+
+            But `pathto('/' + pagename)` produces double slashes in the URL (e.g. //index.html). So we need to strip leading slash with `lstrip('/')`.
+            -#}
+            {%- set pagename_url = pathto('/' + pagename).lstrip('/') -%}
+            {{ theme_announcement.replace("$PAGE$", pagename_url) | safe }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+<!-- .Announcement banner -->

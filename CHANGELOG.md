@@ -14,6 +14,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 % - removed:
 -->
 
+## [2.0.0] - UNRELEASED
+
+- fixed: various issues with header on mobile
+- added: announcement banner
+- changed: placeholder syntax changed from `{name}` to `$NAME$`
+- added: use the new Bitter font for tilles and headings
+- changed: header menu item `label` renamed to `content` to better communitate it may contain arbitrary HTML
+- added: enhance header menu with links to documents and tooltips
+- added: enhance version select with customizable warning messsage when not viewing preferred version
+
 ## [1.2.0] - 2026-03-07
 
 - added: version select - dropdown UI, configuration, client-side redirection

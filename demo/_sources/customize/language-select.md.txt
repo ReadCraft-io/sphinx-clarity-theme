@@ -26,10 +26,10 @@ The selector is disabled by default. Define available locales and a pattern for 
    - `/docs/ua/latest/quickstart.html`
 
    URL pattern can use placeholders:
-   - `{language}` → <em>\<language-code\></em> from `language_select`
-   - `{page}` → current page path
+   - `$LANGUAGE$` → <em>\<language-code\></em> from `language_select`
+   - `$PAGE$` → current page path
 
-   For the example above: `/docs/{language}/latest/{page}`.
+   For the example above: `/docs/$LANGUAGE$/latest/$PAGE$`.
 
    ```py
    html_theme_options = {
@@ -38,6 +38,6 @@ The selector is disabled by default. Define available locales and a pattern for 
          "cs": "čeština",
          "ua": "Українська",
       },
-      "language_url": "/docs/{language}/latest/{page}",
+      "language_url": "/docs/$LANGUAGE$/latest/$PAGE$",
    }
    ```
