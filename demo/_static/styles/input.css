@@ -202,9 +202,12 @@ article main {
   /* === All headings === */
   :is(h1, h2, h3, h4, h5, h6),
   .rubric {
-    font-family: var(--article-heading--font);
     color: var(--article-heading--color);
     @apply mt-8 mb-4 leading-[0.9];
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--article-heading--font);
   }
 
   /* Document title */
@@ -349,9 +352,9 @@ article main {
   pre {
     @apply my-4 overflow-x-auto p-2;
 
-    /* Line numbering */
+    /* Line numbers */
     .linenos {
-      @apply mr-4 text-[var(--article-text--color)]/70;
+      @apply mr-4 bg-transparent text-[var(--article-text--color)]/70;
     }
 
     /* Highlighted lines in full width */

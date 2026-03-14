@@ -1,6 +1,6 @@
 """A clean and professional documentation theme for Sphinx. Modern design with light/dark mode, responsive layout, and beautiful typography."""
 
-__version__ = "2.0.0"
+__version__ = "2.1.0"
 
 from pathlib import Path
 from typing import Any
@@ -9,6 +9,7 @@ import docutils
 from sphinx.application import Sphinx
 
 from .context import get_layout, show_header_menu
+from .extensions import add_extension_assets, overwrite_extension_assets
 from .options import (
     HeaderMenuItem,
     ThemeOptions,
@@ -65,5 +66,7 @@ def setup(app: Sphinx) -> dict[str, bool]:
     validate_version_select(app.config.html_theme_options)
 
     app.connect("html-page-context", register_to_context)
+    app.connect("builder-inited", add_extension_assets)
+    app.connect("build-finished", overwrite_extension_assets)
 
     return {"parallel_read_safe": True, "parallel_write_safe": True}

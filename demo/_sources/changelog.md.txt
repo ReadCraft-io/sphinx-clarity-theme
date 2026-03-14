@@ -14,7 +14,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 % - removed:
 -->
 
-## [2.0.0] - UNRELEASED
+## [2.1.0] - 2026-03-14
+
+- added: styles for sphinx-tabs extension
+- fixed: line numbered code examples (`:linenos:` option) are incorrectly styled in dark mode
+- fixed: ugly `rubric` directive styles
+
+## [2.0.0] - 2026-03-13
 
 - fixed: various issues with header on mobile
 - added: announcement banner
