@@ -8,6 +8,10 @@
         Copyright &copy;
         {{ copyright }}{%- if not copyright.endswith('.') %}.{%- endif %}
       {%- endif %}
+      {%- if last_updated %}
+        <br class="lg:hidden" />
+        {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
+      {%- endif %}
       <br class="lg:hidden" />
       Made with
       <a
